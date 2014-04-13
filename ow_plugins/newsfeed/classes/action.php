@@ -40,6 +40,7 @@ class NEWSFEED_CLASS_Action
     private $activity = array();
     private $properties = array();
     private $createActivity, $lastActivity;
+    private $creatorIdList = array();
 
     public function setDataValue( $name, $value )
     {
@@ -105,6 +106,11 @@ class NEWSFEED_CLASS_Action
     {
         return (int) $this->properties['userId'];
     }
+    
+    public function getCreatorIdList()
+    {
+        return $this->creatorIdList;
+    }
 
     public function getUpdateTime()
     {
@@ -169,7 +175,7 @@ class NEWSFEED_CLASS_Action
     {
         return $this->createActivity;
     }
-
+    
     /**
      *
      * @return NEWSFEED_BOL_Activity
@@ -183,9 +189,15 @@ class NEWSFEED_CLASS_Action
     {
         $this->activity = $list;
 
-        $this->createActivity = $this->getActivity(NEWSFEED_BOL_Service::SYSTEM_ACTIVITY_CREATE);
+        $createActivityList = $this->getActivityList(NEWSFEED_BOL_Service::SYSTEM_ACTIVITY_CREATE);
+        
+        foreach ( array_reverse($createActivityList) as $a )
+        {
+            $this->creatorIdList[] = $a->userId;
+        }
+        
+        $this->createActivity = end($createActivityList);
         $this->lastActivity = reset($this->activity);
-
         $this->setCreateTime($this->createActivity->timeStamp);
         $this->setUserId($this->createActivity->userId);
     }
@@ -202,18 +214,20 @@ class NEWSFEED_CLASS_Action
         
         if ( empty($id) )
         {
-            return reset($activities);
+            return end($activities);
         }
         
-        foreach ( $activities as $activity )
+        $activity = null;
+        
+        foreach ( $activities as $a )
         {
-            /* @var $activity NEWSFEED_BOL_Activity */
-            if ( $activity->id == $id )
+            /* @var $a NEWSFEED_BOL_Activity */
+            if ( $a->id == $id )
             {
-                return $activity;
+                $activity = $a;
             }
         }
 
-        return null;
+        return $activity;
     }
 }

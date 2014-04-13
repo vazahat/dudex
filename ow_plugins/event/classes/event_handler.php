@@ -612,7 +612,7 @@ class EVENT_CLASS_EventHandler
 
         if ( $params['entityType'] == 'event' )
         {
-            if ( !BOL_AuthorizationService::getInstance()->isActionAuthorizedForGuest('event', 'view') )
+            if ( !BOL_AuthorizationService::getInstance()->isActionAuthorizedForGuest('event', 'view_event') )
             {
                 $event->setData($data);
                 return;
@@ -622,7 +622,7 @@ class EVENT_CLASS_EventHandler
             
             if ( !empty($eventDto) )
             {
-                $data['display'] = $eventDto->getWhoCanView() != EVENT_BOL_EventService::CAN_VIEW_INVITATION_ONLY;
+                $data['display'] = $eventDto->getWhoCanView() == EVENT_BOL_EventService::CAN_VIEW_ANYBODY;
             }
 
             $event->setData($data);
@@ -631,7 +631,7 @@ class EVENT_CLASS_EventHandler
 
     public function getContentMenu( OW_Event $event )
     {
-        $event->setData(EVENT_BOL_EventService::getInstance()->getContentMenu());
+        //$event->setData(EVENT_BOL_EventService::getInstance()->getContentMenu());
     }
 
     public function genericInit()
@@ -670,6 +670,6 @@ class EVENT_CLASS_EventHandler
     public function init()
     {
         EVENT_CLASS_InvitationHandler::getInstance()->init();
-        OW::getEventManager()->bind('event.get_content_menu', 'getContentMenu');
+        //OW::getEventManager()->bind('event.get_content_menu', 'getContentMenu');
     }
 }

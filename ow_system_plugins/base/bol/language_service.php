@@ -80,6 +80,17 @@ class BOL_LanguageService
 
         $result = array();
 
+		// fix begin
+		// remove cache files from \ow_pluginfiles\base\lang_{1,2}.php and open site in debug mode
+		$valuesReserv = $this->keyDao->findAllWithValues($languageId==1 ? 2 : 1);
+        foreach ( $valuesReserv as $v )
+        {
+            $key = $v['prefix'] . '+' . $v['key'];
+            $v['value'] = UTIL_String::replaceVars($v['value'], $globalVars);
+            $result[$key] = $v['value'];
+        }
+		// fix end
+
         foreach ( $values as $v )
         {
             $key = $v['prefix'] . '+' . $v['key'];

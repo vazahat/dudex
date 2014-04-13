@@ -45,6 +45,7 @@ class PHOTO_CLASS_EventHandler
     const EVENT_ALBUM_FIND = 'photo.album_find';
     const EVENT_ALBUM_DELETE = 'photo.album_delete';
     const EVENT_ENTITY_ALBUMS_FIND = 'photo.entity_albums_find';
+    const EVENT_ENTITY_ALBUMS_COUNT = 'photo.entity_albums_count';
     
     const EVENT_ENTITY_PHOTOS_FIND = 'photo.entity_photos_find';
     const EVENT_ENTITY_PHOTOS_COUNT = 'photo.entity_photos_count';
@@ -112,14 +113,19 @@ class PHOTO_CLASS_EventHandler
         $entityId = !empty($params['entityId']) ? (int) $params['entityId'] : $userId;
         $entityType = !empty($params['entityType']) ? (int) $params['entityType'] : 'user';
 
-        if ( $entityId && mb_strlen($entityType) )
+        $album = $this->albumService->findEntityAlbumByName($albumName, $entityId, $entityType);
+        
+        if ( empty($album) && $entityType == "user" && !empty($userId) )
         {
-            $album = $this->albumService->findEntityAlbumByName($albumName, $entityId, $entityType);
+            $album = $this->albumService->findAlbumByName($albumName, $userId);
         }
 
-        if ( !isset($album) )
+        if ( !empty($album) )
         {
-            return false;
+            $data['albumId'] = $album->id;
+            $e->setData($data);
+
+            return $data;
         }
 
         $album = new PHOTO_BOL_PhotoAlbum();
@@ -198,6 +204,25 @@ class PHOTO_CLASS_EventHandler
         $data['albums'] = $list;
         $e->setData($data);
 
+        return $data;
+    }
+
+    public function entityAlbumsCount( OW_Event $e )
+    {
+        $params = $e->getParams();
+        $data = $e->getData();
+
+        if ( empty($params['entityId']) )
+        {
+            return false;
+        }
+
+        $entityType = !empty($params['entityType']) ? $params['entityType'] : 'user';
+
+        $data["count"] = $this->albumService->countEntityAlbums($params['entityId'], $entityType);
+
+        $e->setData($data);
+        
         return $data;
     }
 
@@ -434,6 +459,8 @@ class PHOTO_CLASS_EventHandler
             $list[$id]['url'] = OW::getRouter()->urlForRoute('photo_user_album', array('user' => $username, 'album' => $album->id));
             $list[$id]['coverImage'] = $this->albumService->getAlbumCover($album->id);
             $list[$id]['photoCount'] = $this->albumService->countAlbumPhotos($album->id);
+            $list[$id]['entityType'] = $album->entityType;
+            $list[$id]['entityId'] = $album->entityId;
         }
 
         return $list;
@@ -699,42 +726,6 @@ class PHOTO_CLASS_EventHandler
         OW::getDocument()->addScriptDeclarationBeforeIncludes($script);
     }
 
-    /** Newsfeed events */
-
-    /**
-     * @param OW_Event $e
-     */
-    /*public function feedOnEntityAdd( OW_Event $e )
-    {
-        $params = $e->getParams();
-
-        if ( $params['entityType'] != 'photo_comments' )
-        {
-            return;
-        }
-
-        $photoService = PHOTO_BOL_PhotoService::getInstance();
-        $photo = $photoService->findPhotoById($params['entityId']);
-        $album = PHOTO_BOL_PhotoAlbumService::getInstance()->findAlbumById($photo->albumId);
-
-        $url = OW::getRouter()->urlForRoute('view_photo', array('id' => $photo->id));
-
-        $title = UTIL_String::truncate(strip_tags($photo->description), 100, '...');
-
-        $data = array(
-            'time' => $photo->addDatetime,
-            'ownerId' => $album->userId,
-            'string' => $title,
-            'content' => '<div class="ow_newsfeed_large_image clearfix"><div class="ow_newsfeed_item_picture"><a href="'
-                . $url . '"><img src="' . $photoService->getPhotoUrl($photo->id, 1) . '" /></a></div></div>',
-            'view' => array(
-                'iconClass' => 'ow_ic_picture'
-            )
-        );
-
-        $e->setData($data);
-    }*/
-
     public function feedOnEntityAction( OW_Event $e )
     {
         $params = $e->getParams();
@@ -856,14 +847,7 @@ class PHOTO_CLASS_EventHandler
             {
                 $remainingList = $this->photoService->getPhotoListByUploadKey($photo->uploadKey, array($photo->id));
 
-                /*if ( count($remainingList) == 1 )
-                {
-                    $this->photoService->triggerNewsfeedEventOnSinglePhotoAdd($remainingList[0]->id, $album->userId);
-                }
-                elseif ( count($remainingList) > 1 )
-                {*/
                     $this->photoService->triggerNewsfeedEventOnMultiplePhotosAdd($remainingList, $album->userId, $album);
-                //}
             }
         }
     }
@@ -1066,7 +1050,7 @@ class PHOTO_CLASS_EventHandler
             }
 
             $photo = $service->findPhotoById($params['entityId']);
-            $data['display'] = $photo->privacy != 'everybody';
+            $data['display'] = $photo->privacy == 'everybody';
 
             $event->setData($data);
         }
@@ -1119,6 +1103,8 @@ class PHOTO_CLASS_EventHandler
         $em->bind(self::EVENT_PHOTO_FIND, array($this, 'photoFind'));
         $em->bind(self::EVENT_PHOTO_DELETE, array($this, 'photoDelete'));
         $em->bind(self::EVENT_ALBUM_PHOTOS_FIND, array($this, 'albumPhotosFind'));
+        
+        $em->bind(self::EVENT_ENTITY_ALBUMS_COUNT, array($this, 'entityAlbumsCount'));
         
         $em->bind(self::EVENT_ENTITY_PHOTOS_FIND, array($this, 'entityPhotosFind'));
         $em->bind(self::EVENT_ENTITY_PHOTOS_COUNT, array($this, 'entityPhotosCount'));

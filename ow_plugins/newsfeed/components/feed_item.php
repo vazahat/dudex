@@ -119,7 +119,6 @@ class NEWSFEED_CMP_FeedItem extends OW_Component
         $activity = array();
         $createActivity = null;
         $lastActivity = null;
-        $creatorIdList = array();
 
         foreach ( $action->getActivityList() as $a )
         {
@@ -136,24 +135,15 @@ class NEWSFEED_CMP_FeedItem extends OW_Component
                 'visibility' =>$a->visibility
             );
 
-            if ( $a->activityType == NEWSFEED_BOL_Service::SYSTEM_ACTIVITY_CREATE )
-            {
-                if ( $createActivity === null )
-                {
-                    $createActivity = $activity[$a->id];
-                }
-                
-                $creatorIdList[] = $a->userId;
-            }
-
             if ( $lastActivity === null && !in_array($activity[$a->id]['activityType'], NEWSFEED_BOL_Service::getInstance()->SYSTEM_ACTIVITIES) )
             {
                 $lastActivity = $activity[$a->id];
             }
         }
 
+        $creatorIdList = $action->getCreatorIdList();
         $data = $this->mergeData($action->getData(), $action);
-
+        
         $eventParams = array(
             'action' => array(
                 'id' => $action->getId(),
@@ -214,12 +204,12 @@ class NEWSFEED_CMP_FeedItem extends OW_Component
                 : $respondActivity["data"]['timeStamp']
         );
         
-        if ( !empty($respondActivity["data"]["string"]) )
+        if ( isset($respondActivity["data"]["string"]) )
         {
             $data["string"] = $respondActivity["data"]["string"];
         }
         
-        if ( !empty($respondActivity["data"]["line"]) )
+        if ( isset($respondActivity["data"]["line"]) )
         {
             $data["line"] = $respondActivity["data"]["line"];
         }

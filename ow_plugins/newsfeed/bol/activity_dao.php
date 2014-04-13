@@ -239,11 +239,11 @@ class NEWSFEED_BOL_ActivityDao extends OW_BaseDao
         foreach ( $actionIds as $actionId )
         {
                 $unionQueryList[] = 'SELECT a.* FROM (
-                SELECT activity.* FROM ' . $this->getTableName() . ' activity ' . $queryParts["join"] . ' WHERE ' . $queryParts["where"] . ' AND  activity.actionId = ' . $actionId . ' AND activity.status=:s AND activity.privacy=:peb AND activity.visibility & :v ORDER BY activity.timeStamp DESC LIMIT 100
+                SELECT activity.* FROM ' . $this->getTableName() . ' activity ' . $queryParts["join"] . ' WHERE ' . $queryParts["where"] . ' AND  activity.actionId = ' . $actionId . ' AND activity.status=:s AND activity.privacy=:peb AND activity.visibility & :v ORDER BY activity.timeStamp DESC, activity.id DESC LIMIT 100
                         ) a';
         }
 
-        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC ";
+        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC, 1 DESC";
 
         return $this->dbo->queryForObjectList($query, $this->getDtoClassName(), array(
             'v' => NEWSFEED_BOL_Service::VISIBILITY_SITE,
@@ -285,10 +285,10 @@ class NEWSFEED_BOL_ActivityDao extends OW_BaseDao
                         OR
                         ( action_feed.feedId=:u AND action_feed.feedType="user" AND activity.visibility & :vfeed )
                     ))
-                ) ORDER BY activity.timeStamp DESC LIMIT 100 ) a' ;
+                ) ORDER BY activity.timeStamp DESC, activity.id DESC LIMIT 100 ) a' ;
         }
 
-        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC ";
+        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC, 1 DESC";
 
         return $this->dbo->queryForObjectList($query, $this->getDtoClassName(), array(
             'u' => $userId,
@@ -330,10 +330,10 @@ class NEWSFEED_BOL_ActivityDao extends OW_BaseDao
                         OR
                         activity.activityType=:ac
                     )
-                ORDER BY activity.timeStamp DESC LIMIT 100 ) a';
+                ORDER BY activity.timeStamp DESC, activity.id DESC LIMIT 100 ) a';
         }
 
-        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC ";
+        $query = implode( ' UNION ', $unionQueryList ) . " ORDER BY 7 DESC, 1 DESC ";
 
         return $this->dbo->queryForObjectList($query, $this->getDtoClassName(), array(
             'ft' => $feedType,
