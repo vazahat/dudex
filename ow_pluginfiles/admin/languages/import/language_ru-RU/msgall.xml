@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="msgall" label="MessageAll" language_tag="ru-RU" language_label="Russia"><key name="admin_msg_message"/><key name="admin_msg_subject"/><key name="admin_msg_user"/><key name="admin_send_PM"/><key name="admin_send_success"/><key name="admin_settings_title"/><key name="admin_substitute_values"/></prefix>

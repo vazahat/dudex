@@ -1,0 +1,95 @@
+<div class="ow_superwide ow_automargin">
+
+    {if empty($err_msg)}
+    {form name='event_add'}
+    <table class="ow_table_1 ow_form ow_stdmargin">
+        <tr class="{cycle values='ow_alt2,ow_alt1'} ow_tr_first">
+            <td class="ow_label">{label name='title'}</td>
+            <td class="ow_value">{input name='title'}{error name='title'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_title_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{text key='eventx+add_form_date_label'}</td>
+            <td class="ow_value">
+                <div class="clearfix">
+                    <div style="float:left;">{input name='start_date'}{error name='start_date'}</div>
+                    <div style="float: left;padding-left: 4px;">{input name='start_time'}<br />{error name='start_time'}</div>
+                </div>
+            </td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_date_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}" id="{$tdId}">
+            <td class="ow_label">{text key='eventx+add_form_end_date_label'} <input type="checkbox" name="endDateFlag" id="{$chId}"{if !empty($endDateFlag)} checked="checked"{/if} /></td>
+            <td class="ow_value">
+                <div class="clearfix">
+                    <div id='end_date_div' style="float:left;" style='dispaly:none'>
+                        {if !empty($endDateFlag)}{input name='end_date'}{else}{input name='end_date' disabled='disabled' }{/if}{error name='end_date'}</div>
+                    <div style="float: left;padding-left: 4px;">{if !empty($endDateFlag)}{input name='end_time'}{else}{input name='end_time' disabled='disabled'}{/if}<br />{error name='end_time'}</div>
+                </div>
+            </td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_end_date_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='desc'}</td>
+            <td class="ow_value">{input name='desc'} <br /> {error name='desc'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_desc_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='location'}</td>
+            <td class="ow_value">{input name='location'} <br /> {error name='location'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_location_desc'}</td>
+        </tr>  
+        {if $enableCategoryList eq 1}
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='event_category'}</td>
+            <td class="ow_value">{input name='event_category'} <br /> {error name='event_category'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+event_category'}</td>
+        </tr>    
+        {/if}
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='max_invites'}</td>
+            <td class="ow_value">{input name='max_invites'} <br /> {error name='max_invites'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_maxinvites_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='image'}</td>
+            <td class="ow_value">{input name='image'} <br /> {error name='image'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_image_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='who_can_view'}</td>
+            <td class="ow_value">{input name='who_can_view'} <br /> {error name='who_can_view'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_who_can_view_desc'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='who_can_invite'}</td>
+            <td class="ow_value">{input name='who_can_invite'} <br /> {error name='who_can_invite'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+add_form_who_can_invite_desc'}</td>
+        </tr>
+        {if $enableTagsList eq 1}
+        <tr class="{cycle values='ow_alt2,ow_alt1'} ow_tr_last">
+            <td class="ow_label">{label name='tags'}</td>
+            <td class="ow_value">{input name='tags'} <br /> {error name='tags'}</td>
+            <td class="ow_desc ow_small">{text key='eventx+tags_desc'}</td>
+        </tr>      
+        {/if}
+    </table>
+    <div class="clearfix ow_submit ow_stdmargin">
+        <div class="ow_right">{submit name='submit' class='ow_ic_add ow_positive'}</div>
+    </div>
+    {/form}
+
+    {if $enableMapSuggestion eq '1'}
+    {script}
+    {literal}
+    $(document).ready(function(){
+    $("#location").geocomplete(); 
+    });            
+    {/literal}
+    {/script}
+    {/if}
+
+    {else}
+    <div class="ow_anno ow_std_margin ow_nocontent">{$err_msg}</div>
+    {/if}
+</div>

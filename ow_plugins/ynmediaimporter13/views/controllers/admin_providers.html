@@ -1,0 +1,49 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+{form name='configSaveProviderForm'}
+
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ic_gear_wheel">{text key='ynmediaimporter+provider_settings'}</span>
+        </th>
+    </tr>
+    
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{text key='ynmediaimporter+enable_facebook'}</td>
+        <td class="ow_value">
+            {input name='enableFacebook'} {error name='enableFacebook'}
+        </td>
+    </tr>
+    
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{text key='ynmediaimporter+enable_picasa'}</td>
+        <td class="ow_value">
+            {input name='enablePicasa'} {error name='enablePicasa'}
+        </td>
+    </tr>
+    
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{text key='ynmediaimporter+enable_flickr'}</td>
+        <td class="ow_value">
+            {input name='enableFlickr'} {error name='enableFlickr'}
+        </td>
+        
+    </tr>
+    
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{text key='ynmediaimporter+enable_instagram'}</td>
+        <td class="ow_value">
+            {input name='enableInstagram'} {error name='enableInstagram'}
+        </td>
+        
+    </tr>
+    
+</table>
+
+<div class="clearfix ow_stdmargin">
+	{submit name='save' class='ow_ic_save ow_submit ow_right'}
+</div>
+{/form}
+</div>

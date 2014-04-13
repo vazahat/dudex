@@ -1,0 +1,74 @@
+{style}
+{literal}
+.ow_add_comments_form .ow_submit_auto_click .item_loaded{
+    margin-bottom:4px;
+}
+{/literal}
+{/style}
+<div id="{$cmpContext}">
+    {capture name='comments'}
+    {if $displayType == 1 || $displayType == 3 || $displayType == 4}
+   <div class="comments_list_cont">
+	   {$commentList}
+   </div>
+   {/if}
+   	{if isset($form)}
+      <div class="form_auto_click ow_std_margin">
+      {form name="comment-add-`$id`"}
+      <div class="clearfix">
+          <div class="ow_ipc_picture">{decorator name='avatar_item' data=$currentUserInfo}</div>
+          <div class="ow_ipc_info">{input name='commentText' class=""}</div>
+      </div>
+      <div class="ow_submit_auto_click attp-comments">
+        {if !empty($attachments)}
+            {$attachments}
+        {/if}
+
+          <div class="clearfix attp-comments-controls" style="margin-top: 6px;">
+              <span style="float: right; padding: 0 10px 4px 15px;" >
+                  {submit name='comment-submit'}
+              </span>
+
+              {if !empty($attachments)}
+                  <span style="float: right;" class="attachments-controls">
+
+                    {*if $configs.attachments_link}
+                        <a class="link EQ_AttachmentLink" href="javascript://" title="{text key='attachments+attchments_link_button_label'}"></a>
+                    {/if}
+
+                    {if $configs.attachments_image}
+                        <a class="image EQ_AttachmentPhoto" href="javascript://" title="{text key='attachments+attchments_photo_button_label'}"></a>
+                    {/if}
+
+                    {if $configs.attachments_video}
+                        <a class="video EQ_AttachmentVideo" href="javascript://" title="{text key='attachments+attchments_video_button_label'}"></a>
+                    {/if*}
+
+                    <a class="link EQ_AttachmentLink" href="javascript://" title="{text key='attachments+attchments_link_button_label'}"></a>
+                    <a class="image EQ_AttachmentPhoto" href="javascript://" title="{text key='attachments+attchments_photo_button_label'}"></a>
+                    <a class="video EQ_AttachmentVideo" href="javascript://" title="{text key='attachments+attchments_video_button_label'}"></a>
+
+                </span>
+              {/if}
+          </div>
+      </div>
+      {/form}
+
+      </div>
+      {else}
+      <div style="text-align: center;">{$authErrorMessage}</div>
+   {/if}
+   {if $displayType == 2}
+   <div class="comments_list_cont">
+	   {$commentList}
+   </div>
+   {/if}
+   {/capture}
+   {if $wrapInBox}
+   {block_decorator name='box' type='empty' addClass='ow_add_comments_form ow_stdmargin' langLabel='base+comment_box_cap_label' iconClass='ow_ic_comment'}
+   {$smarty.capture.comments}
+   {/block_decorator}
+   {else}
+   {$smarty.capture.comments}
+   {/if}
+</div>

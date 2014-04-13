@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="privatepage" label="privatepage" language_tag="ru-RU" language_label="Russia"><key name="bad_password"/><key name="cant_protect_home"/><key name="enter_password_for_page"/><key name="must_enter_password"/><key name="no_page_set"/><key name="password_set"/><key name="please_enter_a_password"/><key name="privatepage_badpassword"/><key name="privatepage_enterpassword"/><key name="privatepage_enterpasswordbutton"/></prefix>

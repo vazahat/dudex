@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Hide External Links</name>
+	<key>hidelinks</key>
+	<description>Replaces external links on your site with /awayto/[hash]
+    
+    Can be used to improve Google PR and discourage spammers.
+    Additionally you can also add [Disallow: /awayto/] to your robots.txt file   
+    </description>
+        <author>Alexandr Makarov</author>
+        <authorEmail>notengine@gmail.com</authorEmail>
+	<authorUrl>http://notengine.ru</authorUrl>
+	<developerKey>b206948d1972325ed09ab152c740d276</developerKey>
+        <build>2</build>
+        <copyright>Alexandr Makarov</copyright>
+    <license>notengine.ru</license>
+    <licenseUrl>http://notengine.ru</licenseUrl>
+</plugin>

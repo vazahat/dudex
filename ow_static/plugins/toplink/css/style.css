@@ -1,0 +1,65 @@
+form[name=topForm]{
+	
+}
+
+form[name=topForm] label{
+	display: block;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+form[name=topForm] .ow_checkbox_group li{
+	position: relative;
+}
+form[name=topForm] .ow_checkbox_group input[type=checkbox]{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+form[name=topForm] .ow_checkbox_group label{
+	text-align: left;
+	padding-left: 20px;
+	display: inline;
+	font-weight: normal;
+}
+
+p.toplink-info{
+	color: #888888;
+}
+
+p.required{
+	color: #FF0000;
+}
+
+table#topTable tbody tr{
+	border-bottom: 1px solid #e5e5e5;
+}
+
+span.ow_button a.ow_ic_add,
+span.ow_button a.ow_ic_write,
+span.ow_button a.ow_ic_delete{
+	background-position: right center;
+    background-repeat: no-repeat;
+    display: block;
+    padding-bottom: 5px;
+    padding-right: 31px;
+    padding-top: 5px;
+}
+
+.toplink{
+	padding: 0 3px !important;
+}
+
+/*-- support --*/
+#pleasesupport{
+	font-size: 10px;
+    text-align: right;
+}
+#pleasesupport p{
+	line-height: 10px;
+    margin: 0;
+}
+#pleasesupport p a{
+	color: #FF0000;
+}

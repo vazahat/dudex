@@ -1,0 +1,82 @@
+<div style="margin-bottom: 20px;">{$description}</div>
+<br />
+<div class="clearfix"></div>
+
+{foreach from=$services item=service} 
+{if ($service.enable == 1)}
+<div class="ynmediaimporter_service_wrapper">
+	{if ({$service.obj_service->isConnected()})} <a
+		href="{$service.obj_service->getMainUrl()}" title="{text key="ynmediaimporter+discover_your_media"}">
+		<div>
+			<center>
+				<img src="{$service.obj_service->getUserAvatarUrl()}" width="48" height="48" />
+			</center>
+		</div>
+	</a> {if ( !($hasSocialBridge) && ($service.name == 'facebook') )} 
+			{text key="ynmediaimporter+please_install_or_enable_Social_Bridge_plugin"}
+		{else}
+			<div>
+				<center>
+					{text key="ynmediaimporter+connected_as"} <a target="_blank" href="{$service.obj_service->getUserProfileUrl()}">{$service.obj_service->getUserDisplayname()}</a>
+				</center>
+			</div>
+			<div>
+				<center>
+					<a href="{$service.obj_service->getMainUrl()}">{$service.lang['discover']}</a>
+				</center>
+			</div>
+			<div>
+				<center>
+					<a href="{$service.obj_service->getDisconnectUrl()}">{text key="ynmediaimporter+disconnect"}</a>
+				</center>
+			</div>
+		{/if} 
+	{else}
+	<div>
+		<div>
+			<center>
+				<img
+					src="{$service.img_src}" height="55" style="margin-bottom: 8px;" />
+			</center>
+		</div>
+		<div>
+			<center>
+				{if ( !($hasSocialBridge) && $service.name == 'facebook' )} 
+					{text key="ynmediaimporter+please_install_or_enable_Social_Bridge_plugin"}
+
+				{else} {if ( !($hasFacebookApp) && $service.name == 'facebook' )} 
+					{text key="ynmediaimporter+please_contact_admin_to_config_the_facebook_settings"}
+
+				{else} <a href="{$service.obj_service->getConnectUrl()}"
+					title="{$service.lang['connect']}">
+					{$service.lang['connect']}</a> {/if}
+				{/if}
+			</center>
+		</div>
+	</div>
+	{/if}
+</div>
+
+{/if} {/foreach}
+
+{if ($iframeurl)}
+<div style="display: none">
+	<iframe width="0" height="0" border="none" src="{$iframeurlDecode}"></iframe>
+</div>
+{/if}
+
+<style>
+.ynmediaimporter_service_wrapper {
+	width: 200px;
+	height: 96px;
+	float: left;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bbb;
+	padding: 10px;
+	margin-right: 10px;
+	box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.1);
+	background: #fff;
+}
+</style>

@@ -1,0 +1,74 @@
+{if !empty($authErrorText)}
+<div class="ow_anno ow_center">
+    {$authErrorText}
+</div>
+{else}
+{if empty($noButton)}<div class="ow_right">{decorator name='button' onclick="window.location='$add_new_url'" class='ow_ic_add' langLabel='eventx+add_new_button_label'}</div>{/if}
+
+{if !empty($contentMenu)}{$contentMenu}{/if}
+
+{script}
+{literal}
+$(document).ready(function() {
+
+$('#calendar').fullCalendar({
+header: { left: 'prev,next today', center: 'title',right: 'month,agendaWeek,agendaDay'},
+firstDay: {/literal}{$firstWeekDay}{literal},
+buttonText: {
+today: '{/literal}{text key='eventx+today'}{literal}',
+month: '{/literal}{text key='eventx+month'}{literal}',
+week: '{/literal}{text key='eventx+week'}{literal}',
+day: '{/literal}{text key='eventx+day'}{literal}',
+},
+dayNamesShort : [{/literal}{$halfWeek}{literal}],
+dayNames : [{/literal}{$fullWeek}{literal}],
+monthNamesShort : [{/literal}{$halfMonth}{literal}],
+monthNames : [{/literal}{$fullMonth}{literal}],
+{/literal}		
+{if $isRTLLanguage eq '1'}
+{literal} isRTL: 'true', {/literal}
+{/if}
+
+
+{if $calendarHeight > 0}		
+{literal} height: {/literal}{$calendarHeight}{literal} , {/literal}		
+{/if}
+{literal}			
+weekends:{/literal} {if $showWeekends eq '1'}{literal} true{/literal}{else} {literal}false{/literal} {/if}{literal},	
+
+weekMode: 'liquid',
+events: [
+{/literal}
+{foreach from=$events key='key' item='event'}	
+{
+title: '{$event.title}',
+start: '{$event.startTimeStamp}',
+{if $event.endDateFlag eq '1' } end: '{$event.endTimeStamp}', {/if}
+url: '{$event.eventUrl}',
+allDay : false
+},
+{/foreach}				
+
+{literal}				
+],{/literal}
+{if $militaryTime eq '1' } timeFormat: 'H(:mm)',{/if}
+{if $openLinksType eq '1' }
+{literal}
+eventClick: function(event) {
+if (event.url) {
+window.open(event.url);
+return false;
+}
+}
+{/literal}
+{/if}
+{literal}                        
+});
+
+});
+{/literal}
+{/script}
+
+
+<div id='calendar' style='margin:3em 0;font-size:13px'></div>
+{/if}

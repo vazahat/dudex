@@ -1,0 +1,121 @@
+{literal}
+<script type="text/javascript">
+function openathpublisher(pageURL){
+    var w = 800;
+    var h = 500;
+    var left = (screen.width/2)-(w/2);
+    var top = (screen.height/2)-(h/2);
+    var newwindow = window.open (pageURL, '', 'toolbar=no,location=no,directories=no,status=no,menubar=no, scrollbars=yes,resizable=yes,copyhistory=no,width='+w+',height='+h+',top='+top+',left='+left);
+    if (window.focus) {newwindow.focus();}
+    return newwindow;
+}
+</script>
+<style>
+.socialpublisher_submit {
+	margin-top: 28px;
+	float: right;
+}
+.socialpublisher_user_photo > img {
+	height: 90px;
+	vertical-align: top;
+}
+.socialpublisher_user_photo {
+	margin-bottom: 28px;
+}
+.socialpublisher_user_photo .avatar {
+	height: 90px;
+}
+fieldset.socialpublisher_content {
+	padding: 10px;
+	border: 1px solid hsl(0, 0%, 92%);
+}
+ul.socialpublisher_providers > li.socialpublisher_provider_icon {
+	padding: 10px 0px 10px 40px;
+}
+
+.socialpublisher_margin {
+	margin-bottom: 10px;
+}
+
+.socialpublisher_border_options {
+	font-size: 10pt;
+	border-bottom: 1px solid hsl(0, 0%, 92%);
+	padding: .5em 0 .5em 0;
+	margin: 10px 0 20px 0;
+}
+
+.socialpublisher_border_options > span {
+	display: inline-block;
+	position: absolute;
+	margin-top: -1px;
+	padding-right: 6px;
+	font-weight: 700;
+}
+.floatbox_container form {
+	margin: 0px;
+	box-shadow: none;
+	border: none;
+	border-radius: none;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	padding: 10px 40px 0;
+}
+</style>
+{/literal}
+{form name='ynsocialpubisher_share'}
+        {block_decorator name='box' langLabel='ynsocialpublisher+header'}
+        	<div>
+			<div class="socialpublisher_clear">&nbsp;</div>
+			<div class="socialpublisher_user_photo">
+				<img src="{$avatar}" alt="" class="avatar">
+				{input name='ynsocialpublisher_status' style='height: 90px; width: 80%'}
+			</div>
+			<div class="socialpublisher_margin">
+				<fieldset class="socialpublisher_content">
+	    			<legend style="font-weight:bold;">Share Content</legend>
+	    			<div class="socialpublishers_content">
+	    				<span style="word-break: break-all; -ms-word-wrap: break-word;">
+		    				<div><a href='{$url}' target='_blank'>{$url}</a></div>
+		    				<div>{$title}</div>
+	    				</span>
+					</div>
+				</fieldset>
+			</div>
+			<div class="socialpublisher_margin">
+				<ul class="socialpublisher_providers">
+					{foreach from = $userSetting.adminProviders  item='provider'}
+						{assign var="obj" value=$arrObjServices[$provider] }
+						{if not empty($obj['has_config'])}
+						<li class="socialpublisher_provider_icon socialpublisher_{$provider}" style="background: url({$obj['logo']}) no-repeat;">
+							<div class="socialpublishers_share_providers_checkbox">
+							{if in_array($provider, $userSetting.providers)}
+								{input name="ynsocialpublisher_$provider" checked="checked"}
+							{else}
+								{input name="ynsocialpublisher_$provider"}
+							{/if}
+							{if not empty($obj['profile'])}
+								<span>
+		        					{text key = 'ynsocialpublisher+connected_as'} <strong>{$obj['profile']['displayname']}</strong>
+								</span>
+			        		{else}
+			        			{assign var = "connectUrl" value = $obj['connectUrl']}
+		                   		<span>Not connected (<a href="javascript:void(0);" onclick="openathpublisher('{$connectUrl}');">connect</a>)</span>
+							{/if}
+		                   	</div>
+			        	</li>
+			        	{/if}
+			        {/foreach}
+			    </ul>
+			</div>
+			<div>
+	    		<div class="socialpublisher_border_options"><span>{text key='ynsocialpublisher+options'}</span></div>
+	        	<div class="{cycle values='socialpublisher_options'}">{input name='ynsocialpublisher_options'}</div>
+			</div>
+			<div class='ow_form_options clearfix'>
+				<div class="ow_right">
+					{submit name='submit' class='ow_positive'}
+				</div>
+			</div>
+			</div>
+	{/block_decorator}
+{/form}

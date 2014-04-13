@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>TopLink</name>
+	<key>toplink</key>
+	<description>TopLink is a plugin to put a link at the top navigation menu. This plugin allow user to add icon corresponding to the current link being inserted.</description>
+    <author>Sanusi Yaakub</author>
+    <authorEmail>sanusi87@gmail.com</authorEmail>
+	<authorUrl>http://www.facebook.com/sanusi87</authorUrl>
+	<developerKey>321c5d518e565f7035eb01e7862cf410</developerKey>
+    <build>4</build>
+    <copyright>(C) 2013 Sanusi Yaakub. All rights reserved.</copyright>
+	<license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Video Recorder</name>
+	<key>vwvr</key>
+	<description>Integrates VideoWhisper Video Recorder. Allow users to record webcam videos. Includes comments, rates, tags, integration with Video plugin (if active). Requires RTMP hosting. Visit VideoWhisper.com for more details.</description>
+    <author>VideoWhisper.com</author>
+    <authorEmail>videowhispers@gmail.com</authorEmail>
+	<authorUrl>http://www.videowhisper.com</authorUrl>
+	<developerKey>268b20837298d31675131c257c5db425</developerKey>
+    <build>5000</build>
+    <copyright>(C) 2012 VideoWhisper.com. All rights reserved.</copyright>
+	<license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

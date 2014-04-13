@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Site Tour</name>
+    <key>sitetour</key>
+    <description>For Virtual Tour across the pre-defined site pages to know all its features. Educate new users about site. Has predefined 55 steps, Cookies and customizable.</description>
+    <author>Purusothaman Ramanujam</author>
+    <authorEmail>purushoth.r@gmail.com</authorEmail>
+    <authorUrl>http://www.iYaffle.com</authorUrl>
+    <developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+    <build>2</build>
+    <copyright>(C) 2014 Purusothaman Ramanujam. All rights reserved.</copyright>
+    <license>http://www.iYaffle.com</license>
+    <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>

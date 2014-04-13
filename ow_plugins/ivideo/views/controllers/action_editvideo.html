@@ -1,0 +1,25 @@
+<div id="video_edit_form" class="ow_superwide ow_automargin">
+
+    {form name='videoEditForm'}
+    <table class="ow_table_1 ow_form ow_stdmargin">
+        <tr class="ow_alt2">
+            <td class="ow_label">{label name='name'}</td>
+            <td class="ow_value">{input name='name'} <br /> {error name='name'}</td>
+        </tr>
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='description'}</td>
+            <td class="ow_value">{input name='description'} <br /> {error name='description'}</td>
+        </tr>
+        <tr class="ow_alt2">
+            <td class="ow_label">{label name='category'}</td>
+            <td class="ow_value">{input name='category'} <br /> {error name='category'}</td>
+        </tr>
+        <tr class="ow_alt1">
+            <td class="ow_label">{label name='tags'} <br /><span class="ow_small">{text key='ivideo+tags_desc'}</span></td>
+            <td class="ow_value">{input name='tags'}</td>
+        </tr>
+    </table>
+    <div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='edit' class='ow_ic_save ow_positive'}</div></div>
+    {/form}
+
+</div>

@@ -1,0 +1,17 @@
+{if empty($data.thumbnail_url)}
+<div class="attp-video-view">
+    {$data.html}
+</div>
+{else}
+<div class="attp-attachment av-attachment">
+    <div class="attp-video">
+        <a href="javascript://" class="ATTP-Video-Thumb ow_border att-thumb av-item-thumb av-thumb" onclick="ATTP.playVideoCallback(this);">
+            <div class="av-thumb-overlay"></div>
+            <img src="{$data.thumbnail_url}" />
+        </a>
+        <div class="ATTP-Video-Player attp-video-view" style="display: none;">
+            <textarea style="display: none;">{$data.html}</textarea>
+        </div>
+    </div>
+</div>
+{/if}

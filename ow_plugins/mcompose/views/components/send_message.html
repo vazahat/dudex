@@ -1,0 +1,125 @@
+{script}
+
+    {if !empty($attachmentsId)}
+    
+    $('.mc-attachments').each(function() {
+        var fw = $('.mc-fake-file', this).width();
+        var fh = $('.mc-fake-file', this).height();
+        $('.{$attachmentsId}_file_class', this).width(fw);
+        $('.{$attachmentsId}_class', this).height(fh);
+
+        $('#{$attachmentsId}_file', this).css("margin-left", fw - $('#{$attachmentsId}_file', this).width());
+        $('#{$attachmentsId}_file', this).height(fh);
+    });
+    
+    {/if}
+
+    $('#{$formName}').submit(function() {
+        return false;
+    });
+
+{/script}
+
+{style}
+
+    .captcha {
+        display: none;
+    }
+    
+    .mc-attachments .{$attachmentsId}_file_class {
+        display: block;
+        height: 20px;
+        overflow: hidden;
+        width: 150px;
+        opacity: 0;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .mc-attachments .{$attachmentsId}_file_class input {
+        cursor: pointer;
+        border: medium none;
+        cursor: pointer;
+        font-size: 50px;
+        height: 30px;
+        padding: 0;
+    }
+
+    #{$attachmentsId}_file_list {
+        display: inline-block;
+        margin: 0px;
+        border: inherit;
+        vertical-align: top;
+        /*height: 20px;*/
+    }
+    
+    .mc-form-message-wrap {
+        min-height: 319px;
+        margin-bottom: 8px;
+    }
+
+    .mc-form-message-wrap .jhtmlarea {
+        margin-bottom: 0px;
+    }
+
+    .mc-form-message-wrap textarea {
+        visibility: hidden;
+    }
+
+{/style}
+
+{if $isAuthorized}
+<div class="mc-form-wrap">
+{form name=$formName}
+    <table class="ow_table_1 ow_form mc-form-table">
+        <tr class="ow_alt2 mailbox_conversation ow_tr_first">
+            <td>
+                {input name="recipients"}
+                {error name="recipients"}
+            </td>
+        </tr>
+        <tr class="ow_alt2 mailbox_conversation">
+            <td class="ow_value" colspan="2" >{input name="subject"}<br/>{error name="subject"}</td>
+        </tr>
+        <tr class="ow_alt2 mailbox_conversation">
+            <td class="ow_value">
+                <div class="mc-form-message-wrap ow_preloader_content">
+                    {input name="message"}{error name="message"}
+                </div>
+                
+                {if $enableAttachments}
+                <div class="mc-attachments ow_border">
+                    <div class="mc-fake-file">
+                        {decorator name="button_list_item" langLabel="mailbox+attach_files"}
+                    </div>
+                    {input name='attachments'}
+                </div>
+                {/if}
+            </td>
+        </tr>
+
+        <tr class="ow_alt1 ow_tr_first captcha">
+            <td colspan="3" class="ow_center">
+                <div style="padding:10px;">{text key='mailbox+please_enter_captcha'}</div>
+            </td>
+        </tr>
+        <tr class="ow_alt2 ow_tr_last captcha">
+            <td colspan="3" class="ow_center">
+                {input name="captcha"}<br/>{error name="captcha"}
+            </td>
+        </tr>
+    </table>
+
+    <div class="clearfix ow_submit">
+        <div class="ow_right">{submit name="send" class="ow_left ow_positive"}</div>
+    </div>
+{/form }
+</div>
+{else}
+    <div class="ow_anno ow_center">
+        {$permissionMessage}
+    </div>
+{/if}

@@ -1,0 +1,6 @@
+
+<form id="{$formId}" action="{$formaction}" method="get">
+	{foreach from=$fields item=item key=key}
+    <input type="hidden" name="{$key}" value="{$item}" />
+    {/foreach}
+</form>

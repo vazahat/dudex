@@ -1,0 +1,20 @@
+{if !$add_friend}
+<div id="loading" style="display:none; margin-left:300px; text-align:center; background:url('{$urlLoading}') no-repeat;width:320px;height:320px; padding-top:180px;" >    
+    <div style="text-align:center; ">{text key = 'yncontactimporter+sending_request'}</div>
+</div>
+<div id = 'invite_friends'>
+	<h1 style="font-size: 15px; padding-bottom: 10px">{text key='yncontactimporter+heading_contacts' service = $service}</h1>
+	<p class="ow_small">{text key = 'yncontactimporter+invite_description'}</p>
+	<p class="ow_small">{text key = 'yncontactimporter+you_can_send_invitation' maxInvitePerTime = $maxInvitePerTimes}</p>
+	{if $useSocialBridge}
+		<p class="ow_small">{text key = 'yncontactimporter+invitation_allow_per_day' maxInvite = $maxInvite}</p>
+		<p class="ow_small">{text key = 'yncontactimporter+invitation_sent_so_far' totalInvited = $totalInvited}</p>
+		<p class="ow_small">{text key = 'yncontactimporter+warning_invitation' maxInvite = $maxInvite}</p>
+	{/if}
+	{$contacts}
+</div>
+{else}
+	<h1 style="font-size: 15px; padding-bottom: 10px">{text key='yncontactimporter+heading_contacts' service = $service}</h1>
+	<p class="ow_small">{text key = 'yncontactimporter+add_description'}</p>
+	{$contacts}
+{/if}

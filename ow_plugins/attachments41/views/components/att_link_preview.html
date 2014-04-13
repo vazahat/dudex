@@ -1,0 +1,39 @@
+<div class="al-attachment clearfix {if !empty($expandedView)}att-expanded{/if}" id="{$uniqId}">
+
+    <div class="{if !empty($data.thumbnail_url)}has_thumbnail{/if} {if !empty($data.title) || !empty($data.description)}two_column{else}one_column{/if}">
+        <div class="attachment_left">
+            {if !empty($data.thumbnail_url) }
+                <a href="{if empty($data.href)}javascript://{else}{$data.href}{/if}" {if !empty($data.blank)}target="_blank"{/if} {if !empty($data.onclick)}onclick="{$data.onclick}"{/if} class="ATT_ItemImageC">
+                    <img src="{$data.thumbnail_url}" class="attachment_thumb ATT_ItemImage" />
+                </a>
+            {/if}
+
+            {if !empty($data.allImages) && count($data.allImages) > 1}
+                <div class="att-other-images">
+                    <a href="javascript://" class="ATT_SelectPicture ow_lbutton">{text key="attachments+attachments_select_other_images"}</a>
+                    <div style="display: none">
+                        <div class="att-other-images-fbtitle ATT_PicturesFbTitle">{text key="attachments+attachments_select_other_images_title"}</div>
+                        <div class="att-other-images-fbcontent clearfix ATT_PicturesFbContent">
+                            {foreach from=$data.allImages item="img"}
+                                <div class="att-image-item ow_border ATT_PictureItem">
+                                    <img src="{$img}" />
+                                </div>
+                            {/foreach}
+                        </div>
+                    </div>
+                </div>
+            {/if}
+        </div>
+        {if !empty($data.title) || !empty($data.description)}
+        <div class="attachment_right ">
+            {if !empty($data.title)}
+                <div class="attachment_title"><a href="{if empty($data.href)}javascript://{else}{$data.href}{/if}" target="_blank">{$data.title}</a></div>
+            {/if}
+            {if !empty($data.description)}
+                <div class="attachment_desc ow_remark">{$data.description}</div>
+            {/if}
+        </div>
+        {/if}
+
+    </div>
+</div>

@@ -1,0 +1,52 @@
+
+{form name='payeer-config-form'}
+
+{if !$currSupported}
+    <div class="ow_anno ow_std_margin ow_nocontent">{text key="base+billing_currency_not_supported" currency=$activeCurrency}</div>
+{/if}
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='billingpayeer+account_settings'}</span>
+        </th>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{text key='billingpayeer+m_key'}</td>
+        <td class="ow_value">
+            {input name='m_key'} {error name='m_key'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{text key='billingpayeer+m_shop'}</td>
+        <td class="ow_value">
+            {input name='m_shop'} {error name='m_shop'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{text key='billingpayeer+m_curr'}</td>
+        <td class="ow_value">
+            {input name='m_curr'} {error name='m_curr'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{text key='billingpayeer+lang'}</td>
+        <td class="ow_value">
+            {input name='lang'} {error name='lang'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>    
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{text key='billingpayeer+tabNum'}</td>
+        <td class="ow_value">
+            {input name='tabNum'} {error name='tabNum'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr><td colspan="3" class="ow_submit">{submit name='save' class='ow_ic_save'}</td></tr>
+</table>
+
+{/form}

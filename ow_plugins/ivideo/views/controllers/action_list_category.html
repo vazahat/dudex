@@ -1,0 +1,45 @@
+{$menu}
+
+{if isset($isViewAuthorized)}
+<div class="ow_sort_control ow_smallmargin ow_small ow_alt2">
+    <span class="ow_sort_control_label">{text key='ivideo+view_uploaded_videos'}</span>
+    <a href="{$latestList}"><span>{text key='ivideo+view_latest_videos'}</span></a>
+    <a href="{$featuredList}"><span>{text key='ivideo+view_featured_videos'}</span></a>
+    <a href="{$topratedList}"><span>{text key='ivideo+view_toprated_videos'}</span></a>
+    <a href="{$categoryList}" class="active"><span>{text key='ivideo+view_category_videos'}</span></a>
+    <a href="{$tagList}"><span>{text key='ivideo+user_tag_list'}</span></a>
+</div>
+{/if}
+
+{if $addItemAuthorized}
+<div class="ow_right">{decorator name='button' class='ow_ic_add' id='btn-add-new-item' langLabel='ivideo+upload_new_video'}</div>
+{literal}
+<script>
+    $(function(){
+        $('#btn-add-new-item').click(function(){location.href='{/literal}{url_for_route for="ivideo_upload"}{literal}'})
+    })
+</script>
+{/literal}
+{/if}
+
+{if count($details) gt 0}
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th>{text key='ivideo+category_name_label'}</th>
+        <th>{text key='ivideo+category_desc_label'}</th>
+        <th>{text key='ivideo+category_count_label'}</th>
+    </tr>
+
+    {foreach from=$details item=feed}
+
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td><a href="{$feed.url}">{$feed.name}</a></td>
+        <td>{$feed.description}</td>
+        <td>{$feed.count}</td>
+    </tr>
+    {/foreach}
+</table>
+
+{else}
+<div class="ow_automargin ow_superwide">{text key='ivideo+no_vidoes_categories'}</div>
+{/if}

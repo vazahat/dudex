@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Social Connect 1.02</name>
+	<key>ynsocialconnect</key>
+	<description>Social Connect</description>
+	<author>YouNet Company</author>
+	<authorEmail>info@younetco.com</authorEmail>
+	<authorUrl>http://www.younetco.com</authorUrl>
+	<developerKey>5f4e7f2f0fb2da439d9280b671e79a86</developerKey>
+	<build>3</build>
+	<copyright>YouNet Company</copyright>
+	<license>The BSD License</license>
+	<licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

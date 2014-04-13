@@ -1,0 +1,55 @@
+{**
+ * Copyright (c) 2013, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ **}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package utags.view
+ **}
+
+<div id="{$uniqId}" style="display: none;">
+    <div class="ut-selection clearfix" data-tpl="selection">
+        <div class="uts-resize"></div>
+    </div>
+    
+    <div class="ut-selection-tag-wrap" data-tpl="tags">
+        {block_decorator name="tooltip"}
+            <div class="uts-tag-content">
+                <div class="uts-field-fake">
+                    <input type="text" value="Enter user name here" class="invitation uts-tag-input" />
+                </div>
+            </div>    
+        {/block_decorator}
+    </div>
+    
+    <div class="ut-tag-wrap" data-tpl="tag">
+        <div class="ut-tag">
+        
+        </div>
+    </div>
+    
+    <div class="ut-tagging-controls" data-tpl=tagging-controls>
+        {capture name="doneTagging"}
+            <a href="javascript://" class="ut-stop-tagging">{text key="utags+stop_tagging_btn"}</a>
+        {/capture}
+        {text key="utags+tagging_legend" doneTagging=$smarty.capture.doneTagging}
+    </div>
+    
+    <div class="ut-tag-tooltip" data-tpl="tag-tooltip">
+        {block_decorator name="tooltip"}
+        <div class="clearfix ut-tag-info-wrap ow_small">
+            <div class="ut-tag-controls">
+                <a href="javascript://" data-action="delete" class="utc-delete ut-ic-close" title="{text key="utags+delete_tag"}"></a>
+            </div>
+            <div class="ut-tag-info">
+                
+            </div>
+        </div>
+        {/block_decorator}
+    </div>
+</div>

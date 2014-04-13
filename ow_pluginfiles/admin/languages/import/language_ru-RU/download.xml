@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="download" label="Download" language_tag="ru-RU" language_label="Russia"><key name="additional_downloads"><value>Дополнительные файлы для загрузки</value></key><key name="download_page_heading"><value>Oxwall загрузки</value></key><key name="main_menu_item"><value>Скачать</value></key><key name="no_files"><value>Нет файлов для загрузки, извините.</value></key><key name="thank_you_page_heading"><value>Спасибо за загрузку</value></key><key name="thank_you_text"><value>&lt;p&gt;&#13;
+Скачивание должно начаться в ближайшее время. Если скачивание не запускается в течение 5 секунд нажмите &lt;a href="{$download_url}"&gt;на ссылку&lt;/a&gt;.&#13;
+&lt;/p&gt;</value></key><key name="total_downloads"><value>Количество скачиваний всего</value></key><key name="yesterday_downloads"><value>Количество скачиваний вчера</value></key></prefix>

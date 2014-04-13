@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="ocsloginas" label="Login as User" language_tag="ru-RU" language_label="Russia"><key name="auth_group_label"/><key name="logging_in"/><key name="login"/><key name="login_as"/><key name="login_failed"/><key name="permission_denied"/><key name="user_not_found"/></prefix>

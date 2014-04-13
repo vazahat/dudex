@@ -1,0 +1,59 @@
+{style}
+	{literal}
+		ul#opensocialconnect_holder_header
+		{
+		    position: relative;
+		    right: 0;
+		    top: 0;
+		    width: auto;
+		    z-index: 9990;
+		}
+		 
+		ul#opensocialconnect_holder_header li
+		{
+		    padding-left: 3px;
+		    padding-right: 3px;		    
+		}
+		
+		ul#opensocialconnect_holder_header li img
+		{
+		    width:{/literal}{$iIconSize}{literal}px;
+		    height:{/literal}{$iIconSize}{literal}px;
+		} 
+		  
+		#header_menu_holder ul#opensocialconnect_holder_header li a, #header_menu_holder ul#opensocialconnect_holder_header li a:hover
+		{
+		    line-height: 10px;
+		    padding:0px;
+		    background:none;
+		}
+		#header_menu_holder ul li {
+		    float: left;
+		    position: relative;
+		}				
+	{/literal}
+{/style}
+
+{if count($aOpenProviders)}
+<div id="header_menu_holder">
+	<ul id="opensocialconnect_holder_header">
+		{foreach from=$aOpenProviders key=index item=aOpenProvider name=opr}
+		{if $smarty.foreach.opr.iteration <= $iLimitView }
+			<li style="margin-top: {$marginTop}px;"> <a href="javascript: void(YNSocialConnect.opensopopup('{url_for_route for="ynsocialconnect-socialconnect:[service => `$aOpenProvider->getName()`, type => sync]"}', '{$aOpenProvider->getName()}'));" title=""><img src="{$sImgSrc}{$aOpenProvider->getName()}.png" alt="{$aOpenProvider->getTitle()}" style="vertical-align: top;" /></a> </li>
+			{if $smarty.foreach.opr.iteration ==  $iLimitView}
+				<li style="margin-top: {$marginTop}px;"><a href="javascript:void(0);" title="" onclick="YNSocialConnect.viewmore();"><img src="{$sImgSrc}more.png" alt="" style="vertical-align: top;" /></a>
+			{/if}
+		{/if}
+		{/foreach}
+	</ul>
+</div>
+
+<div style="display:none;">
+	<div class="ynsocialconnect_viewmore_cont">
+	{$eicmp}
+	</div>
+</div>
+
+{/if}
+
+

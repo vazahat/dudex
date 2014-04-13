@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="adminnotify" label="New User Alert" language_tag="ru-RU" language_label="Russia"><key name="admin_email"/><key name="admin_settings_title"/><key name="disable_html_format"/><key name="email_body"/><key name="email_subject"/><key name="save_settings"/><key name="sender_email"/><key name="user_settings_saved"/><key name="values_for_replacement"/></prefix>

@@ -1,0 +1,25 @@
+.profile-progressbar
+{
+    border: 1px solid #B2B2B2;
+    height: 20px;
+    border-radius: 2px;
+    background: url(../img/standart/background.png) repeat-x;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-progressbar-complete
+{
+    height: 20px;
+    background: url(../img/standart/complete.png) repeat-x;
+    position: absolute;
+    z-index: 10;
+}
+
+.profile-progressbar-caption
+{
+    position: absolute;
+    z-index: 11;
+    top: 1px;
+}

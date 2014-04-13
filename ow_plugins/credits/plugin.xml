@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Credits History and Transfer Credits</name>
+	<key>credits</key>
+	<description>View credit log history and transfer credits to other users. Supports Mobile view, Email, PM and Live notifications and Admin Reversal.</description>
+        <author>Purusothaman Ramanujam</author>
+        <authorEmail>purushoth.r@gmail.com</authorEmail>
+	<authorUrl>http://www.plugins.iYaffle.com</authorUrl>
+	<developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+        <build>6</build>
+        <copyright>(C) 2012 Purusothaman Ramanujam. All rights reserved.</copyright>
+	<license>http://www.plugins.iYaffle.com</license>
+        <licenseUrl>http://www.plugins.iYaffle.com</licenseUrl>
+</plugin>

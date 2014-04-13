@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="gphotoviewer" label="GPhotoViewer" language_tag="ru-RU" language_label="Russia"><key name="actions"/><key name="added"/><key name="admin_config"/><key name="admin_menu_general"/><key name="all_photos"/><key name="can_users_to_download_photos"/><key name="download_this_photo"/><key name="enable_photo_viewer"/><key name="from"/><key name="go_photo"/><key name="loading"/><key name="pause"/><key name="play"/><key name="repeat"/><key name="slideshow"/><key name="slideshow_time_per_a_photo"/></prefix>

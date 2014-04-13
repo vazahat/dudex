@@ -1,0 +1,85 @@
+<div style="height: 0;position: relative;"><a style="position: absolute;right:0;top:-65px;width:100px;height:100px;" href="http://oxart.net" target="_blank"><img src="{$oaseoImageUrl}" /></a></div>
+{$contentMenu}
+{form name='sitemap_form'}
+    <table class="ow_table_1 ow_form">
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='sitemap_url'}
+            </td>
+        <td class="ow_value">
+                    {input name='sitemap_url'}
+            </td>
+        <td class="ow_desc">{desc name='sitemap_url'}</td>
+        </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='imagemap_url'}
+            </td>
+        <td class="ow_value">
+                    {input name='imagemap_url'}
+            </td>
+        <td class="ow_desc">{desc name='imagemap_url'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='update_freq'}
+            </td>
+        <td class="ow_value">
+                    {input name='update_freq'}
+            </td>
+        <td class="ow_desc">{desc name='update_freq'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='inform'}
+            </td>
+        <td class="ow_value">
+                    {input name='inform'}
+            </td>
+        <td class="ow_desc">{desc name='inform'}</td>
+        </tr>
+        {*
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='email'}
+            </td>
+        <td class="ow_value">
+                    {input name='email'}
+            </td>
+        <td class="ow_desc">{desc name='email'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='prio'}
+            </td>
+        <td class="ow_value">
+                    {input name='prio'}
+            </td>
+        <td class="ow_desc">{desc name='prio'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='extlink'}
+            </td>
+        <td class="ow_value">
+                    {input name='extlink'}
+            </td>
+        <td class="ow_desc">{desc name='extlink'}</td>
+        </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">
+                    {label name='brock_link'}
+            </td>
+        <td class="ow_value">
+                    {input name='brock_link'}
+            </td>
+        <td class="ow_desc">{desc name='brock_link'}</td>
+        </tr>
+        *}
+        <tr>
+            <td colspan="3" class="ow_center">
+                    {submit name="submit" class="ow_ic_save"}
+            </td>
+        </tr>
+    </table>
+{/form}

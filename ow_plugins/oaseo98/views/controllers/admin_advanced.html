@@ -1,0 +1,6 @@
+<div style="height: 0;position: relative;"><a style="position: absolute;right:0;top:-65px;width:100px;height:100px;" href="http://oxart.net" target="_blank"><img src="{$oaseoImageUrl}" /></a></div>
+{$contentMenu}
+{text key='oaseo+advanced_admin_page_text'}<br /><br />
+{block_decorator name='box'}
+{text key="oaseo+admin_edit_page_meta_label"}: <input class="invitation" onfocus="$(this).val('').unbind('focus').removeClass('invitation');" type="text" value="{text key='oaseo+enter_your_url_label'}" id="oaseo_add_meta_url_input" style="width:60%;" /> {decorator name='button' label='Go' id='oaseo_add_meta_button'}
+{/block_decorator}

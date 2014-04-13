@@ -1,0 +1,26 @@
+{if !empty($vars.status)}<div class="ow_newsfeed_body_status">{$vars.status}</div>{/if}
+
+{if !empty($vars.image)}
+<div class="clearfix ow_newsfeed_large_image av-attachment" id="{$uniqId}">
+    <div class="ow_newsfeed_item_picture attp-video-clip">
+        <a href="javascript://" class="ATTP-Video-Thumb ow_border av-item-thumb av-thumb" onclick="ATTP.playVideoCallback(this, '{$uniqId}');">
+            <div class="av-thumb-overlay"></div>
+            <img src="{$vars.image}" />
+        </a>
+        <div class="ATTP-Video-Player attp-video-view" style="display: none;">
+            <textarea style="display: none;">{$vars.embed}</textarea>
+        </div>
+    </div>
+    <div class="ow_newsfeed_item_content">
+        {if empty($vars.url)}
+            <b>{$vars.title}</b>
+        {else}
+            <a class="ow_newsfeed_item_title" href="{$vars.url}">{$vars.title}</a>
+        {/if}
+        
+        <div class="ow_remark ow_smallmargin">{$vars.description}</div>
+    </div>
+</div>
+{elseif !empty($vars.embed)}
+    <div class="ow_newsfeed_video_embed">{$vars.embed}</div>
+{/if}

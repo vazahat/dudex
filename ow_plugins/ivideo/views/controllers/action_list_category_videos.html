@@ -1,0 +1,14 @@
+{$menu}
+
+{if isset($isViewAuthorized)}
+<div class="ow_sort_control ow_smallmargin ow_small ow_alt2">
+    <span class="ow_sort_control_label">{text key='ivideo+view_uploaded_videos'}</span>
+    <a href="{$latestList}"><span>{text key='ivideo+view_latest_videos'}</span></a>
+    <a href="{$featuredList}"><span>{text key='ivideo+view_featured_videos'}</span></a>
+    <a href="{$topratedList}"><span>{text key='ivideo+view_toprated_videos'}</span></a>
+    <a href="{$categoryList}" class="active"><span>{text key='ivideo+view_category_videos'}</span></a>
+    <a href="{$tagList}"><span>{text key='ivideo+user_tag_list'}</span></a>
+</div>
+{/if}
+
+{component class='IVIDEO_CMP_VideoList' type=$listType category=$category count=$videosPerRow} 

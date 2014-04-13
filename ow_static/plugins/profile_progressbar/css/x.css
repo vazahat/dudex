@@ -1,0 +1,28 @@
+.profile-progressbar
+{
+    border-radius: 2px;
+    border-top: 1px solid #B2B2B2;
+    border-right: 1px solid #9E9E9E;
+    border-bottom: 1px solid #8C8C8C;
+    border-left: 1px solid #9E9E9E;
+    height: 20px;
+    background: url(../img/x/background.png) repeat-x;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-progressbar-complete
+{
+    height: 20px;
+    background: url(../img/x/complete.png) repeat-x;
+    position: absolute;
+    z-index: 10;
+}
+
+.profile-progressbar-caption
+{
+    position: absolute;
+    z-index: 11;
+    color: white;
+}

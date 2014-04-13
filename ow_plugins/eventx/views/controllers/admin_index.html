@@ -1,0 +1,68 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+
+    {form name='adminForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="itemApproval"}</td>
+            <td class="ow_value">{input name="itemApproval"} {error name='itemApproval'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="eventDelete"}</td>
+            <td class="ow_value">{input name="eventDelete"} {error name='eventDelete'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="resultsPerPage"}</td>
+            <td class="ow_value">{input name="resultsPerPage"} {error name='resultsPerPage'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enableCalendar"}</td>
+            <td class="ow_value">{input name="enableCalendar"} {error name='enableCalendar'}</td>
+        </tr>    
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enableTagsList"}</td>
+            <td class="ow_value">{input name="enableTagsList"} {error name='enableTagsList'}</td>
+        </tr>    
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enableCategoryList"}</td>
+            <td class="ow_value">{input name="enableCategoryList"} {error name='enableCategoryList'}</td>
+        </tr>        
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enableMultiCategories"}</td>
+            <td class="ow_value">{input name="enableMultiCategories"} {error name='enableMultiCategories'}</td>
+        </tr>  
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enable3DTagCloud"}</td>
+            <td class="ow_value">{input name="enable3DTagCloud"} {error name='enable3DTagCloud'}</td>
+        </tr>  
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{text key='eventx+map_size'}</td>
+            <td class="ow_value">
+                {input name='mapWidth' class='ow_settings_input'} {error name='mapWidth'} x
+                {input name='mapHeight' class='ow_settings_input'} {error name='mapHeight'} (0 = Disable)
+            </td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="enableMapSuggestion"}</td>
+            <td class="ow_value">{input name="enableMapSuggestion"} {error name='enableMapSuggestion'}</td>
+        </tr>  
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td colspan="2" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+        </tr>
+
+    </table>
+    {/form}
+
+</div>

@@ -1,0 +1,190 @@
+.roundabout-holder
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.roundabout-moveable-item
+{
+    cursor: pointer;
+    line-height: 12px;
+}
+
+.roundabout-in-focus
+{
+    cursor: auto;
+}
+
+
+.uc-carousel
+{
+    height: 210px;
+    width: 85%;
+    margin: 0px auto;
+}
+
+.uc-item
+{
+    border-width: 1px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 2px 6px #585858;
+}
+
+.uc-item img
+{
+    height: 92%;
+}
+
+div.uc-info
+{
+    height: 8%;
+    border-top-width: 1px;
+    border-radius: 0px;
+}
+
+.uc-size-small .uc-item img
+{
+    height: 90%;
+}
+
+.uc-size-small div.uc-info
+{
+    height: 10%;
+}
+
+.roundabout-in-focus .uc-info
+{
+    display: block;
+}
+
+.uc-size-small div.uc-info
+{
+	line-height: 1.4em;
+}
+
+.uc-size-medium div.uc-info
+{
+	line-height: 1.8em;
+}
+
+.uc-size-big div.uc-info
+{
+	line-height: 2em;
+}
+
+/* Shapes */
+
+.uc-shape-waterWheel
+{
+
+}
+
+.uc-shape-waterWheel .uc-carousel-wrap
+{
+
+}
+
+.uc-shape-waterWheel .uc-size-small
+{
+    height: 510px;
+    overflow: hidden;
+}
+
+.uc-shape-waterWheel .uc-size-medium
+{
+    height: 530px;
+    overflow: hidden;
+}
+
+.uc-shape-waterWheel .uc-size-big
+{
+    height: 580px;
+    overflow: hidden;
+}
+
+.uc-shape-waterWheel .uc-size-small .uc-carousel
+{
+    height: 700px;
+    margin-top: -100px;
+}
+
+.uc-shape-waterWheel .uc-size-medium .uc-carousel
+{
+    height: 680px;
+    margin-top: -75px;
+}
+
+.uc-shape-waterWheel .uc-size-big .uc-carousel
+{
+    height: 720px;
+    margin-top: -70px;
+    margin-bottom: -70px;
+}
+
+.uc-shape-conveyorBeltLeft .uc-size-big
+{
+    margin-left: 25px;
+}
+
+.uc-shape-conveyorBeltRight .uc-size-big
+{
+    margin-right: 25px;
+}
+
+.uc-shape-diagonalRingLeft .uc-size-big, .uc-shape-diagonalRingRight .uc-size-big
+{
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.uc-shape-diagonalRingLeft .uc-size-medium, .uc-shape-diagonalRingRight .uc-size-medium
+{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.uc-shape-diagonalRingLeft .uc-size-small, .uc-shape-diagonalRingRight .uc-size-small
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+.uc-shape-rollerCoaster .uc-size-big
+{
+    margin-top: 90px;
+    margin-bottom: 90px;
+}
+
+.uc-shape-rollerCoaster .uc-size-medium
+{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.uc-shape-rollerCoaster .uc-size-small
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.uc-shape-tearDrop .uc-size-big
+{
+    margin-bottom: 30px;
+}
+
+.uc-shape-tearDrop .uc-size-medium
+{
+    margin-bottom: 20px;
+}
+
+.uc-shape-tearDrop .uc-size-small
+{
+    margin-bottom: 10px;
+}
+

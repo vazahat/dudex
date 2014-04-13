@@ -1,0 +1,32 @@
+{$contentMenu}
+
+<p class="ynsc_account_description">
+	{text key='ynsocialconnect+txt_userlinking_desc'}
+</p>
+
+<div style="padding-top: 10px">
+	
+	{foreach name="listUserLinking" from=$listUserLinking item='linking'}
+		<div class="ynsc_socialconnect_account">
+			<img class="ynsc_quick" src="{$linking.profile_image}">
+			<span>
+				<div>
+					<strong>{$linking.profile_full_name}</strong>
+				</div>
+				<div>
+					<a href="javascript: void(YNSocialConnect.disconnect('{url_for for="YNSOCIALCONNECT_CTRL_Userlinking:disconnect:[userLinkingId=>`$linking.userLinkingId`, service => `$linking.serviceName`]"}'));"> {text key='ynsocialconnect+txt_disconnect'}</a>
+				</div> </span>
+			<div style="margin-top: -10px">
+				<img class="ynsc_logo" src="{$sImgSrc}{$linking.serviceName}.png">
+			</div>
+		</div>
+	{/foreach}
+	
+	{foreach name="listProvider" from=$listProvider item='provider'}
+		<div class="ynsc_socialconnect_services">
+			<img class="ynsc_quick" src="{$sImgSrc}{$provider.name}.png">
+			<span> <a onclick="" href="javascript: void(YNSocialConnect.opensopopup('{url_for_route for="ynsocialconnect-socialconnect:[service => `$provider.name`, type => linking]"}', '{$provider.name}'));"> {text key='ynsocialconnect+txt_connect_to'} {$provider.title} </a> </span>
+		</div>
+	{/foreach}
+		
+</div>

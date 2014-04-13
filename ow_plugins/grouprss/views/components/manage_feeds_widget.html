@@ -1,0 +1,19 @@
+{style}{literal}
+
+.grouprss-manage-feeds
+{
+    text-align:center;
+}
+
+{/literal}{/style}
+
+<div class="grouprss-manage-feeds ow_std_margin">
+    {decorator name='button' class='ow_ic_rss' id='btn-manage-feeds-item' langLabel='grouprss+manage_feeds_btn_label'}
+    {literal}
+    <script>
+        $(function(){
+            $('#btn-manage-feeds-item').click(function(){location.href='{/literal}{url_for_route for="grouprss_manage:[groupId=>$groupId]"}{literal}'})
+        })
+    </script>
+    {/literal}
+</div>    

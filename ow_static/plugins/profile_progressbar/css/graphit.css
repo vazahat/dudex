@@ -1,0 +1,28 @@
+.profile-progressbar
+{
+    border-radius: 2px;
+    border-top: 1px solid #181A1D;
+    border-right: 1px solid #27282D;
+    border-bottom: 1px solid #0D0D0F;
+    border-left: 1px solid #242529;
+    height: 20px;
+    background: url(../img/graphit/background.png) repeat-x;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-progressbar-complete
+{
+    height: 20px;
+    background: url(../img/graphit/complete.png) repeat-x;
+    position: absolute;
+    z-index: 10;
+}
+
+.profile-progressbar-caption
+{
+    position: absolute;
+    z-index: 11;
+    color: white;
+}

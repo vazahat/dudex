@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="pages" label="Pages" language_tag="ru-RU" language_label="Russia"><key name="edit_content"/><key name="edit_external_url"/><key name="edit_external_url_islocal"/><key name="edit_external_url_isvisibleinmenu"/><key name="edit_title"/><key name="edit_visible_for_who"/><key name="form_visible_for_all"/><key name="form_visible_for_guestonly"/><key name="form_visible_for_members"/><key name="main_menu_addpage"/><key name="main_menu_item"/></prefix>

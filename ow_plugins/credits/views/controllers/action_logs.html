@@ -1,0 +1,59 @@
+{$menu}
+
+<div class="ow_sort_control ow_smallmargin ow_small ow_alt2">
+    <span class="ow_sort_control_label">{text key='credits+view_log_label'}</span>
+    <a {if $logType eq 'all'} class="active" {/if} href="{$allLogUrl}"><span>{text key='credits+All History'}</span></a>
+    <a {if $logType eq 'sent'} class="active" {/if} href="{$sentLogUrl}"><span>{text key='credits+sent_history_log'}</span></a>
+    <a {if $logType eq 'received'} class="active" {/if} href="{$receivedLogUrl}"><span>{text key='credits+received_history_log'}</span></a>
+</div>
+
+<table id="logTable" class="tablesorter"> 
+    <thead> 
+        <tr> 
+            <th>{text key='credits+activity'}</th> 
+            <th>{text key='credits+credits'}</th> 
+
+            {if $logType eq 'sent'}
+               <th>{text key='credits+sent_to_user'}</th> 
+            {elseif $logType eq 'received'}
+               <th>{text key='credits+received_from_user'}</th> 
+            {/if}
+
+            <th>{text key='credits+date'}</th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+
+        {foreach from=$logs item=log}
+        <tr>
+            <td>{$log.actionTitle}</td> 
+            <td>{$log.amount}</td> 
+
+            {if $logType <> 'all'}
+               <td><a href="{$log.userUrl}">{$log.userName}</a></td> 
+            {/if}
+
+            <td>{format_date timestamp=$log.logTimestamp}</td>
+        </tr>
+        {foreachelse}
+
+        <tr>
+            <td {if $logType eq 'all'}colspan="3"{else}colspan="4"{/if}><center>{text key='credits+no_credit_logs'}</center></td> 
+        </tr>
+
+        {/foreach}
+
+    </tbody> 
+</table> 
+
+{$paging}
+
+{script}
+{literal}
+$(document).ready(function() 
+{ 
+$("#logTable").tablesorter(); 
+} 
+); 
+{/literal}
+{/script}

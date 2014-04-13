@@ -1,0 +1,24 @@
+.profile-progressbar
+{
+    border-radius: 2px;
+    border: 1px solid #579BD1;
+    height: 20px;
+    background: url(../img/pirate/background.png) repeat-x;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.profile-progressbar-complete
+{
+    height: 20px;
+    background: url(../img/pirate/complete.png) repeat-x;
+    position: absolute;
+    z-index: 10;
+}
+
+.profile-progressbar-caption
+{
+    position: absolute;
+    z-index: 11;
+}

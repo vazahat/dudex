@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="cloudflare" label="CloudFlare" language_tag="ru-RU" language_label="Russia"><key name="admin_index_heading"><value>CloudFlare Настройки</value></key><key name="admin_index_property_id_save_success_message"><value>Настройки сохранены</value></key><key name="admin_settings_section_label"><value>Настройки</value></key><key name="admin_settings_web_property_id_desc"><value>Этот плагин реализует  &lt;a href="https://www.cloudflare.com/"&gt;ClouFlare service&lt;/a&gt; поддержки. Вы должны иметь счет с ними, и ваш сайт настроен, в противном случае он не будет иметь никакого эффекта.&#13;
+&#13;
+&lt;a href="http://docs.oxwall.org/plugin-tuts:cloudflare"&gt;прочитайте инструкцию здесь&lt;/a&gt;.</value></key><key name="admin_settings_web_property_id_label"><value>Включите поддержку CloudFlare</value></key></prefix>

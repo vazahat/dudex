@@ -1,0 +1,69 @@
+{if empty($noButton)}<div class="ow_right">{decorator name='button' onclick="window.location='$add_new_url'" class='ow_ic_add' langLabel='eventx+add_new_button_label'}</div>{/if}
+{if !empty($contentMenu)}{$contentMenu}{/if}
+
+{if count($details) gt 0}
+{if $enable3DTagCloud eq '1'}
+
+{literal}
+<script type="text/javascript">
+    $(document).ready(function() {
+        if (!$('#myCanvas').tagcanvas({
+            reverse: true,
+            depth: 0.8,
+            maxSpeed: 0.05,
+            frontSelect: true,
+            shuffleTags: true,
+            textFont: 'Trebuchet MS, Helvetica, sans-serif',
+            textColour: '#900', textHeight: 25,
+            outlineMethod: 'colour',
+            outlineColour: '#039',
+            outlineOffset: 5,
+            depth: 0.95,
+                    minBrightness: 0.3,
+            tooltip: 'div',
+            weight: true,
+            tooltipDelay: 100,
+            shadowBlur: 2,
+            shadowOffset: [1, 1]
+        }, 'tags')) {
+            // something went wrong, hide the canvas container
+            $('#myCanvasContainer').hide();
+        }
+    });
+</script>
+{/literal}
+<div class="ow_right">{decorator name='button' onclick="window.location='$calendar_url'" class='ow_ic_calendar' langLabel='eventx+calendar_label'}</div>
+<div id="myCanvasContainer">
+    <canvas width="800" height="300" id="myCanvas">
+        <p>In Internet Explorer versions up to 8, things inside the canvas are inaccessible!</p>
+    </canvas>
+</div>
+<div id="tags">
+    <ul>
+        {foreach from=$details item=feed}
+        <li><a href="{$feed.url}" title="{$feed.description}">{$feed.name}({$feed.count})</a></li>
+        {/foreach}
+    </ul>
+</div>
+{else}
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th>{text key='eventx+category_name_label'}</th>
+        <th>{text key='eventx+category_desc_label'}</th>
+        <th>{text key='eventx+category_count_label'}</th>
+    </tr>
+
+    {foreach from=$details item=feed}
+
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td><a href="{$feed.url}">{$feed.name}</a></td>
+        <td>{$feed.description}</td>
+        <td>{$feed.count}</td>
+    </tr>
+    {/foreach}
+</table>
+{/if}
+{else}
+<div class="ow_automargin ow_superwide">{text key='eventx+no_event_categories'}</div>
+{/if}
+

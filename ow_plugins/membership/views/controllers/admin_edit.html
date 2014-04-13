@@ -1,0 +1,114 @@
+{script}
+{literal}
+    $("#btn_delete").click(function(){
+        
+        var $ch_list = $('#plans tr.plan td input:checkbox.plan_id:checked');
+        
+        if ( !$ch_list.length )
+        {
+            alert(OW.getLanguageText('membership', 'no_plans_selected'));
+            return false;
+        }
+        
+        else if ( !confirm(OW.getLanguageText('membership', 'plan_delete_confirm')) )
+        {
+            return false;
+        }
+    });
+    
+    $("#btn_add_plan").click(function(){
+        $("#add_plan").toggle();
+        return false;
+    });
+{/literal}
+{/script}
+
+{$menu}
+
+<div class="clearfix ow_wide ow_automargin ow_stdmargin">
+
+{block_decorator name='box' iconClass='ow_ic_info' langLabel='membership+type_info' addClass="ow_stdmargin"}
+    {form name='edit-membership-form'}
+        <table class="ow_table_3 ow_stdmargin">
+            <tr class="ow_tr_first ow_tr_last">
+                <td class="ow_label" style="width: 30%">{label name='role'}</td>
+                <td class="ow_value">
+                    {input name='role'}<br />
+                    {error name='role'}
+                </td>
+            </tr>
+        </table>
+        <div class="clearfix"><div class="ow_right">{submit name='update' class='ow_ic_save ow_positive'}</div></div>
+    {/form}
+{/block_decorator}
+
+{block_decorator name='box' iconClass='ow_ic_clock' langLabel='membership+plans' addClass="ow_stdmargin" type='empty'}
+    {if $plans}
+    <form method="post">
+        <table id="plans" class="ow_table_1 ow_form ow_center ow_smallmargin">
+            <tr class="ow_tr_first">
+                <th width="1"></th>
+                <th>{text key='membership+period'}, <span class="ow_small">{text key='membership+days'}</span></th>
+                <th>{text key='membership+price'}, <span class="ow_small">{$currency}</span></th>
+                <th width="1">{text key='membership+recurring'}</th>
+            </tr>
+            {foreach from=$plans item='plan'}
+            <tr class="plan {cycle values='ow_alt1,ow_alt2'}">
+                <td><input type="checkbox" class="plan_id" name="plans[{$plan->id}]" value="1" /></td>
+                <td><input type="text" name="periods[{$plan->id}]" value="{$plan->period}" /></td>
+                <td><input type="text" name="prices[{$plan->id}]" value="{$plan->price}" /></td>
+                <td><input type="checkbox" name="recurring[{$plan->id}]" value="1" {if $plan->recurring}checked="checked"{/if} /></td>
+            </tr>
+            {/foreach}
+            <tr class="ow_tr_last">
+                <td>
+                    <input id="check_all" title="{text key='base+check_all'}" type="checkbox" onclick="$('#plans tr.plan td input:checkbox.plan_id').attr('checked', $(this).attr('checked') == 'checked' );" />
+                </td>
+                <td colspan="3">
+                    <div class="ow_txtleft">
+                        {decorator name="button_list_item" type="submit" langLabel="membership+delete_selected" buttonName="delete_plans" id="btn_delete" class="ow_red"}
+                        {decorator name="button_list_item" type="submit" langLabel="admin+save_btn_label" buttonName="update_plans"}
+                        {decorator name="button_list_item" type="button" langLabel="membership+add_plan" id="btn_add_plan"}
+                    </div>
+                </td>
+            </tr>
+         </table>
+    </form>
+    {else}
+        <div class="ow_nocontent">{text key='membership+no_plans'}</div>
+        {decorator name="button_list_item" type="button" langLabel="membership+add_plan" id="btn_add_plan"}
+    {/if}
+{/block_decorator}
+
+<div id="add_plan" style="display: none">
+{block_decorator name='box' langLabel='membership+add_plan' iconClass='ow_ic_add'}
+    {form name='add-plan-form'}
+        <table class="ow_table_3">
+            <tr>
+                <td class="ow_label" style="width: 30%">{text key='membership+period'}</td>
+                <td class="ow_value">
+                    {input name='period' class='ow_settings_input'} {text key='membership+days'}<br />
+                    {error name='period'}
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+price'}</td>
+                <td class="ow_value">
+                    {input name='price' class='ow_settings_input'} {$currency}<br />
+                    {error name='price'}
+                </td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+recurring'}</td>
+                <td class="ow_value">{input name='isRecurring'}</td>
+            </tr>
+        </table>
+        <div class="clearfix">
+			<div class="ow_right">
+				{submit name='add' class='ow_ic_add ow_positive'}
+			</div>
+		</div>
+    {/form}
+{/block_decorator}
+</div>
+</div>

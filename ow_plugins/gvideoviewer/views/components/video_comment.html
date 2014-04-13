@@ -1,0 +1,79 @@
+{style}
+{literal}
+.ow_video_comments .ow_box_cap_empty,
+.ow_video_comments .comments_list_cont .ow_nocontent {
+    display: none;
+}
+.ow_break_word .ow_box_cap{
+    display: none;
+}
+{/literal}
+{/style}
+
+<div class="layout_page_videoviewer_index_comments">
+	<div class="layout_main">
+		<div class="owner_info">
+		  <div class="thumb">
+			{decorator name='avatar_item' data=$avatar}
+		  </div>
+		  <div class="poster">
+			<a href="{$avatar.url}">{$avatar.title}</a>
+		  </div>
+		</div>
+
+		<div class="album_timestamp">
+		  {text key='gvideoviewer+added'} <span title="{format_date timestamp=$clip->addDatetime}" class="timestamp timestamp-update">{format_date timestamp=$clip->addDatetime}</span></div>
+
+		<div class="video_info">
+		  <div class="video_title">{$clip->title}</div>
+		  <div class="video_description">{$clip->description}</div>
+		</div>
+
+		{block_decorator name='box' type='empty' capEnabled=false addClass='ow_break_word ow_stdmargin'}
+			  {$tags}
+		{/block_decorator}
+		{block_decorator name='box' type='empty' capEnabled=false addClass='ow_break_word ow_stdmargin'}
+			{$rate}
+		{/block_decorator}
+		<div class="external-options" style="display: none;">
+		{if $canMakeFeature}
+			{if $isFeature}	
+			<a href="javascript://" rel="remove_from_featured" clip-id="{$clip->id}" id="video-mark-featured-{$clip->id}">
+				<i class="icon-picture"></i>{text key='video+remove_from_featured'}
+			</a>
+			{else}
+			<a href="javascript://" rel="mark_featured" clip-id="{$clip->id}" id="video-mark-featured-{$clip->id}">
+				<i class="icon-picture"></i>{text key='video+mark_featured'}
+			</a>
+			{/if}	 
+		{/if} 
+		{if $canReport}
+		  <a href="javascript://" rel="{$clip->id}" url="{url_for_route for="view_clip:[id=>`$clip->id`]"}" id="btn-video-flag-{$clip->id}">
+				<i class="icon-flag"></i>{text key='base+flag'}
+		  </a> 
+		{/if}	
+		 </div>
+
+		<div class="external-top">
+			{if $canEdit}	
+			<a  href="javascript:void(0);" class="wpbtn wpbtn-inverse" id="btn-video-edit-{$clip->id}" title="{text key='base+edit'}"><i class="icon-wrench onlyicon"></i></a>        
+			<a  href="javascript:void(0);" class="wpbtn wpbtn-inverse" id="video-delete-{$clip->id}" title="{text key='base+delete'}"><i class="icon-trash onlyicon"></i></a> 
+			{/if}	
+			<a  href="javascript:void(0);" class="actions wpbtn wpbtn-inverse" onclick="VideoViewer.toggleOptions();" title="{text key='gvideoviewer+actions'}">
+				<i class="icon-reorder onlyicon"></i>
+				<i class="icon-caret-down right"></i>
+			</a>
+		  </div>
+
+		<div class="external-bottom">
+			
+			<a class="wpbtn wpbtn-inverse" href="{url_for_route for="view_clip:[id=>`$clip->id`]"}">
+			  <i class="icon-facetime-video"></i>
+			  {text key='gvideoviewer+go_video'}    
+			</a>
+
+		</div>
+
+		<div class="ow_break_word ow_video_comments">{$comments}</div>
+	</div>
+</div>

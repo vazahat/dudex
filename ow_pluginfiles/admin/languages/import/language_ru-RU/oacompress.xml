@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="oacompress" label="Oxwall Art Compress" language_tag="ru-RU" language_label="Russia"><key name="admin_index_heading"/><key name="admin_settings_section_label"/><key name="compress_cnt_desc"/><key name="compress_cnt_label"/><key name="compress_css_desc"/><key name="compress_css_label"/><key name="compress_js_desc"/><key name="compress_js_label"/><key name="encode_image_size_desc"/><key name="encode_image_size_label"/><key name="settings_saved"/></prefix>

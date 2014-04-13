@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="ningimport" label="Ning Members Import" language_tag="ru-RU" language_label="Russia"><key name="admin_sidebar_menu_label"><value>Ning Импорт Пользователей</value></key><key name="heading"><value>Ning Импорт Пользователей</value></key><key name="import_btn_label"><value>Импорт</value></key><key name="log_description"><value>&lt;p&gt;&#13;
+Above is the result of your import. You can now go &lt;a href="{$site_url}admin/users"&gt;browse all members&lt;/a&gt;.&#13;
+&lt;/p&gt;&#13;
+&lt;p&gt;&#13;
+&lt;b&gt;IMPORTANT:&lt;/b&gt; You should make mass mailing (send broadcast message) to all users on your Ning site to let them know about the move and the new URL of your site.&#13;
+&lt;/p&gt;&#13;
+&lt;p&gt;&#13;
+For that,&#13;
+&lt;/p&gt;&#13;
+&lt;p class="ow_highbox" align="center" style="font-weight:bold"&gt;&#13;
+Go to your Ning social network -&gt; Manage -&gt; Broadcast Message&#13;
+&lt;/p&gt;&#13;
+&lt;p&gt;&#13;
+&lt;b&gt;IMPORTANT&lt;/b&gt;: Imported users should use their emails for password when logging in. Tip them to change their passwords as soon as possible.&#13;
+&lt;/p&gt;</value></key><key name="log_question_added"><value>Поле профиля добавлено</value></key><key name="log_skipped_users"><value>Участники пропущены &lt;br/&gt; (уже существуют)</value></key><key name="log_title"><value>Импорт результатов</value></key><key name="log_total_added"><value>Добавленные участники</value></key><key name="upload_description"><value>&lt;p&gt; Here you can import your user data from a Ning site. Unfortunately, this &lt;b&gt;will not&lt;/b&gt; export your content (like photos, discussions, videos, etc) because Ning only lets you export user data.&lt;/p&gt; &lt;p&gt; Before the import it's a good idea to make everyone aware you are moving. This will prevent people from signing up on the old site so you don't have to make multiple imports. Place a text box at the top of the index page on your Ning site with the following code: &lt;/p&gt; &lt;p style="background:#f0f0f0;color:#000;font-family:courier;padding:20px;"&gt;&lt;h1&gt;We are moving!&lt;/h1&gt;Log in to your profile at our new site: &lt;a href="{$site_url}"&gt;{$site_url}&lt;/a&gt;&lt;/p&gt; &lt;p&gt; This will look like this: &lt;/p&gt; &lt;div class="ow_stdmargin" style="border:1px solid #ccc;padding:20px;"&gt; &lt;h1&gt;We are moving!&lt;/h1&gt; Log in to your profile at our new site: &lt;a href="{$site_url}"&gt;{$site_url}&lt;/a&gt; &lt;/div&gt; &lt;p&gt;Now,&lt;/p&gt; &lt;p align="center" style="font-weight:bold" class="ow_highbox"&gt; Go to your Ning network -&gt; Manage -&gt; Members -&gt; Export All Member Data (.CSV) &lt;/p&gt;&#13;
+&lt;p&gt;&lt;b&gt;Attention:&lt;/b&gt;Before importing make your Ning network public. Remove any password protection and guests-only modes, otherwise avatars will not be transferred!&lt;/p&gt;&#13;
+ &lt;p&gt;You will be prompted to save a file.Upload this file here and we will try to import your user data to this site. You can try this multiple times, duplicate users will not be created.&lt;/p&gt;</value></key></prefix>

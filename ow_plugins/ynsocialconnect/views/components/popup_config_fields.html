@@ -1,0 +1,27 @@
+<h3>{text key ='ynsocialconnect+fields_to_profile_questions' provider = {$provider}}</h3>
+<div>{text key ='ynsocialconnect+provider_fields_discription' provider = {$provider}}</div>
+<br/>
+{form name='provider-config-form'}
+    <table class="ow_table_1 ow_form ow_stdmargin">
+    	{input name = providerName}
+        {foreach from=$questionList item=section name="sections"}
+        <tr class="ow_tr_first">
+            <th colspan="2">{section_lang name=$section.name}</th>
+        </tr>
+        {foreach from=$section.items item=question name="items"}
+		    <tr class="{cycle name="view1" values="ow_alt1,ow_alt2"} {if $smarty.foreach.items.last}ow_tr_last{/if}">
+		        <td class="ow_label">{question_lang name=$question.name}</td>
+		        <td class="ow_value">
+                    {input name = $question.el_name}
+                </td>
+		    </tr>
+        {/foreach}
+        {if !$smarty.foreach.sections.last}
+        	<tr class="ow_tr_delimiter"><td colspan="2"></td></tr>
+        {/if}
+    {/foreach}
+    </table>
+	<div class="clearfix">
+		<div class="ow_right">{submit name='edit' class='ow_ic_save ow_positive'}</div>
+	</div>
+{/form}

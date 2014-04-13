@@ -1,0 +1,150 @@
+
+{$menu}
+
+{form name='configSaveForm'}
+
+<table class="ow_table_1 ow_form">
+
+			<tr class="ow_alt2">
+					<td class="ow_label">{label name='record_path'}</td>
+					<td class="ow_value">{input name='record_path'} <br /> {error name='record_path'}</td>
+					<td class="ow_desc ow_small">{text key='vwvr+record_path_desc'}</td>
+			</tr>
+			<tr class="ow_alt1">
+				<td class="ow_label">{label name='server'}</td>
+				<td class="ow_value">{input name='server'} <br />{error name='server'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+server_desc'}</td>
+			</tr>
+			<tr class="ow_alt2">
+				<td class="ow_label">{label name='serverAMF'}</td>
+				<td class="ow_value">{input name='serverAMF'} <br />{error name='serverAMF'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+serverAMF_desc'}</td>
+			</tr>
+			<tr class="ow_alt1">
+				<td class="ow_label">{label name='videoCodec'}</td>
+				<td class="ow_value">{input name='videoCodec'} <br />{error name='videoCodec'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+videoCodec_desc'}</td>
+			</tr>
+			<tr class="ow_alt2">
+				<td class="ow_label">{label name='codecLevel'}</td>
+				<td class="ow_value">{input name='codecLevel'} <br />{error name='codecLevel'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+codecLevel_desc'}</td>
+			</tr>
+			<tr class="ow_alt1">
+				<td class="ow_label">{label name='codecProfile'}</td>
+				<td class="ow_value">{input name='codecProfile'} <br />{error name='codecProfile'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+codecProfile_desc'}</td>
+			</tr>
+
+			<tr class="ow_alt2">
+				<td class="ow_label">{label name='soundCodec'}</td>
+				<td class="ow_value">{input name='soundCodec'} <br />{error name='soundCodec'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+soundCodec_desc'}</td>
+			</tr>
+			<tr class="ow_alt1">
+				<td class="ow_label">{label name='soundQuality'}</td>
+				<td class="ow_value">{input name='soundQuality'} <br />{error name='soundQuality'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+soundQuality_desc'}</td>
+			</tr>
+		    <tr class="ow_alt2">
+		        <td class="ow_label">{label name='microphone_rate'}</td>
+		        <td class="ow_value">{input name='microphone_rate'} <br /> {error name='microphone_rate'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+microphone_rate_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt1">
+		        <td class="ow_label">{label name='bandwidth'}</td>
+		        <td class="ow_value">{input name='bandwidth'} <br /> {error name='bandwidth'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+bandwidth_desc'}</td>
+		    </tr>
+			<tr class="ow_alt2">
+				<td class="ow_label">{label name='camMaxBandwidth'}</td>
+				<td class="ow_value">{input name='camMaxBandwidth'} <br />{error name='camMaxBandwidth'}</td>
+				<td class="ow_desc ow_small">{text key='vwvr+camMaxBandwidth_desc'}</td>
+			</tr>
+			<tr class="ow_alt1">
+		        <td class="ow_label">{label name='record_limit'}</td>
+		        <td class="ow_value">{input name='record_limit'} <br /> {error name='record_limit'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+record_limit_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt2">
+		        <td class="ow_label">{label name='show_camera_settings'}</td>
+		        <td class="ow_value">{input name='show_camera_settings'} <br /> {error name='show_camera_settings'}</td>
+		        <td class="ow_desc ow_small"></td>
+		    </tr>
+		    <tr class="ow_alt1">
+		        <td class="ow_label">{label name='advanced_camera_settings'}</td>
+		        <td class="ow_value">{input name='advanced_camera_settings'} <br /> {error name='advanced_camera_settings'}</td>
+		        <td class="ow_desc ow_small"></td>
+		    </tr>
+		    <tr class="ow_alt2">
+		        <td class="ow_label">{label name='resolution'}</td>
+		        <td class="ow_value">{input name='resolution'} <br /> {error name='resolution'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+resolution_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt1">
+		        <td class="ow_label">{label name='camera_fps'}</td>
+		        <td class="ow_value">{input name='camera_fps'} <br /> {error name='camera_fps'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+camera_fps_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt2">
+		        <td class="ow_label">{label name='layout_code'}</td>
+		        <td class="ow_value">{input name='layout_code'} <br /> {error name='layout_code'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+layout_code_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt1">
+		        <td class="ow_label">{label name='fill_window'}</td>
+		        <td class="ow_value">{input name='fill_window'} <br /> {error name='fill_window'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+fill_window_desc'}</td>
+		    </tr>
+
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='bufferLive'}</td>
+        <td class="ow_value">{input name='bufferLive'} <br />{error name='bufferLive'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+bufferLive_desc'}</td>
+	</tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='bufferFull'}</td>
+        <td class="ow_value">{input name='bufferFull'} <br />{error name='bufferFull'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+bufferFull_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='bufferLivePlayback'}</td>
+        <td class="ow_value">{input name='bufferLivePlayback'} <br />{error name='bufferLivePlayback'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+bufferLivePlayback_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='bufferFullPlayback'}</td>
+        <td class="ow_value">{input name='bufferFullPlayback'} <br />{error name='bufferFullPlayback'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+bufferFullPlayback_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='availability'}</td>
+        <td class="ow_value">{input name='availability'} <br />{error name='availability'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+availability_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='status'}</td>
+        <td class="ow_value">{input name='status'} <br />{error name='status'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='member'}</td>
+        <td class="ow_value">{input name='member'} <br />{error name='member'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='member_list'}</td>
+        <td class="ow_value">{input name='member_list'} <br />{error name='member_list'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+member_list_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='baseSwf_url'}</td>
+        <td class="ow_value">{input name='baseSwf_url'} <br />{error name='baseSwf_url'}</td>
+        <td class="ow_desc ow_small">{text key='vwvr+baseSwf_url_desc'}</td>
+    </tr>
+	
+	
+    <tr><td colspan="3" class="ow_submit">{submit name='save' class='ow_ic_save'}</td></tr>
+</table>
+
+{/form}

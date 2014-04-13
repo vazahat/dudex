@@ -1,0 +1,168 @@
+<div class="ow_stdmargin">
+	{form name="topForm"}
+		<table>
+			<tbody>
+				<tr>
+					<td>{label name="topName"}</td>
+					<td>{input name="topName"}</td>
+					<td><p class="ow_small toplink-info required"></p></td>
+				</tr>
+				<tr>
+					<td>{label name="topUrl"}</td>
+					<td>{input name="topUrl"}</td>
+					<td><p class="ow_small toplink-info required">*{text key="toplink+top_link_required"}</p></td>
+				</tr>
+				<tr>
+					<td>{label name="topIcon"}</td>
+					<td>{input name="topIcon"}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td colspan="2"><p class="ow_small toplink-info">{text key="toplink+item_icon_info"}</p></td>
+				</tr>
+				<tr>
+					<td>{label name="topIconFile"}</td><td>{input name="topIconFile"}</td><td></td>
+				</tr>
+				<tr>
+					<td colspan="3"><hr /></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td>{label name="toptarget"}</td><td>{input name="toptarget"}</td><td></td>
+				</tr>
+				<tr>
+					<td>{label name="toporder"}</td>
+					<td>{input name="toporder"}</td>
+					<td><p class="ow_small toplink-info required">*{text key="toplink+top_link_required"}(1,2,3...)</p></td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr><td colspan="3"><hr style="margin:3px" /></td></tr>
+				<tr>
+					<td colspan="3">
+						<span class="ow_button"><a href="#" class="ow_ic_add" id="addsublink">{text key='toplink+add_child'}</a></span>
+					</td>
+				</tr>
+				<tr>
+					<td>{text key='toplink+sub_item_name'}</td>
+					<td>{text key='toplink+sub_item_url'}</td>
+					<td>&nbsp;</td>
+				</tr>
+				
+				<!--child list-->
+				{if !empty( $children )}
+				{foreach $children as $childIndex => $child}
+				<tr class="toplinkchild">
+					<td>
+						<input type="text" name="menuchildname[]" id="menuchildname_{$child->id}" value="{$child->name}" />
+					</td>
+					<td>
+						<input type="text" name="menuchildurl[]" id="menuchildurl_{$child->id}" value="{$child->url}" />
+						<input type="hidden" name="menuchildid[]" value="{$child->id}" />
+					</td>
+					<td><span class="ow_button"><a href="#" class="removesublink ow_ic_delete">{text key='toplink+remove'}</a></span></td>
+				</tr>
+				{/foreach}
+				{else}
+				<tr class="toplinkchild" id="no-child">
+					<td colspan="3" class="ow_center">{text key='toplink+top_link_no_record'}</td>
+				</tr>
+				{/if}
+				<!--child list-->
+				
+				<tr style="display:none;" id="newchild-core">
+					<td><input type="text" name="menuchildname[0]" id="menuchildname_0" value="" disabled="disabled" /></td>
+					<td><input type="text" name="menuchildurl[0]" id="menuchildurl_0" value="" disabled="disabled" /></td>
+					<td><span class="ow_button"><a href="#" class="removesublink ow_ic_delete">{text key='toplink+remove'}</a></span></td>
+				</tr>
+				
+			</tbody>
+			<tbody>
+				<tr>
+					<td colspan="3"><hr /></td>
+				</tr>
+				<tr>
+					<td>{label name="toppermission"}</td>
+					<td>{input name="toppermission"}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td colspan="2"><p class="ow_small toplink-info">{text key="toplink+item_perm_info"}</p></td>
+				</tr>
+				<tr>
+					<td colspan="3"><hr /></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td></td>
+					<td colspan="2">
+						<span class="ow_button">
+							<span class=" ow_ic_save ow_positive">{submit name="topSubmit"}</span>
+						</span>
+						<span class="ow_button">
+							<span class=" ow_ic_save ow_positive">
+								<input type="button" name="resetme" id="resetme" value="Reset" onclick="javascript:window.owForms.topForm.resetForm();" />
+							</span>
+						</span>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	{/form}
+</div>
+
+<div class="ow_content">
+	<div class="ow_box_cap_empty">
+		<div class="ow_box_cap_right">
+			<div class="ow_box_cap_body">
+				<h3 class="ow_ic_trash">{text key="toplink+list_item"}</h3>
+			</div>
+		</div>
+	</div>
+	
+	<div style="" class="ow_box_empty ow_stdmargin ow_break_word">
+		<table style="margin:0 auto;" class="ow_superwide ow_inactive_plugins" id="topTable">
+			<thead>
+				<tr>
+					<th>{text key="toplink+item_name"}</th>
+					<th>{text key="toplink+item_url"}</th>
+					<th>{text key="toplink+item_permission"}</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+			{if !empty($alltoplink)}
+				{foreach $alltoplink as $toplink}
+					<tr class="ow_high2">
+						<td>
+							<span class="ow_button">
+								<a class="ow_ic_write" href="{$toplink->updateurl}">{$toplink->itemname}</a>
+							</span>
+						</td>
+						<td><div class="ow_small">{$toplink->url}</div></td>
+						<td><div class="ow_small">{$toplink->permission}</div></td>
+						<td>
+							<span class="ow_button">
+								<a class="ow_ic_delete" href="{$toplink->removeurl}" onclick="javascript:return confirm('{text key="toplink+remove_confirm"}');">Remove</a>
+							</span>
+						</td>
+					</tr>
+				{/foreach}
+			{else}
+				<tr>
+					<td colspan="3" class="ow_center">{text key='toplink+top_link_no_record'}</td>
+				</tr>
+			{/if}
+			</tbody>
+		</table>
+	</div>
+</div>
+<div id="pleasesupport">
+	<p><a target="_blank" href="http://social.sanusiyaakub.org">Thank you for using this plugin.<br />
+	Show your support by at least <br />
+	clicking the ads on my website.</a></p>
+</div>

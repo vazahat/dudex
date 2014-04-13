@@ -1,0 +1,83 @@
+{**
+ * Copyright (c) 2013, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ **}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package utags.view
+ **}
+
+{style}
+.ut-tag-list .ow_preloader_content {
+    height: 30px;
+}
+
+.ut-tag-list {
+    min-height: 30px;
+}
+
+.ut-tag-list-wrap .ow_box {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.ow_photo_info .ow_left.ow_superwide {
+    width: 65%;
+}
+
+.ow_photo_info .ow_right.ow_supernarrow {
+    width: 32%;
+}
+
+.ut-user-info {
+    margin-left: 35px;
+    padding-left: 10px;
+}
+
+html .ut-user-tag .ow_avatar {
+    float:left;
+    margin-right: -35px;
+}
+
+.ut-user-tag:hover {
+    background: rgba(204, 204, 204, 0.3);
+}
+
+.ut-user-tag {
+    padding: 3px 5px 2px;
+}
+
+.ut-tag-item-info {
+    font-size: 10px;
+}
+
+.ut-user-controls {
+    float: right;
+    margin-left: -15px;
+    width: 15px;
+    padding-top: 2px;
+    display: none;
+}
+
+.ut-user-tag:hover .ut-user-controls {
+    display: block;
+}
+
+{/style}
+
+<div class="ut-tag-list-wrap" {if empty($userTags)}style="display: none"{/if}>
+{block_decorator name='box' addClass='ow_break_word ow_stdmargin' iconClass="ow_ic_user" langLabel="utags+on_this_photo_title"}
+    <div class="ut-tag-list">
+        {if !empty($userTags)}
+            {$userTags}
+        {else}
+            <div class="ow_preloader_content"></div>
+        {/if}
+    </div>
+{/block_decorator}
+</div>

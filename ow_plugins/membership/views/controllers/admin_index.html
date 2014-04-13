@@ -1,0 +1,118 @@
+
+{script}
+{literal}
+    $('tr.type', '#types' ).hover(
+	    function(){
+	        $('td a.edit_type', this).show();
+	    },
+	    function(){
+	        $('td a.edit_type', this).hide();
+	    }
+    );
+    
+    $("#btn_delete").click(function(){
+        
+        var $ch_list = $('#types tr.type td input:checkbox:checked');
+        
+        if ( !$ch_list.length )
+        {
+            alert(OW.getLanguageText('membership', 'no_types_selected'));
+            return false;
+        }
+        
+        else if ( !confirm(OW.getLanguageText('membership', 'type_delete_confirm')) )
+        {
+            return false;
+        }
+    });
+{/literal}
+{/script}
+
+{$menu}
+
+<div class="ow_automargin ow_wide">
+    {if $memberships}
+    {block_decorator name='box' addClass="ow_stdmargin" type='empty' langLabel='membership+types_list' iconClass='ow_ic_update'}
+    <form method="post">
+        <table id="types" class="ow_table_1 ow_form ow_center">
+            <tr class="ow_tr_first">
+                <th width="1"></th>
+                <th>{text key='membership+membership'}</th>
+                <th width="1">{text key='membership+plans'}</th>
+                <th width="1"></th>
+            </tr>
+            {foreach from=$memberships item='item'}
+                <tr class="type {cycle values='ow_alt1, ow_alt2'}">
+                    <td>
+                        <input type="checkbox" name="types[]" value="{$item.id}" />
+                    </td>
+                    <td class="ow_txtleft">
+                        {text key="base+authorization_role_`$item.name`"}  
+                    </td>
+                    <td class="ow_nowrap ow_small ow_txtleft">
+                    <ul>
+                        {foreach from=$item.plans item='plan'}
+                            <li>
+                            {if $plan->recurring}
+                                {text key='membership+plan_struct_recurring' currency=$currency price=$plan->price period=$plan->period}
+                            {else}
+                                {text key='membership+plan_struct' currency=$currency price=$plan->price period=$plan->period}
+                            {/if}
+                            </li>
+                        {foreachelse}
+                            {text key='membership+no_plans'}
+                        {/foreach}
+                    </ul>
+                    </td>
+                    <td style="min-width: 40px;">
+                        <a class="ow_lbutton edit_type" style="display: none;" href="{url_for_route for="membership_admin_edit:[id=>`$item.id`]"}">
+                            {text key='admin+btn_label_edit'}
+                        </a>
+                    </td>
+                </tr>
+            {/foreach}
+            <tr class="ow_tr_last">
+                <td>
+                    <input id="check_all" title="{text key='base+check_all'}" type="checkbox" onclick="$('#types tr.type td input:checkbox').attr('checked', $(this).attr('checked') == 'checked' );" />
+                </td>
+                <td colspan="3" class="ow_txtleft">
+                    {decorator name="button_list_item" type="submit" langLabel="membership+delete_selected" buttonName="delete_types" id="btn_delete" class="ow_red"}
+                </td>
+            </tr>
+        </table>
+    </form>
+    {/block_decorator}
+    {/if}
+    
+    {block_decorator name='box' langLabel='membership+add' iconClass='ow_ic_add'}
+    {form name='add-membership-form'}
+        <table class="ow_table_3 ow_stdmargin">
+            <tr class="ow_tr_first">
+                <td class="ow_label" style="width: 30%">{label name='role'}</td>
+                <td class="ow_value">
+                    {input name='role'} 
+                    {capture assign="rolesPageUrl"}{url_for for='ADMIN_CTRL_Users:roles'}{/capture}
+                    <a href="{$rolesPageUrl}">{text key='membership+add_role'}</a>
+                    <br />{error name='role'}
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="ow_center" style="border: 0px;">{text key='membership+create_plan'}</td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+period'}</td>
+                <td class="ow_value">{input name='period' class='ow_settings_input'} {text key='membership+days'}</td>
+            </tr>
+            <tr>
+                <td class="ow_label">{text key='membership+price'}</td>
+                <td class="ow_value">{input name='price' class='ow_settings_input'} {$currency}</td>
+            </tr>
+            <tr class="ow_tr_last">
+                <td class="ow_label">{text key='membership+recurring'}</td>
+                <td class="ow_value">{input name='isRecurring'}</td>
+            </tr>
+        </table>
+        <div class="clearfix"><div class="ow_right">{submit name='save' class='ow_ic_add ow_positive'}</div></div>
+    {/form}
+    {/block_decorator}
+</div>

@@ -1,0 +1,46 @@
+<div style="height: 0;position: relative;"><a style="position: absolute;right:0;top:-65px;width:100px;height:100px;" href="http://oxart.net" target="_blank"><img src="{$oaseoImageUrl}" /></a></div>
+{$contentMenu}
+{text key="oaseo+admin_settings_index_txt"}<br /><br />
+{form name='global_meta_form'}
+	<table class="ow_table_1 ow_form">
+        {*
+	    <tr>
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{text key="oaseo+admin_settings_section_label"}</span>
+	        </th>
+	    </tr>
+        *}
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+            <td class="ow_label">
+	    		{label name='title'}
+	    	</td>
+            <td class="ow_value">
+	    		{input name='title'}
+	    	</td>
+            <td class="ow_desc">{desc name='title'}</td>
+	    </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+            <td class="ow_label">
+	    		{label name='desc'}
+	    	</td>
+            <td class="ow_value">
+	    		{input name='desc'}
+	    	</td>
+            <td class="ow_desc">{desc name='desc'}</td>
+	    </tr>
+        <tr class="{cycle values='ow_alt1, ow_alt2'}">
+            <td class="ow_label">
+	    		{label name='keywords'}
+	    	</td>
+            <td class="ow_value">
+	    		{input name='keywords'}
+	    	</td>
+            <td class="ow_desc">{desc name='keywords'}</td>
+	    </tr>
+	    <tr>
+	    	<td colspan="3" class="ow_center">
+	    		{submit name="submit" class="ow_ic_save"}
+	    	</td>
+	    </tr>
+	</table>
+{/form}

@@ -1,0 +1,12 @@
+Jan 11, 2014 - Favorites plugin build 3
+============
+* Oxwall 1.6 support added
+
+Mobile version support:
+* Mobile link Favorites in sidebar menu
+* Real time notifications implemented
+* Profile view Add to favorites / Remove from favorites button added
+
+Sep 2, 2013 - Favorites plugin build 1
+============
+Initial release

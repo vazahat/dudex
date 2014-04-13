@@ -1,0 +1,152 @@
+{style}{literal}
+.oaseo td.url{
+    width:30%;
+    overflow:auto; 
+    text-align:left;
+}
+{/literal}{/style}
+<div style="height: 0;position: relative;"><a style="position: absolute;right:0;top:-65px;width:100px;height:100px;" href="http://oxart.net" target="_blank"><img src="{$oaseoImageUrl}" /></a></div>
+{$contentMenu}
+
+{if isset($init)}
+{text key='oaseo+sitemap_schedule_label'}
+{elseif !empty($in_process_message)}
+<div class="ow_inprogress" style="background-repeat: no-repeat;background-position: 70% 50%;">
+        <h2>{$in_process_message}</h2><br />
+        <table>
+            <tr>
+                <td>{text key='oaseo+ip_current_page'}</td>
+                <td><b>{$url}</b></td>
+            </tr>
+            <tr>
+                <td>{text key='oaseo+ip_pages_scanned'}</td>
+                <td><b>{$processed}</b></td>
+            </tr>            
+            <tr>
+                <td>{text key='oaseo+ip_pages_left'}</td>
+                <td><b>{$to_process}</b></td>
+            </tr>            
+        </table>
+    </div>
+{else}
+{text key='oaseo+tbl_head_pages_processed'}: {if $counts.pages > 0}<a href="{$urlArray.pages}">{/if}<b>{$counts.pages}</b>{if $counts.pages > 0}</a>{/if}<br />
+{text key='oaseo+tbl_head_broken_links'}: {if $counts.broken_links > 0}<a href="{$urlArray.broken}">{/if}<b>{$counts.broken_links}</b>{if $counts.broken_links > 0}</a>{/if}<br />
+{text key='oaseo+tbl_head_images'}: {if $counts.images > 0}<a href="{$urlArray.images}">{/if}<b>{$counts.images}</b>{if $counts.images > 0}</a>{/if}<br />
+{text key='oaseo+tbl_head_broken_images'}: {if $counts.broken_images > 0}<a href="{$urlArray.broken_images}">{/if}<b>{$counts.broken_images}</b>{if $counts.broken_images > 0}</a>{/if}<br />
+{text key='oaseo+tbl_head_ext_links'}: {if $counts.ext_links > 0}<a href="{$urlArray.ext_links}">{/if}<b>{$counts.ext_links}</b>{if $counts.ext_links > 0}</a>{/if}<br />
+{text key='oaseo+tbl_head_brok_ext_links'}: {if $counts.brok_ext_links > 0}<a href="{$urlArray.broken_ext_links}">{/if}<b>{$counts.brok_ext_links}</b>{if $counts.brok_ext_links > 0}</a>{/if}<br />
+<br />
+{if $list == 'pages'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_pages_processed'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_url_label'}</td>
+    <th>{text key='oaseo+si_title_label'}</th>
+    <th>{text key='oaseo+si_keywords_label'}</th>
+    <th>{text key='oaseo+si_desc_label'}</th>
+</tr>
+{foreach from=$items item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url"><a href="{$item.url}">{$item.url}</a></td>
+        <td>{$item.title}</td>
+        <td>{$item.keywords}</td>
+        <td>{$item.desc}</td>
+    </tr>
+{/foreach}
+</table>
+{elseif $list == 'broken'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_broken_links'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_url_label'}</td>
+    <th>{text key='oaseo+si_referred_url'}</th>
+</tr>
+{foreach from=$items key='key' item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url"><a href="{$key}">{$key}</a></td>
+        <td class="url">
+            {foreach from=$item item='url'}
+            <a href="{$url}">{$url}</a><br />
+            {/foreach}
+        </td>
+    </tr>
+{/foreach}
+</table>
+{elseif $list == 'images'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_images'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_url_image'}</td>
+    <th>{text key='oaseo+si_referred_url'}</th>
+</tr>
+{foreach from=$items key='key' item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url"><img src="{$key}" style="max-width: 400px;" /></td>
+        <td class="url">
+            {foreach from=$item item='url'}
+            <a href="{$url}">{$url}</a><br />
+            {/foreach}
+        </td>
+    </tr>
+{/foreach}
+</table>
+{elseif $list == 'broken_images'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_broken_images'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_url_image'}</td>
+    <th>{text key='oaseo+si_referred_url'}</th>
+</tr>
+{foreach from=$items key='key' item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url">{$key}</td>
+        <td class="url">
+            {foreach from=$item item='url'}
+            <a href="{$url}">{$url}</a><br />
+            {/foreach}
+        </td>
+    </tr>
+{/foreach}
+</table>
+{elseif $list == 'ext_links'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_ext_links'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_link'}</td>
+    <th>{text key='oaseo+si_referred_url'}</th>
+</tr>
+{foreach from=$items key='key' item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url">{$key}</td>
+        <td class="url">
+            {foreach from=$item item='url'}
+            <a href="{$url}">{$url}</a><br />
+            {/foreach}
+        </td>
+    </tr>
+{/foreach}
+</table>
+{elseif $list == 'broken_ext_links'}
+<h2 style="padding-bottom: 15px;letter-spacing: 2px; text-align: right;">{text key='oaseo+tbl_head_brok_ext_links'}</h2>
+<table class="ow_table_2 oaseo">
+<tr class="ow_tr_first">
+    <th>{text key='oaseo+si_link'}</td>
+    <th>{text key='oaseo+si_referred_url'}</th>
+</tr>
+{foreach from=$items key='key' item='item'}
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td class="url">{$key}</td>
+        <td class="url">
+            {foreach from=$item item='url'}
+            <a href="{$url}">{$url}</a><br />
+            {/foreach}
+        </td>
+    </tr>
+{/foreach}
+</table>
+{/if}
+
+{$paging}
+{/if}
+
+

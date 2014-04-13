@@ -1,0 +1,103 @@
+{$menu}
+<div>
+	<div class="clearfix">
+		<div class="ow_right ow_txtright">
+			<form method="GET" action="">
+				<div class="ow_box ow_admin_search_box ow_smallmargin">
+					{text key='yncontactimporter+name'}
+					<input type="text" name="search" id="contacts-search-input" style="width: 280px" value="{$currentSearch}" />
+					{decorator name='button' type="submit" langLabel='yncontactimporter+go'}
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="clearfix ow_smallmargin">
+		<div class="ow_left"> </div>
+		<div class="ow_right">
+			{text key = 'yncontactimporter+found'}: <b>{$totalSearch}</b> {text key = 'yncontactimporter+contacts'}
+		</div>
+	</div>
+	{script}
+		{literal}
+			$("#contacts-search-input").focus();
+		{/literal}
+	{/script}
+	{if $totalSearch > 0}
+	<form method="post" action="" name='openinviter_delete' enctype="application/x-www-form-urlencoded" onsubmit="return check_delete() ">
+	<table class='ow_table_2' style="margin-bottom: 0px">
+		<tbody>
+			<tr class="ow_tr_first">
+				<th style="width: 9%">
+					<input id='checkallBox' type='checkbox' onclick='toggleAll(this)' name='toggle_all' title='{text key='yncontactimporter+select_all'}'>
+				</th>
+				<th style="width: 50%">{text key='yncontactimporter+name'}</th>
+				<th style="width: 10%">{text key='yncontactimporter+provider'}</th>
+				<th> {text key='yncontactimporter+invite_time'}</th>
+			</tr>
+			{foreach from = $contacts item = 'contact'}
+			<tr class="{cycle values='ow_alt1,ow_alt2'}">
+				<td style="width: 9%">
+					<input id='check_{$contact.id}' name='check_{$contact.id}' onclick='check_toggle({$contact.id},false);' value='{$contact.id}' type='checkbox' class='thCheckbox'>
+				</td>
+				<td style="width: 50%; text-align:left;" onclick='check_toggle({$contact.id},true);'> {$contact.name} ({$contact.newId})</td>
+				<td>{$contact.provider}</td>
+				<td> {format_date timestamp=$contact.time}</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	<div style="padding-top: 10px">
+		{decorator class = 'ow_ic_delete' name='button' type="submit" langLabel='yncontactimporter+delete_selected'}
+	{if $paging}
+			<center>{$paging}</center>
+	{/if}
+	</div>
+	</form>
+	{else}
+	<div class="ow_box clearfix ow_center" style="">
+	       {text key = "yncontactimporter+no_contact_search"}
+	</div>
+	{/if}
+</div>
+
+<script type="text/javascript">
+var totalContacts = parseInt('{$totalSearch}');
+function check_toggle(element_id, isCheckBox) 
+{
+	var check_element = document.getElementById('check_'+element_id);
+	if(isCheckBox)
+		check_element.checked = !check_element.checked;
+}
+function toggleAll(element) 
+{
+	$('.thCheckbox').each(function ()
+	{
+		this.checked = element.checked;
+	});
+}
+function check_delete()
+{
+    var limit_select = 0;
+    $('.thCheckbox').each(function ()
+	{
+		if(this.checked)
+		{
+			limit_select ++;
+		}
+	});
+    if (limit_select > 0)
+    {
+    	 if(confirm('{$confirmDeleteSelected}'))
+    	 {
+         	document.getElementById('openinviter_delete').submit();
+         	return true;
+         }
+         return false;
+    }
+    else
+    {
+   		alert('{$warningNoContactSelected}');
+   	}
+    return false;
+}
+</script>

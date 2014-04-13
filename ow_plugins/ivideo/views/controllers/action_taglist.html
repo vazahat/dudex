@@ -1,0 +1,57 @@
+{$menu}
+
+{if isset($isViewAuthorized)}
+<div class="ow_sort_control ow_smallmargin ow_small ow_alt2">
+    <span class="ow_sort_control_label">{text key='ivideo+view_uploaded_videos'}</span>
+    <a href="{$latestList}"><span>{text key='ivideo+view_latest_videos'}</span></a>
+    <a href="{$featuredList}"><span>{text key='ivideo+view_featured_videos'}</span></a>
+    <a href="{$topratedList}"><span>{text key='ivideo+view_toprated_videos'}</span></a>
+    <a href="{$categoryList}"><span>{text key='ivideo+view_category_videos'}</span></a>
+    <a href="{$tagList}" class="active"><span>{text key='ivideo+user_tag_list'}</span></a>
+</div>
+{/if}
+
+{if isset($tag)}
+<div class="clearfix">
+    <div class="ow_left ow_superwide">            
+        <div class="ow_anno ow_std_margin ow_center">
+            {text key='ivideo+tag_search_result'} "<b>{$tag}</b>"
+        </div>
+    </div>
+
+    <div class="ow_right ow_supernarrow">
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='ivideo+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+        <input type="text" class="ow_text" id="video-tag-search-input" />
+        {/block_decorator}
+    </div>
+</div>
+{component class='IVIDEO_CMP_VideoList' type=$listType count=$videosPerRow tag=$tag}
+{else}
+<div class="clearfix">
+    <div class="ow_left ow_superwide">
+        {$tags}
+    </div>
+
+    <div class="ow_right ow_supernarrow">
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='ivideo+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+        <input type="text" class="ow_text" id="video-tag-search-input" />
+        {/block_decorator}
+    </div>
+
+    {if $addItemAuthorized}
+    <div class="ow_right ow_supernarrow">
+        <div class="ow_right">{decorator name='button' class='ow_ic_add' id='btn-add-new-item' langLabel='ivideo+upload_new_video'}</div>
+        {literal}
+        <script>
+            $(function(){
+                $('#btn-add-new-item').click(function(){location.href='{/literal}{url_for_route for="ivideo_upload"}{literal}'})
+            })
+        </script>
+        {/literal}
+    </div>
+    {/if}
+
+</div>
+{/if}

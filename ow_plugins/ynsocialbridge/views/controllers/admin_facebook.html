@@ -1,0 +1,44 @@
+{$menu}
+<div class="ow_automargin">
+{form name="settingsForm"}
+	<table class="ow_table_1 ow_form">
+	    <tr class="ow_tr_first">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{text key="ynsocialbridge+facebook_app_setting"}</span>
+	        </th>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td colspan="3" class="ow_value">{text key="ynsocialbridge+facebook_settings_description"}</td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">{text key="ynsocialbridge+facebook_setting_key"}</td>
+	    	<td class="ow_value">{input name='key' style="width: 100%;"}</td>
+	    	<td class="ow_desc ow_small"> </td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+	    	<td class="ow_label">{text key="ynsocialbridge+facebook_setting_secret"}</td>
+	    	<td class="ow_value">{input name='secret' style="width: 100%;"}</td>
+	    	<td class="ow_desc ow_small"> </td>
+	    </tr>
+	    {if $hasContactimporter}
+	    <tr class="ow_tr_delimiter"><td colspan="3"> </td> </tr>
+	    <tr class="ow_tr_first">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{text key="ynsocialbridge+contactimporter_setting"}</span>
+	        </th>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+	    	<td class="ow_label">{text key="ynsocialbridge+max_invite_day"}</td>
+	    	<td class="ow_value">{input name='max_invite_day'}
+	    		 <div>{error name='max_invite_day'}</div></td>
+	    	<td class="ow_desc ow_small">{text key="ynsocialbridge+facebook_max_invite_description"} </td>
+	    </tr>
+	    {/if}
+	</table>
+    <div class="clearfix ow_submit ow_stdmargin">
+    	<div class="ow_right">
+    	{submit name="submit" class='ow_ic_save ow_positive'}
+    	</div>
+    </div>
+{/form}
+</div>

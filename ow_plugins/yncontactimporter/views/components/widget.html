@@ -1,0 +1,67 @@
+<div id="import_form_homepage">
+    {foreach from = $providers item = "provider"}
+    	{if $provider.name neq 'file CSV'}
+			 {assign var='class' value='logoContact'}
+		{else}
+			{assign var='class' value='logUpload_file'}
+		{/if}
+		<div class="{$class}">
+			<a id ="{$provider.id}" rel="{$provider.name}" title="{$provider.title}" href="javascript:;">
+				<img src='{$provider.logo}' width="{$width}" height = "{$height}">
+			</a>		
+		</div>
+	{/foreach}
+	{if $showMore}
+	<div style="clear:both;width:100%;display:block"> </div>
+	<span style="display:block; text-align: right; padding-right: 8px;	">
+		<a href="{$viewMore}" alt="{text key = 'yncontactimporter+view_all_providers'}" title="{text key = 'yncontactimporter+view_all_providers'}">{text key = 'yncontactimporter+view_more'}</a>
+	</span>
+	{/if}
+</div>
+<div style="clear:both;width:100%;display:block"> </div>
+<script type="text/javascript">
+	$("#import_form_homepage div.logoContact a").on("click", function(e)
+	{ 
+		var providerId = $(this).attr("id");
+		var providerName = $(this).attr("rel");
+		var height = 90;
+		var title = '{$authorization}';
+		var title = "Authorization";
+		var arr_providers = ['facebook','gmail','yahoo','twitter','linkedin', 'hotmail'];
+		var flag = false;
+		for(var i = 0; i < arr_providers.length; i++)
+		{
+			if(providerName == arr_providers[i])
+				flag = true;
+		}
+		if(!flag)
+		{
+			height = 160;
+			title ='{$import_your_contacts}';
+		}
+		var f = providerName.charAt(0).toUpperCase();
+		var name = f + providerName.substr(1);
+		{literal}
+       	OW.ajaxFloatBox("YNCONTACTIMPORTER_CMP_PopupAuthorization", {providerId : providerId} , 
+       	{
+       		width:400, 
+       		height: height, 
+       		iconClass: "ow_ic_user", 
+       		title: name + " " + title
+       	});
+       	{/literal}
+    });
+    $("#import_form_homepage div.logUpload_file a").on("click", function(e)
+	{ 
+		var title ='{$uploadCSVTitle}';
+		{literal}
+	   	OW.ajaxFloatBox("YNCONTACTIMPORTER_CMP_PopupUploadcsv", {providerId: 0} , 
+	   	{
+	   		width:400, 
+	   		height: 90, 
+	   		iconClass: "ow_ic_user", 
+	   		title: title
+	   	});
+	   	{/literal}
+	});
+</script>

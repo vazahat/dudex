@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>OxArt Advanced SEO</name>
+	<key>oaseo</key>
+	<description>Helps to optimize your Oxwall site for Search Engines</description>
+    <author>Sardar Madumarov</author>
+    <authorEmail>madumarov@gmail.com</authorEmail>
+	<authorUrl>http://oxart.net</authorUrl>
+	<developerKey>b6f31c468ff932aba0c1c809fb35a074</developerKey>
+    <build>30</build>
+    <copyright>Copyright (c) 2011 Sardar Madumarov. All rights reserved.</copyright>
+	<license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

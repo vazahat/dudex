@@ -1,0 +1,72 @@
+{style}{literal}
+
+.ow_newsfeed_comments .form_auto_click textarea.invitation {
+height: 20px;
+}
+
+.ow_newsfeed_comments .ow_newsfeed_comment_input {
+height: 50px;
+}
+
+.ow_newsfeed_comments {
+}
+
+{/literal}{/style}
+
+<div id="{$cmpContext}">
+    {if $displayType == 1 || $displayType == 3 || $displayType == 4}
+    <div class="comments_list_cont">
+        {$commentList}
+    </div>
+    {/if}
+    {if isset($form)}
+    <div class="form_auto_click" style='text-align:center;'>
+        {form name="comment-add-`$id`"}
+        <div class="clearfix">
+            <div class="ow_mini_ipc_picture">{decorator name='avatar_item' src=$currentUserInfo.src title=$currentUserInfo.title}</div>
+            <div class="ow_mini_ipc_info">{input name='commentText' class="ow_newsfeed_comment_input"}</div>
+        </div>
+        <div class="ow_submit_auto_click attp-mini-comments">
+            {if !empty($attachments)}
+            <div class="attp-attachments">
+                {$attachments}
+            </div>
+            {/if}
+
+            <div class="clearfix attp-comments-controls">
+              <span style="float: right; padding: 0 10px 4px 15px;" >
+                  {submit name='comment-submit'}
+              </span>
+
+                {if !empty($attachments)}
+                  <span style="float: right;" class="attachments-controls">
+
+                    {*if $configs.attachments_link}
+                        <a class="link EQ_AttachmentLink" href="javascript://" title="{text key='attachments+attchments_link_button_label'}"></a>
+                    {/if}
+
+                    {if $configs.attachments_image}
+                        <a class="image EQ_AttachmentPhoto" href="javascript://" title="{text key='attachments+attchments_photo_button_label'}"></a>
+                    {/if}
+
+                    {if $configs.attachments_video}
+                        <a class="video EQ_AttachmentVideo" href="javascript://" title="{text key='attachments+attchments_video_button_label'}"></a>
+                    {/if*}
+
+                    <a class="link EQ_AttachmentLink" href="javascript://" title="{text key='attachments+attchments_link_button_label'}"></a>
+                    <a class="image EQ_AttachmentPhoto" href="javascript://" title="{text key='attachments+attchments_photo_button_label'}"></a>
+                    <a class="video EQ_AttachmentVideo" href="javascript://" title="{text key='attachments+attchments_video_button_label'}"></a>
+
+                </span>
+                {/if}
+            </div>
+        </div>
+        {/form}
+    </div>
+    {/if}
+    {if $displayType == 2}
+    <div class="comments_list_cont">
+        {$commentList}
+    </div>
+    {/if}
+</div>

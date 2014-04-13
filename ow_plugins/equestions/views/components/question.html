@@ -1,0 +1,72 @@
+{if !empty($noQuestion)}
+<div class="ow_anno ow_nocontent">
+    {text key="equestions+question_not_found"}
+</div>
+{else}
+<div class="questions-question" id="{$uniqId}">
+
+    <div class="q-text ow_stdmargin">
+        {$question.text}
+    </div>
+
+    <div class="q-answers ow_stdmargin">
+        {$answers}
+    </div>
+    <div class="q-info ow_small">
+
+        {capture name="boxCap"}
+            {$questionStatus}
+        {/capture}
+
+        {block_decorator name='box'
+            iconClass="ow_ic_user"
+            langLabel="equestions+question_asked_by"
+            capAddClass="clearfix"
+            capContent=$smarty.capture.boxCap
+            addClass="ow_stdmargin clearfix"}
+
+            <div class="ow_left">
+                {decorator name="mini_ipc" addClass='ow_smallmargin' data=$questionInfo}
+            </div>
+
+            <div class="ow_right">
+
+                {if isset($ask)}
+                    <span class="q-ask-friends">
+                        {decorator name="button" class="ow_ic_user" label=$ask.label onclick=$ask.onClick}
+                    </span>
+                {/if}
+
+                {if isset($follow)}
+                    {if $follow.isFollow}
+                        <span id="{$follow.unfollowId}">
+                            {decorator name="button" class="ow_ic_bookmark" langLabel="equestions+toolbar_unfollow_btn"  onclick=$follow.unfollowClick}
+                        </span>
+
+                        <span id="{$follow.followId}" style="display: none;">
+                            {decorator name="button" class="ow_ic_bookmark" langLabel="equestions+toolbar_follow_btn"  onclick=$follow.followClick}
+                        </span>
+                    {else}
+                        <span id="{$follow.followId}">
+                            {decorator name="button" class="ow_ic_bookmark" langLabel="equestions+toolbar_follow_btn" onclick=$follow.followClick }
+                        </span>
+
+                        <span id="{$follow.unfollowId}" style="display: none;">
+                            {decorator name="button" class="ow_ic_bookmark" langLabel="equestions+toolbar_unfollow_btn" onclick=$follow.unfollowClick }
+                        </span>
+                    {/if}
+                {/if}
+
+            </div>
+
+        {/block_decorator}
+
+    </div>
+
+    {if !empty($comments)}
+    <div class="q-comments">
+       {$comments}
+    </div>
+    {/if}
+</div>
+{/if}

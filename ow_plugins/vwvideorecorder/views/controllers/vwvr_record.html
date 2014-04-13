@@ -1,0 +1,42 @@
+{script}
+{literal}
+document.flag = function(type, id, title, url, langKey){
+    if(typeof(document.addRoleStorage) === 'undefined'){
+        document.storage = [];
+    }
+
+    $.post( '{/literal}{url_for for="BASE_CTRL_Flag:form"}{literal}', {type: type, id: id, title: title, url: url, langKey: langKey}, function(json){
+        if( typeof(json.isFlagged) != 'undefined' ){
+            OW.warning("{/literal}{text key="base+flag_already_flagged"}{literal}");
+            return;
+        }
+
+        document.storage['flag-panel'] = {
+            fb: new OW_FloatBox({$title: '{/literal}{text key='base+flag_as'}{literal}', $contents: json['markup'], width: '315px'})
+        }
+
+        OW.addCss(json.css);
+
+        OW.addScriptFiles(json['include_js'], function(){ 
+            OW.addScript(json['js']);
+        });
+
+    }, 'json');
+}
+{/literal}
+{/script}
+
+{if !$auth_msg}
+
+	<div class="clearfix">
+
+            {block_decorator name='box' type='empty' addClass='ow_vwvr_player ow_stdmargin' toolbar=$toolbar}
+                {component class='VWVR_CMP_VwvrRecorder'}
+            {/block_decorator}
+		   
+		   <div class="ow_vwvr_description ow_stdmargin"></div>
+	</div>
+
+{else}
+    <div class="ow_anno ow_std_margin ow_nocontent">{$auth_msg}</div>
+{/if}

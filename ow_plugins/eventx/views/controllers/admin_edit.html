@@ -1,0 +1,22 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+
+    {form name='categoriesForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr> 
+            <td class="ow_label">{label name="categoryName"}</td>
+            <td class="ow_value">{input name="categoryName"} {error name='categoryName'}</td>
+        </tr>
+        <tr> 
+            <td class="ow_label">{label name="categoryDesc"}</td>
+            <td class="ow_value">{input name="categoryDesc"} {error name='categoryDesc'}</td>
+        </tr>     
+        <tr>
+            <td class="ow_center" colspan="2">{submit name='editCategory' class='ow_button ow_ic_save'}</td>
+        </tr>
+    </table>
+    {/form}
+
+</div>

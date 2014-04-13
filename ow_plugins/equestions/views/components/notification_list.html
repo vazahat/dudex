@@ -1,0 +1,33 @@
+<div class="on-list">
+    {foreach from=$list item="item" name="f"}
+    <div id="notification_{$item.id}" class="ONL_Item onl-item clearfix ow_border {if $smarty.foreach.f.last}onl-last-item{elseif $smarty.foreach.f.first}onl-first-item{/if}">
+        <div class="onl-avatar">
+            {decorator name="avatar_item" class="" data=$item.user}
+        </div>
+        <div class="onl-body">
+            <div class="onl-content-wrap">
+                <div class="onl-string">
+                    <a href="{$item.user.url}">{$item.user.title}</a> {$item.string}
+                </div>
+
+                {if !empty($content)}
+                    <div class="onl-contnet ow_remark">
+                        {$item.content}
+                    </div>
+                {/if}
+            </div>
+            <div class="onl_toolbar ow_small ow_remark">
+                <span class="ow_nowrap">{$item.date}</span>
+                &middot;
+                <a class="ow_nowrap onl_ignore" href="javascript://" onclick="NOTIFICATIONS.ListInstance.ignore({$item.id});">{text key="equestions+notification_ignore"}</a>
+            </div>
+        </div>
+    </div>
+
+    {/foreach}
+
+
+    <div class="onl-nocontent ONL_Empty" {if !empty($list)}style="display: none;"{/if}>
+        {text key="equestions+notifications_no_items"}
+    </div>
+</div>

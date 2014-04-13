@@ -1,0 +1,41 @@
+{$menu}
+<table class='ow_table_2' style="margin-bottom: 0px">
+	<tbody>
+		<tr class="ow_tr_first">
+			<th style="width: 50%">
+				 {text key='yncontactimporter+provider_title'}
+			</th>
+			<th> {text key='yncontactimporter+logo'}</th>
+			<th> {text key='yncontactimporter+enabled_disabled'}</th>
+			<th> {text key='yncontactimporter+order'}</th>
+			<th> {text key='yncontactimporter+options'}</th>
+		</tr>
+		{foreach from = $providers item = 'provider'}
+			<tr class="{cycle values='ow_alt1,ow_alt2'}">
+				<td style="width: 50%">
+					{$provider.title}
+				</td>
+				<td title="{$provider.title}"> <img src="{$provider.logo}" width="50px"/></td>
+				<td> {$provider.enable}</td>
+				<td> {$provider.order}</td>
+				<td> <a class="edit" id="{$provider.id}" href="javascript:;"> {text key='yncontactimporter+edit'}</a></td>
+			</tr>
+		{/foreach}
+	</tbody>
+</table>
+<script type="text/javascript">
+$("a.edit").on("click", function(e)
+{ 
+	var providerId = $(this).attr("id");
+	var title = '{text key = "yncontactimporter+edit_provider"}';
+	{literal}
+   	OW.ajaxFloatBox("YNCONTACTIMPORTER_CMP_PopupEditProvider", {providerId : providerId} , 
+   	{
+   		width:400, 
+   		height: 250, 
+   		iconClass: "ow_ic_user", 
+   		title: title
+   	});
+   	{/literal}
+});
+</script>

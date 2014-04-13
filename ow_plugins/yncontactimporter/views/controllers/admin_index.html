@@ -1,0 +1,55 @@
+{$menu}
+<div class="ow_automargin">
+{form name="settings-form"}
+	<table class="ow_table_1 ow_form">
+	    <tr class="ow_tr_first">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{text key="yncontactimporter+global_settings"}</span>
+	        </th>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+	    	<td class="ow_label">
+	    		{text key="yncontactimporter+settings_contact_per_page"}
+	    	</td>
+	    	<td class="ow_value">
+	    		{input name='contact_per_page'}<br />
+	    		{error name='contact_per_page'}
+	    	</td>
+	    	<td class="ow_desc ow_small">{text key="yncontactimporter+description_max_contacts_per_page"} </td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+	    	<td class="ow_label">
+	    		{text key="yncontactimporter+settings_max_invite_per_times"}
+	    	</td>
+	    	<td class="ow_value">
+	    		{input name='max_invite_per_times'}<br />
+	    		{error name='max_invite_per_times'}
+	    	</td>
+	    	<td class="ow_desc ow_small"> {text key="yncontactimporter+description_max_invite_per_times"}</td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">
+	    		{text key="yncontactimporter+settings_default_invite_message"}
+	    	</td>
+	    	<td class="ow_value">
+	    		{input name='default_invite_message'}<br />
+	    	</td>
+	    	<td class="ow_desc ow_small"> </td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+        <td class="ow_label">{text key='yncontactimporter+logo_size'}</td>
+        <td class="ow_value">
+            {input name='logo_width' class='ow_settings_input'} x
+            {input name='logo_height' class='ow_settings_input'} px 
+            <div>{error name='logo_width'}</div> <div>{error name='logo_height'}</div>
+        </td>
+        <td class="ow_desc ow_small">{text key='yncontactimporter+logo_size_desc'}</td>
+    </tr>
+	</table>
+    <div class="clearfix ow_submit ow_stdmargin">
+    	<div class="ow_right">
+    	{submit name="submit"}
+    	</div>
+    </div>
+{/form}
+</div>

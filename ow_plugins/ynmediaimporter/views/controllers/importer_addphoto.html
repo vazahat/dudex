@@ -1,0 +1,52 @@
+<!-- <div class="PopupOverlay" onclick="history.go(-1);">&nbsp;</div> -->
+<div class="ynmediaimporter_loading_image" style="display:block;">
+</div>
+<div>
+    <center id="message_stage_popup_ajax">
+    	{text key='ynmediaimporter+processing_your_request'}
+    </center>
+</div>
+<div style="width:400px;">&nbsp;</div>
+
+
+<script type="text/javascript">
+$( document ).ready(function() {
+	url_request = '{$scheduler_url}';
+	//$("div.PopupOverlay").prependTo("div.ow_page_wrap");
+   	$.ajax({
+       	url: url_request,
+       	type: 'get',
+       	//timeout: 20000,
+       	success: function(json, text)
+       	{
+       		var str = new String(json);
+       		if (str.indexOf("error") > 0)
+       		{
+       			alert("Your request has been added to the queue.");
+           		window.location.href = "{$callback_url}";
+           		return;
+       		}
+       		else
+       		{
+     			try{
+         			$('#message_stage_popup_ajax').html(json.message);
+             		window.setTimeout('alert("Imported Successfully!");window.location.href = "{$callback_url}";',3000);
+         			
+         		}catch(ex)
+         		{
+         			console.log(ex); 			
+         		}
+       		}
+       	},
+       	error: function (request, status, error) 
+       	{
+       		$('#message_stage_popup_ajax').html('Your request has been added to the queue.');
+       		//window.onbeforeunload = null;
+       		alert("Your request has been added to the queue.");
+       		window.location.href = "{$callback_url}";
+       	}
+	});
+});
+
+	
+</script>

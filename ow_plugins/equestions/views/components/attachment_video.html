@@ -1,0 +1,73 @@
+<div id="{$uniqId}">
+
+    <div class="att-body ATT_PanelBody">
+
+        <div class="av-home AV_Home AV_View">
+
+            <div class="av-youtube av-icon av-ic-youtube AV_YT_SearchHomeInputC clearfix">
+                <div class="ow_left av-youtube-input-c">
+                    <input name="ytQuery" type="text" class="av-youtube-input invitation ATT_Invitatio AV_YT_SearchHomeInput" value="{text key="equestions+attachments_search_video_inv"}" inv="{text key="equestions+attachments_search_video_inv"}" />
+                </div>
+                <a href="javascript://" class="av-icon-button av-yt-icon-button ow_ic_lens AV_YT_SearchHomeBtn"></a>
+            </div>
+
+            <div class="av-delim ow_smallmargin att-legend ow_border">
+                {text key="equestions+attachments_embed_video_inv"}
+            </div>
+
+            <div class="av-embed-c ow_smallmargin">
+                <div class="av-embed av-icon av-ic-embed AV_EmbedHomeC">
+                    <textarea class="ATT_Invitation AV_EmbedHomeInput"></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="av-result AV_Result AV_View" style="display: none;">
+
+        </div>
+
+        <div class="av-my  AV_MyPanel AV_View" style="display: none;">
+            <div class="avm-list clearfix AV_MyPanelList">
+
+            </div>
+            <a style="display: none;" href="javascript://" class="AV_MyPanelListViewMore avm-view-more ow_border">
+                <span class="ow_icon_control avm-more-label AV_MyPanelListViewMoreLabel">
+                    {text key="equestions+attachments_select_my_video_view_more"}
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+
+
+    <div class="att-bottom ow_border clearfix ATT_PanelControls">
+
+        {if $videoActive}
+            <div class="att-switch ow_left">
+                <a class="att-switch-btn ow_icon_control ow_ic_video AV_SwitchToMyVideos" href="javascript://">{text key="equestions+attachments_select_my_video"}</a>
+            </div>
+        {/if}
+
+        <div class="att-controls ow_right">
+
+            <span class="AV_MySave AV_MainControl" style="display: none;">{decorator name="button" class="ow_ic_save" label=$langs.chooseMy}</span>
+
+            <span class="AV_Save AV_MainControl" style="display: none;">{decorator name="button" label=$langs.addVideo}</span>
+
+            {*<span class="AV_AddEmbed AV_MainControl">{decorator name="button" label=$langs.addEmbed}</span>*}
+
+            <span class="AV_YT_SearchBtn AV_MainControl" style="display: none;">{decorator name="button" label=$langs.search}</span>
+
+            <span class="AV_Cancel AV_MainControl" style="display: none;">{decorator name="button" label=$langs.cancel}</span>
+            <span class="AV_Close AV_MainControl">{decorator name="button" label=$langs.close class="ow_ic_delete"}</span>
+        </div>
+
+    </div>
+
+    <div class="ATT_PanelTitle">
+        {text key="equestions+attachments_video_title"}
+    </div>
+
+</div>

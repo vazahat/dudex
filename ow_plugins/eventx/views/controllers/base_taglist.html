@@ -1,0 +1,49 @@
+{if empty($noButton)}<div class="ow_right">{decorator name='button' onclick="window.location='$add_new_url'" class='ow_ic_add' langLabel='eventx+add_new_button_label'}</div>{/if}
+{if !empty($contentMenu)}{$contentMenu}{/if}
+
+{if isset($tag)}
+<div class="clearfix">
+    <div class="ow_left ow_superwide">            
+        <div class="ow_anno ow_std_margin ow_center">
+            {text key='eventx+tag_search_result'} "<b>{$tag}</b>"
+        </div>
+    </div>
+
+    <div class="ow_right ow_supernarrow">
+
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='eventx+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+        <input type="text" class="ow_text" id="item-tag-search-input" />
+        {/block_decorator}
+
+    </div>
+</div>
+<div class="ow_event_list clearfix">
+    <div class="ow_automargin ow_superwide">
+        {if !empty($no_events) }
+        <div class="ow_nocontent">{text key="eventx+no_events_label"}</div>
+        {else}
+        {foreach from=$events key='key' item='event'}
+        {decorator name='ipc' addClass='ow_smallmargin' data=$event infoString="<a href=\"`$event.eventUrl`\">`$event.title`</a>"}
+        {/foreach}
+        <br />
+        {$paging}
+        {/if}
+    </div>
+</div>
+{else}
+<div class="clearfix">
+
+    <div class="ow_left ow_superwide">
+        {$tags}
+    </div>
+
+    <div class="ow_right ow_supernarrow">             
+        {block_decorator name='box_cap' iconClass='ow_ic_tag' langLabel='eventx+tag_search'}{/block_decorator}
+        {block_decorator name='box' addClass='ow_smallmargin'}
+        <input type="text" class="ow_text" id="item-tag-search-input" />
+        {/block_decorator}
+
+    </div>
+</div>
+{/if}

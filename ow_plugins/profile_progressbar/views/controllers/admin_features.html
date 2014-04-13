@@ -1,0 +1,49 @@
+{*
+
+/**
+ * Copyright (c) 2014, Kairat Bakytow
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ */
+ 
+*}
+
+{$menu}
+
+<form action="" method="POST">
+    <table class="ow_table_2">
+        <tr>
+            <th>Features (Key)</th>
+            <th>Count</th>
+        </tr>
+
+        {foreach $availableFeatures as $feature}
+            <tr class="{cycle values="ow_alt1,ow_alt2"}">
+                <td class="ow_label">{text key="profileprogressbar+`$feature`_desc"} ({$feature})</td>
+                <td class="ow_value">
+                    <input type="text" class="profile-progressbar-spinner" name="features[{$feature}]" value="{if !empty($features[$feature])}{$features[$feature]}{else}0{/if}" style="width: 26px;" />
+                </td>
+            </tr>
+        {/foreach}
+        
+        <tr class="{cycle values="ow_alt1,ow_alt2"}">
+            <td class="ow_label">Interval</td>
+            <td class="ow_value">
+                <input type="text" id="progressbar-interval" name="interval" value="{$perDay}" style="width: 26px;" /> day
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2">
+                <span class="ow_button">
+                    <span class=" ow_ic_left_arrow">
+                        <input type="submit" class="ow_ic_ok" id="staffSave" value="Save">
+                    </span>
+                </span>
+            </td>
+        </tr>
+    </table>
+</form>

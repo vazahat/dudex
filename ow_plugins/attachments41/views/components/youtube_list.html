@@ -1,0 +1,27 @@
+{foreach from=$list item="item"}
+<div class="ytl-item clearfix YTL_Item ow_border">
+    <textarea class="YTL_ItemOembed" style="display: none;">{$item.oembed}</textarea>
+
+    <div class="ytl-item-thumb av-thumb ow_border YTL_ItemThumb">
+        <div class="ytl-thumb-overlay av-thumb-overlay"></div>
+        <img src="{$item.thumb}" />
+    </div>
+
+    <div class="ytl-item-video ow_border YTL_ItemVideo" ytvideo="{$item.video}" style="display:none;"></div>
+
+    <div class="ytl-item-content">
+        <div class="ytl-item-title ow_ipc_header ow_small">
+            {$item.title}
+        </div>
+        <div class="ytl-item-description ow_small">
+            {$item.description}
+        </div>
+        <div class="ytl-item-bottom ow_remark ow_small">
+            <span class="ytl-item-duration">{$item.duration} {text key="attachments+attachments_video_duration"}</span>
+            -
+            <span class="ytl-item-date">{$item.date}</span>
+        </div>
+    </div>
+
+</div>
+{/foreach}

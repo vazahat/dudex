@@ -1,0 +1,31 @@
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_tr_first">
+        <th colspan="3" class="ow_name ow_txtleft">
+            <span class="ow_section_icon ow_ic_up_arrow">{text key='ocsaffiliates+payout_list'}</span>
+        </th>
+    </tr>
+    {if $payoutList}
+    <tr class="ow_alt2">
+        <td class="ow_label"><b>{text key='ocsaffiliates+date'}</b></td>
+        <td class="ow_value"><b>{text key='ocsaffiliates+amount_paid'}</b>, <span class="ow_tiny">{$currency}</span></td>
+        {if $adminMode}<td class="ow_value"></td>{/if}
+    </tr>
+    {/if}
+    {foreach from=$payoutList item='p'}
+    <tr class="ow_alt1">
+        <td class="ow_label">{$p->paymentDate|simple_date}</td>
+        <td class="ow_value">{$p->amount}{if $p->method == 'credits'} <span class="ow_tiny">{text key='ocsaffiliates+credits'}</span>{/if}</td>
+        {if $adminMode}
+        <td class="ow_value" width="1">
+            <a class="ow_lbutton ow_mild_red action_delete_payout" href="javascript://" pid="{$p->id}">
+                {text key='ocsaffiliates+delete'}
+            </a>
+        </td>
+        {/if}
+    </tr>
+    {foreachelse}
+    <tr class="ow_alt1">
+        <td colspan="3">{text key='ocsaffiliates+no_payouts_yet'}</td>
+    </tr>
+    {/foreach}
+</table>

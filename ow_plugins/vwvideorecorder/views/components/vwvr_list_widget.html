@@ -1,0 +1,65 @@
+
+{script}
+{literal}
+    $(document).ready(function(){
+        var $tb_container = $(".ow_box_toolbar_cont", $("#vwvr_list_widget").parents('.ow_box, .ow_box_empty').get(0));
+
+        $("#vwvr-widget-menu-featured").click(function(){
+            $tb_container.html($("div#vwvr-widget-toolbar-featured").html());
+        });
+
+        $("#vwvr-widget-menu-latest").click(function(){
+            $tb_container.html($("div#vwvr-widget-toolbar-latest").html());
+        });
+
+        $("#vwvr-widget-menu-toprated").click(function(){
+            $tb_container.html($("div#vwvr-widget-toolbar-toprated").html());
+        });
+    });
+{/literal}
+{/script}
+
+<div id="vwvr_list_widget">
+    
+    {capture assign='nocontent'}
+       <div class="ow_nocontent">{text key='vwvr+no_vwvr'}</div>
+    {/capture}
+
+	<div id="{$items.latest.contId}">
+	{if $showTitles}
+	   {foreach from=$latest item='c' name='clips'}
+	   <div class="clearfix ow_smallmargin">
+            <div class="ow_other_video_thumb ow_left">
+                <a href="{url_for_route for="vwview_clip_vr:[id=>`$c.id`]"}">
+                    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+                </a>
+            </div>
+            <div class="ow_other_video_item_title ow_small">
+                <a href="{url_for_route for="vwview_clip_vr:[id=>`$c.id`]"}">{$c.room_name}</a> <br>
+			</div>
+	   </div>
+	   {foreachelse}
+          {$nocontent}
+	   {/foreach}
+	{else}
+	<div class="clearfix ow_center">
+	{foreach from=$latest item='c' name='clips'}
+		{if $smarty.foreach.clips.iteration == 1}
+		   <div class="ow_smallmargin">{$c.code}</div>
+		{else}
+			<a class="ow_other_video_floated" href="{url_for_route for="vwview_clip_vr:[id=>`$c.id`]"}" title="{$c.room_name}">
+			    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+			</a>
+		{/if}
+    {foreachelse}
+        {$nocontent}		
+	{/foreach}
+	</div>
+	{/if}	
+	</div>
+		
+	{if $latest}<div id="vwvr-widget-toolbar-latest" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.latest}</div>{/if}
+    {if $featured}<div id="vwvr-widget-toolbar-featured" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.featured}</div>{/if}  
+    {if $toprated}<div id="vwvr-widget-toolbar-toprated" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.toprated}</div>{/if}
+    
+</div>

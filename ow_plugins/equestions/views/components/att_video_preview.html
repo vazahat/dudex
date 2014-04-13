@@ -1,0 +1,17 @@
+{if empty($oembed.thumbnail_url)}
+<div class="av-result-preview">
+    {$oembed.html}
+</div>
+{else}
+<div class="att-attachment av-attachment">
+    <div class="att-video">
+        <a href="javascript://" class="ATT-Video-Thumb ow_border att-thumb av-item-thumb av-thumb" onclick="ATTACHMENTS.playVideoCallback(this);">
+            <div class="av-thumb-overlay"></div>
+            <img src="{$oembed.thumbnail_url}" />
+        </a>
+        <div class="ATT-Video-Player att-video-view" style="display: none;">
+            <textarea style="display: none;">{$oembed.html}</textarea>
+        </div>
+    </div>
+</div>
+{/if}

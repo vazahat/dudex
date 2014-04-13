@@ -1,0 +1,4 @@
+[22-Jan-2012 19:20:58] PHP Warning:  mkdir() [<a href='function.mkdir'>function.mkdir</a>]: File name too long in /home/devcamho/public_html/vc/vw_files.php on line 19
+[22-Jan-2012 19:20:58] PHP Warning:  opendir(uploads/asldjflsakjfalskjflaksjfaijfasjflksajfldsajfalskdfjlksajfa aldskjflasjdf laks flaskjflaksjfalskjfa lsdfjsa dfjasl kdflkasjd flajsfieja lja lkfdj adsfaje jalksjfj jljfajf jflkajsfaieji ajciaeija fsaja difjajefjalksjfaijd adsfja fsdjfiaej aisejf aijf a sjefijasifj asejfiasje faijsef aisejf ijesaf) [<a href='function.opendir'>function.opendir</a>]: failed to open dir: File name too long in /home/devcamho/public_html/vc/vw_files.php on line 22
+[22-Jan-2012 19:20:58] PHP Warning:  readdir(): supplied argument is not a valid Directory resource in /home/devcamho/public_html/vc/vw_files.php on line 24
+[22-Jan-2012 19:20:58] PHP Warning:  closedir(): supplied argument is not a valid Directory resource in /home/devcamho/public_html/vc/vw_files.php on line 28

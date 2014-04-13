@@ -1,0 +1,28 @@
+<div id="update_form">
+{form name='update-question-form'}
+    <table class="ow_table_3 ow_nomargin">
+        <tr>
+            <td class="ow_label" style="width: 10%">{label name='question'}</td>
+            <td class="ow_value">{input name='question'}</td>
+        </tr>
+        <tr>
+            <td class="ow_label">{label name='answer'}</td>
+            <td class="ow_value">{input name='answer'}</td>
+        </tr>
+        <tr>
+            <td class="ow_label">{label name='isFeatured'}</td>
+            <td class="ow_value">{input name='isFeatured'}</td>
+        </tr>
+        {if $categories}
+        <tr>
+            <td class="ow_label">{label name='category'}</td>
+            <td class="ow_value">{input name='category'}</td>
+        </tr>
+        {/if}
+        <tr>
+            <td class="ow_label"></td>
+            <td class="ow_value" style="border: none;">{submit name='update' class='ow_ic_save'}</td>
+        </tr>
+    </table>
+{/form}
+</div>

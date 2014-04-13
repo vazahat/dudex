@@ -1,0 +1,47 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package uheader.views
+ *}
+
+<ul class="ow_bl ow_profile_action_toolbar clearfix ow_small">
+    {foreach from=$toolbar item='action'}
+        <li>
+            <a {$action.attrs} >
+                {$action.label}
+            </a>
+        </li>
+    {/foreach}
+    
+    {foreach from=$groups item="group"}
+        <li class="uh-at-more-wrap">
+            <div class="uh-at-more">
+                <a href="javascript://">
+                    <span class="ow_context_more">{$group.label}</span>
+                </a>
+            </div>
+            <div class="uh-at-more-body">
+
+                {block_decorator name="tooltip"}
+
+                    {foreach from=$group.toolbar item='action'}
+                        <a {$action.attrs} >
+                            {$action.label}
+                        </a>
+                    {/foreach}
+
+                {/block_decorator}
+            </div>
+        </li>
+    {/foreach}
+</ul>
+
+{$cmpsMarkup}

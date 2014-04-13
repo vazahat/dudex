@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Video Uploader - Redesigned</name>
+    <key>ivideo</key>
+    <description>Members can upload videos to your site. Full support for mp4,flv. Limited support for other formats. Video player supports all browsers and devices. Video,VideoPlus plugin integaration with new tab. Supports categories, full screen player, Tags, Comments, Rating, Role based permission, Privacy settings.</description>
+    <author>Purusothaman Ramanujam</author>
+    <authorEmail>purushoth.r@gmail.com</authorEmail>
+    <authorUrl>http://www.iYaffle.com</authorUrl>
+    <developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+    <build>7</build>
+    <copyright>(C) 2013 Purusothaman Ramanujam. All rights reserved.</copyright>
+    <license>http://www.iYaffle.com</license>
+    <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>

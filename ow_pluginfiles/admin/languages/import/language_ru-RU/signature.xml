@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="signature" label="Forum Signature" language_tag="ru-RU" language_label="Russia"><key name="admin_save_fail"/><key name="admin_save_ok"/><key name="auth_action_label_add"/><key name="auth_group_label"/><key name="forum_signature_title"/><key name="user_save_signature"/><key name="user_signature"/><key name="user_signature_settings"/></prefix>

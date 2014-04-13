@@ -1,0 +1,49 @@
+{script}{literal}
+
+$('#photo_share_check').click(function(){
+    $('#default_album_name')[this.checked ? "show" : "hide"]();
+});
+
+{/literal}{/script}
+
+{form name='configForm'}
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_script">{text key='attachments+content_share_section'}</span>
+            </th>
+        </tr>
+        {if $plugins.video}
+        <tr class="{cycle name="attachments" values="ow_alt1,ow_alt2"}">
+            <td class="ow_label">{text key='attachments+config_video_share'}</td>
+            <td class="ow_value">{input name='video_share'} {error name='video_share'}</td>
+            <td class="ow_desc">{text key='attachments+config_video_share_desc'}</td>
+        </tr>
+        {/if}
+
+        {if $plugins.links}
+        <tr class="{cycle name="attachments" values="ow_alt1,ow_alt2"}">
+            <td class="ow_label">{text key='attachments+config_link_share'}</td>
+            <td class="ow_value">{input name='link_share'} {error name='link_share'}</td>
+            <td class="ow_desc">{text key='attachments+config_link_share_desc'}</td>
+        </tr>
+        {/if}
+
+        {if $plugins.photo}
+        <tr class="{cycle name="attachments" values="ow_alt1,ow_alt2"}">
+            <td class="ow_label">{text key='attachments+config_photo_share'}</td>
+            <td class="ow_value">{input name='photo_share'} {error name='photo_share'}</td>
+            <td class="ow_desc">{text key='attachments+config_photo_share_desc'}</td>
+        </tr>
+
+        <tr class="ow_tr_last {cycle name="attachments" values="ow_alt1,ow_alt2"}" id="default_album_name" {if !$photoShare}style="display: none;"{/if}>
+            <td class="ow_label">{text key='attachments+config_photo_album_name'}</td>
+            <td class="ow_value">{input name='photo_album_name'} {error name='photo_album_name'}</td>
+            <td class="ow_desc">{text key='attachments+config_photo_album_name_desc'}</td>
+        </tr>
+        {/if}
+
+    </table>
+    <div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div></div>
+{/form}
+

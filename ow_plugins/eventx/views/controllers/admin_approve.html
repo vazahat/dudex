@@ -1,0 +1,15 @@
+{$menu}
+
+<div class="ow_event_list clearfix">
+    <div class="ow_automargin ow_superwide">
+        {if !empty($no_events) }
+        <div class="ow_nocontent">{text key="eventx+no_events_label"}</div>
+        {else}
+        {foreach from=$events key='key' item='event'}
+        {decorator name='ipc' addClass='ow_smallmargin' data=$event infoString="<a href=\"`$event.eventUrl`\">`$event.title`</a>"}
+        {/foreach}
+        <br />
+        {$paging}
+        {/if}
+    </div>
+</div>

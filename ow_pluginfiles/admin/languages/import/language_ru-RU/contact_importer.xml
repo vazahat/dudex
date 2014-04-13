@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="contact_importer" label="Contact Importer" language_tag="ru-RU" language_label="Russia"><key name="admin_plugin_settings_heading"><value>Настройки</value></key><key name="admin_settings_updated"><value>Настройки обновлены</value></key><key name="facebook_api_key"><value>Ключ API</value></key><key name="facebook_app_secret"><value>Секретный код</value></key><key name="facebook_app_settings"><value>Facebook - настройки приложения</value></key><key name="facebook_how_to_config"><value>Инструкции по настройке</value></key><key name="facebook_inv_action"><value>Пригласите своих друзей на сайт {$site_name}</value></key><key name="facebook_inv_text"><value>&lt;fb:name uid='{$fb_id}' useyou='false' /&gt; является членом SocialToo.com и хотели бы поделиться этим опытом с вами. Чтобы зарегистрироваться, просто нажмите на кнопку "Регистрация" ниже. &lt;fb:req-choice url='{$joinUrl}' label='Регистрация' /&gt;</value></key><key name="feedback_added_to_friends"><value>Запрос дружбы отправлен</value></key><key name="feedback_invitation_sent"><value>Приглашения отправлены</value></key><key name="invite_subject"><value>{$displayname}, пришел вместе со мной на {$site_name}</value></key><key name="invite_template_html"><value>&lt;p&gt;&#13;
+Привет,&lt;/p&gt;&#13;
+&lt;p&gt;&#13;
+Давай на {$site_name} сайт, я уже там.&lt;br /&gt;&#13;
+{$joinlink}&#13;
+&lt;/p&gt;&#13;
+&lt;p&gt;&#13;
+&lt;a href="{$userlink}"&gt;{$displayname}&lt;/a&gt; ({$useremail})&#13;
+&lt;/p&gt;</value></key><key name="invite_template_text"><value>Привет,&#13;
+&#13;
+Давай на {$site_name} сайт, я уже там.&#13;
+{$joinlink}&#13;
+&#13;
+{$displayname} ({$useremail})&#13;
+Мой профиль: {$userlink}</value></key><key name="msg_select_emails"><value>Пожалуйста, выберите по крайней мере один адрес электронной почты</value></key><key name="page_add_additional_info"><value>Мы пошлем запросы о дружбе от вашего имени, следующим пользователям:</value></key><key name="page_add_block_cap"><value>Добавить зарегистрированных пользователей как друзей</value></key><key name="page_add_checked"><value>Проверено:</value></key><key name="page_invite_additional_info"><value>Мы вышлем приглашения от Вашего имени на следующие адреса электронной почты:</value></key><key name="page_invite_block_cap"><value>Отправить приглашения</value></key><key name="page_invite_custom_message"><value>Пользовательские приглашение (необязательно)</value></key><key name="page_invite_send"><value>Отправить</value></key><key name="save_btn_label"><value>Сохранить</value></key><key name="skip"><value>Перейти</value></key><key name="widget_title"><value>Пригласить друзей</value></key><key name="yahoo_app_id"><value>Application ID</value></key><key name="yahoo_app_settings"><value>Yahoo - настройки приложения</value></key><key name="yahoo_consumer_key"><value>Consumer Key</value></key><key name="yahoo_consumer_secret"><value>Consumer Secret</value></key><key name="yahoo_domain_verification_file"><value>Проверка названия файла</value></key><key name="yahoo_how_to_config"><value>Инструкции по настройке</value></key></prefix>

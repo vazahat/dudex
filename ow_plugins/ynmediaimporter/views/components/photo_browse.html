@@ -1,0 +1,56 @@
+{if ($item_count > 0) }
+
+	{if (!isset($params.noControl)) }
+	<div class="ynmediaimporter-control-area">
+	    <div class="ynmediaimporter-control-action">
+	        {if ($userId)}
+	        <a href="javascript:void(0);" onclick="YnMediaImporter.importMedia();" class="buttonlink ynmediaimporter_link_import ow_ic_save" id="ynmediaimporter_btn_import_selected">{text key="ynmediaimporter+text_import_selected"}</a>
+	        <a href="javascript:void(0);" onclick="YnMediaImporter.refresh(1);" class="buttonlink ynmediaimporter_link_import ow_ic_picture">{text key="ynmediaimporter+text_refresh"}</a>
+	        <a href="javascript:void(0);" onclick="YnMediaImporter.selectAll();" class="buttonlink ynmediaimporter_link_selectall ow_ic_add">{text key="ynmediaimporter+text_select_all"}</a>
+	        <a href="javascript:void(0);" onclick="YnMediaImporter.unselectAll();" class="buttonlink ynmediaimporter_link_unselectall ow_ic_delete">{text key="ynmediaimporter+text_unselect_all"}</a>
+	        {/if} 
+	     </div>
+	     <div style="clear:both;"></div>
+	</div>
+	{/if}
+	
+	{foreach from=$items item=i}
+		<div class="ynimporter-photo-wrapper">
+		    <div>
+		        <div class="ynimporter-photo-thumb-wrapper">
+		                <div class="ynimporter-photo-thumb-stager" >
+		                    <i style="background-image: url({$i.src_thumb})"></i>
+		                </div>
+		        </div>
+		        
+		        <div class="ynimporter-fly-action">
+		            {if ($userId) }
+			            <div><input 
+			            	{if ( $i.status ) }
+			                    class="ynmediaimporter_imported" disabled="disabled"
+			                {else}
+			                    class="ynmediaimporter_checkbox"
+			                {/if}
+						 	 data-cache='{$i.json}' type="checkbox" name="ynmediaimporter[]" value="{$i.id}" provider="{$i.provider}"  media="{$i.media}"  />{$i.status_text}</div>
+		            {/if}
+		        </div>
+		        
+		        
+		    </div>
+		</div>
+	{/foreach}
+
+<div class="ynmeidaimporter_result_holder">
+        <div style="clear:both"></div>
+        {if ($params.limit == $item_count)}
+	        <div class="feed_viewmore" id="feed_viewmore">
+	            <a onclick='YnMediaImporter.viewMore({$params_json});' href="javascript:void(0);" id="feed_viewmore_link" class="buttonlink icon_viewmore">{text key="ynmediaimporter+text_view_more"}</a>
+	        </div>
+     	{/if}
+</div>
+{else}
+    <div class="ynmeidaimporter_result_holder">
+        <div style="clear:both"></div>
+   		{text key="ynmediaimporter+text_no_more_photos_found"}
+    </div>
+{/if}

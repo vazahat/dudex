@@ -1,0 +1,42 @@
+<table id="logTable" class="tablesorter"> 
+    <thead> 
+        <tr> 
+            <th>{text key='credits+date'}</th>         
+            <th>{text key='credits+activity'}</th> 
+            <th>{text key='credits+credits'}</th> 
+            <th>{text key='credits+received_from_user'}</th>             
+            <th>{text key='credits+sent_to_user'}</th> 
+            <th>{text key='credits+action'}</th> 
+        </tr> 
+    </thead> 
+    <tbody> 
+
+        {foreach from=$logs item=log}
+        <tr>
+            <td>{format_date timestamp=$log.logTimestamp}</td>        
+            <td>{$log.actionTitle}</td> 
+            <td>{$log.amount}</td> 
+            <td><a href="{$log.senderUserUrl}" target="_blank">{$log.senderUserName}</a></td>             
+            <td><a href="{$log.receiverUserUrl}" target="_blank">{$log.receiverUserName}</a></td> 
+            <td><a href="{$log.revertUrl}" onclick="return confirm('{text key="base+are_you_sure"}');" style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_delete"></a></td>            
+        </tr>
+        {foreachelse}
+        <tr>
+            <td colspan="6"><center>{text key='credits+no_credit_logs'}</center></td> 
+        </tr>
+        {/foreach}
+
+    </tbody> 
+</table> 
+
+{$paging}
+
+{script}
+{literal}
+$(document).ready(function() 
+{ 
+$("#logTable").tablesorter(); 
+} 
+); 
+{/literal}
+{/script}

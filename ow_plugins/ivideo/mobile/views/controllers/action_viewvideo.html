@@ -1,0 +1,57 @@
+{if !$authMsg}
+<div class="clearfix">
+
+    <center>      
+        {if $videoType EQ 'mp4' || $videoType EQ 'flv'}
+        <video id="video{$item->id}" poster="" class="video-js vjs-default-skin" controls preload="none" width="{$videoWidth}" height="{$videoHeight}" data-setup="{}" >
+            <source src="{$getUserFilesUrl}{$item->filename}" type="video/mp4" codecs="avc1.42E01E, mp4a.40.2" />
+        </video>
+        {else}
+        <a class="media"  href="{$getUserFilesUrl}{$item->filename}" ></a>
+        {/if}
+
+        <br/>
+        {block_decorator name='box' type='empty' toolbar=$toolbar} {/block_decorator}
+        <br/>
+        <p>{$item->description}</p> <br/>
+    </center>
+
+    {block_decorator name='box_cap' iconClass='ow_ic_video' langLabel='ivideo+video_info'}{/block_decorator}
+    {block_decorator name='box' addClass='ow_small ow_stdmargin'}
+    <table class="ow_table_3 ow_nomargin">
+        <tr>
+            <td class="ow_label">{text key='base+by'}</td>
+            <td>{if $username && $displayName}{user_link username=$username name=$displayName}{else}{$displayName}{/if}</td>
+        </tr>
+        <tr>
+            <td class="ow_label">{text key='ivideo+added'}</td>
+            <td>{format_date timestamp=$item->timestamp}</td>
+        </tr>
+        <tr>
+            <td class="ow_label">{text key='ivideo+category'}</td>
+            <td>
+                {foreach from=$categoryList item=category}
+                {$category}<br/>
+                {/foreach}
+            </td>
+        </tr>
+    </table>
+    {/block_decorator}
+    {$tagCloud}
+
+</div>
+
+{$comments}
+
+{if $videoType NE 'mp4' && $videoType NE 'flv'}
+{script}
+{literal}
+$(document).ready(function() {
+$('.media').media({ flvPlayer:'{/literal}{$jsURL}{literal}mediaplayer.swf' , width: {/literal}{$videoWidth}{literal}, height:{/literal}{$videoHeight}{literal} });
+});      
+{/literal}
+{/script}
+{/if}
+{else}
+<div class="ow_anno ow_std_margin ow_nocontent">{$authMsg}</div>
+{/if}

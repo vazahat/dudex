@@ -1,0 +1,50 @@
+{style}
+{literal}
+    .ow_faq_question { cursor: pointer; }
+    .ow_faq_collapsed { display: none; }
+{/literal}
+{/style}
+
+{script}
+{literal}
+    $(".ow_faq_question").click(function(){
+    	var $box = $(this).closest(".ow_faq_answer").find(".ow_box");
+    	if ( $box.hasClass("ow_faq_collapsed") ) {
+    		$box.removeClass("ow_faq_collapsed");
+    	}
+    	else {
+    		$box.addClass("ow_faq_collapsed");
+    	}	
+    });
+{/literal}
+{/script}
+
+{if $catAssigned}
+    {foreach from=$questions item='category' key='id'}
+        <div class="ow_smallmargin"><b>{$category.name}</b></div>
+        {foreach from=$category.questions item='q'}
+		    <div class="ow_stdmargin" style="padding-left: 15px;">
+		        {capture assign='boxClass'}{if !$expand}ow_faq_collapsed{/if}{/capture}
+		        {capture assign='question'}<div id="q-{$q->id}" class="ow_faq_question">{$q->question}</div>{/capture}
+		        <div class="ow_faq_answer ow_small">
+		        {block_decorator name='box' addClass=$boxClass label=$question}
+		            <div class="clearfix">{$q->answer}</div>
+		        {/block_decorator}
+		        </div>
+		    </div>
+        {/foreach}        
+    {/foreach}
+{else}
+	{foreach from=$questions item='q'}
+	    {capture assign='label'}{$q->question}{/capture}
+	    <div class="ow_stdmargin">
+	        {capture assign='boxClass'}{if !$expand}ow_faq_collapsed{/if}{/capture}
+	        {capture assign='question'}<div id="q-{$q->id}" class="ow_faq_question">{$q->question}</div>{/capture}
+	        <div class="ow_faq_answer ow_small">
+	        {block_decorator name='box' addClass=$boxClass label=$question}
+	            <div class="clearfix">{$q->answer}</div>
+	        {/block_decorator}
+	        </div>
+	    </div>
+	{/foreach}
+{/if}

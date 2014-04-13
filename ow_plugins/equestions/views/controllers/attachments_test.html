@@ -1,0 +1,39 @@
+{*$cmp*}
+
+
+<a href="javascript://" id="click">click</a>
+
+{script}{literal}
+
+$('#click').click(function()
+{
+    var ull = new UI.UserSelectorLuncher();
+
+    ull.bind('show', function(){
+        console.log('show');
+    });
+
+    ull.bind('load', function(){
+        console.log('load');
+    });
+
+    ull.bind('close', function(){
+        console.log('close');
+    });
+
+    ull.bind('save', function(e){
+        this.close();
+    });
+
+    ull.bind('select', function(e){
+        console.log(e);
+    });
+
+    ull.bind('deselect', function(e){
+        console.log(e);
+    });
+
+    ull.show();
+});
+
+{/literal}{/script}

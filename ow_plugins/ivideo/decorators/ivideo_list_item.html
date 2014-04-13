@@ -1,0 +1,46 @@
+{style}
+{literal}
+.ow_video_list_item {
+float: left;
+height: 185px !important;
+max-height: 185px !important;
+padding: 10px;
+width: 150px !important;
+background: url("") no-repeat scroll 0 0 transparent !important;
+}
+
+.ow_video_list .ow_alt1, .ow_video_list .ow_alt2 {
+padding: 15px 0 24px 5px !important;
+}
+
+.ow_video_thumb, .ow_video_list_item img {
+    height: 90px;
+    width: 120px;
+}
+.ow_video_thumb {
+    background: url("{/literal}{$data.defaultThumb}{literal}") no-repeat scroll center center rgba(0, 0, 0, 0) !important;
+    display: block;
+}
+
+.vjs-default-skin .vjs-big-play-button {
+left: 50%!important;
+margin: -4em 0 0 -6em!important;
+top: 50%!important;
+}
+{/literal}
+{/style}
+
+<div class="ow_video_list_item ow_small{if isset($data.set_class)} {$data.set_class}{/if}">
+
+    {capture name='url'}{url_for_route for="ivideo_view_video:[id=>`$data.id`]"}{/capture}
+{if $data.imageFile eq 'NULL'}
+<a class="ow_video_thumb" href="{$smarty.capture.url}"></a>
+{else}
+    <a href="{$smarty.capture.url}"> <img src="{$data.getUserFilesUrl}{$data.imageFile}.png"/></a>
+{/if}
+    {if $data.listType == 'toprated'}<div class="ow_video_item_rate">{if $data.score}{display_rate avg_rate=$data.score}{/if}</div>{/if}
+    <div class="ow_video_item_title"><a href="{$smarty.capture.url}">{$data.name}</a></div>
+    {text key='base+by'} {user_link username=$data.username name=$data.displayName}
+
+
+</div>

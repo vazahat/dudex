@@ -1,0 +1,10 @@
+{if !empty($vars.status)}<div class="ow_newsfeed_body_status">{$vars.status}</div>{/if}
+
+<div class="ow_newsfeed_large_image clearfix ai-attachment">
+    <div class="ow_newsfeed_item_picture">
+        <a class="att-thumb ai-item" {if empty($vars.url)}href="{$vars.image}" onclick="ATTP.showImageCallback(this.href); return false;"{else}href="{$vars.url}"{/if}>
+            <img src="{$vars.image}" style="max-width: 100%;">
+        </a>
+    </div>
+</div>
+

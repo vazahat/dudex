@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="mutualfriends" label="Mutual Friends Widget" language_tag="ru-RU" language_label="Russia"><key name="mutual_friends_count"/><key name="show_mutual_count"/><key name="user_friends_page_heading"/><key name="user_friends_page_title"/><key name="user_widget_empty"/><key name="user_widget_settings_count"/><key name="user_widget_title"/></prefix>

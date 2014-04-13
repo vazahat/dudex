@@ -1,0 +1,8 @@
+
+<form id="{$formId}" action="{$fields.formActionUrl}" method="post">
+    <input type="hidden" name="itemName" value="{$sale->entityDescription}" />
+    <input type="hidden" name="amount" value="{$sale->totalAmount}" />
+    <input type="hidden" name="currency" value="{$sale->currency}" />    
+    <input type="hidden" name="custom" value="{$sale->hash}">   
+    <input type="hidden" name="transId" value="{$sale->id}">
+</form>

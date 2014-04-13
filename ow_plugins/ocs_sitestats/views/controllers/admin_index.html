@@ -1,0 +1,41 @@
+
+<div class="clearfix">
+    <div class="ow_right ow_stdmargin"><a href="http://oxcandystore.com/?plugin=ocs-sitestats"><img src="{$logo}" /></a></div>
+</div>
+
+<div class="clearfix">
+    <div class="ow_left ow_wide">
+    {block_decorator name='box' langLabel='ocssitestats+metrics' iconClass='ow_ic_info'}
+    <form method="post">
+    <input type="hidden" name="action" value="update_metrics" />
+    <table class="ow_table_2" style="margin: 0px;">
+        {foreach from=$metrics item='m' key='key'}
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label" width="10%">
+                <input type="checkbox" {if !$pluginsActivated[$key]}disabled{/if} name="metrics[{$key}]" value="1" {if $m == 1 && $pluginsActivated[$key]}checked="checked"{/if} />
+            </td>
+            <td class="ow_value ow_txtleft{if !$pluginsActivated[$key]} ow_remark{/if}">{text key="ocssitestats+`$key`"}</td>
+            <td class="ow_value ow_small ow_remark" width="15%">{if !$pluginsActivated[$key]}{text key='ocssitestats+inactive'}{/if}</td>
+        </tr>
+        {/foreach}
+        <tr class="ow_alt{cycle values='1,2'}"><td colspan="3">{decorator name='button' type='submit' langLabel='ocssitestats+update'}</td></tr>
+    </table>
+    </form>
+    {/block_decorator}
+    </div>
+    
+    <div class="ow_right ow_narrow">
+    {block_decorator name='box' langLabel='ocssitestats+settings' iconClass='ow_ic_gear_wheel'}
+    <form method="post">
+    <input type="hidden" name="action" value="update_settings" />
+    <table class="ow_table_2" style="margin: 0px;">
+        <tr class="ow_alt1">
+            <td class="ow_label" width="10%"><input type="checkbox" name="zero_values" value="1" {if $zeroValues} checked="checked"{/if} /></td>
+            <td class="ow_value">{text key="ocssitestats+zero_values"}</td>
+        </tr>
+        <tr><td colspan="2">{decorator name='button' type='submit' langLabel='ocssitestats+update'}</td></tr>
+    </table>
+    </form>
+    {/block_decorator}
+    </div>
+</div>

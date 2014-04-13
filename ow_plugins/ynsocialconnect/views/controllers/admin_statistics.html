@@ -1,0 +1,39 @@
+{$menu}
+
+{style}
+{literal}
+tr.placeholder td{
+	border: 1px dashed grey;
+	height: 35px;
+	width: 100%;
+}
+
+{/literal}
+{/style}
+
+
+<div class="ow_automargin ow_superwide">
+	<table id="providers" class="ow_table_2 ow_form ow_stdmargin ow_center">
+	        <tr class="ow_tr_first">
+	            <th>{text key='ynsocialconnect+txt_provider'}</th>
+	            <th width="100">{text key='ynsocialconnect+txt_total_signup'}</th>
+	            <th width="100">{text key='ynsocialconnect+txt_total_login'}</th>
+	        </tr>
+	        
+	        {foreach name="providers" from=$providers item='item'}
+	        	{assign var='providerId' value=$item->id}
+	        	<tr class="{cycle values='ow_alt1, ow_alt2'} provider">
+				<td class="ow_txtleft">
+					{$item->getTitle()}
+				</td>
+        			<td class="ow_nowrap">
+        				{$item->getTotalSignup()}
+				</td>
+        			<td class="ow_nowrap">
+        				{$item->getTotalLogin()}
+				</td>
+        		</tr>
+	        {/foreach}
+	        
+	</table>
+</div>

@@ -1,0 +1,66 @@
+{if $avaliable}
+
+{form name='MCOMPOSE_ConfigForm'}
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='mcompose+admin_main_settings_title'}</span>
+        </th>
+    </tr>
+
+    <tr class="ow_alt1">
+        <td class="ow_label">{text key="mcompose+admin_max_users_label"}</td>
+        <td class="ow_value">{input name='max_users'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+
+</table>
+
+{if !empty($activeFeatures)}
+
+<table class="ow_table_1 ow_form">
+    <tr>
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_mail">{text key='mcompose+admin_features_settings_title'}</span>
+        </th>
+    </tr>
+
+    {if $features.friends}
+    <tr class="ow_alt1">
+        <td class="ow_label">{text key="mcompose+admin_friends_enabled_label"}</td>
+        <td class="ow_value">{input name='friends_enabled'}</td>
+        <td class="ow_desc ow_small">{text key="mcompose+admin_friends_enabled_description"}</td>
+    </tr>
+    {/if}
+    
+    {if $features.groups}
+    <tr class="ow_alt2">
+        <td class="ow_label">{text key="mcompose+admin_groups_enabled_label"}</td>
+        <td class="ow_value">{input name='groups_enabled'}</td>
+        <td class="ow_desc ow_small">{text key="mcompose+admin_groups_enabled_description"}</td>
+    </tr>
+    {/if}
+    
+    {if $features.events}
+    <tr class="ow_alt1">
+        <td class="ow_label">{text key="mcompose+admin_events_enabled_label"}</td>
+        <td class="ow_value">{input name='events_enabled'}</td>
+        <td class="ow_desc ow_small">{text key="mcompose+admin_events_enabled_description"}</td>
+    </tr>
+    {/if}
+
+</table>
+
+{/if}
+
+<div class="clearfix ow_stdmargin"><div class="ow_right">
+    {submit name='save' class='ow_ic_save'}
+</div></div>
+
+{/form}
+
+{else}
+<div class="ow_anno ow_stdmargin" style="text-align: center;">
+    {text key="mcompose+plugin_required_tip" pluginUrl=$pluginUrl}
+</div>
+{/if}

@@ -1,0 +1,31 @@
+<div class="ow_automargin ow_superwide">
+    {form name='adminForm'}
+         <table class="ow_table_1 ow_form">
+
+           <tr> 
+               <td class="ow_label">{label name="logsPerPage"}</td>
+               <td class="ow_value">{input name="logsPerPage"} {error name='logsPerPage'}</td>
+           </tr>
+
+           <tr> 
+               <td class="ow_label">{label name="enableEmail"}</td>
+               <td class="ow_value">{input name="enableEmail"} {error name='enableEmail'}</td>
+           </tr>
+           
+           <tr> 
+               <td class="ow_label">{label name="enablePM"}</td>
+               <td class="ow_value">{input name="enablePM"} {error name='enablePM'}</td>
+           </tr>
+           
+           <tr> 
+               <td class="ow_label">{label name="enableNotification"}</td>
+               <td class="ow_value">{input name="enableNotification"} {error name='enableNotification'}</td>
+           </tr>
+                                                       
+           <tr>
+               <td colspan="2" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+           </tr>
+
+         </table>
+    {/form}
+</div>

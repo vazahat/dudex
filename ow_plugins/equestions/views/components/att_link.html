@@ -1,0 +1,23 @@
+<div class="al-attachment clearfix {if $expandedView}att-expanded{/if}">
+
+    <div class="{if !empty($data.thumbnail_url)}has_thumbnail{/if} {if !empty($data.title) || !empty($data.description)}two_column{else}one_column{/if}">
+        <div class="attachment_left">
+            {if !empty($data.thumbnail_url) }
+                <a href="{if empty($data.href)}javascript://{else}{$data.href}{/if}" {if !empty($data.blank)}target="_blank"{/if} {if !empty($data.onclick)}onclick="{$data.onclick}"{/if} class="ATT_ItemImageC">
+                    <img src="{$data.thumbnail_url}" class="attachment_thumb ATT_ItemImage" />
+                </a>
+            {/if}
+        </div>
+        {if !empty($data.title) || !empty($data.description)}
+        <div class="attachment_right ">
+            {if !empty($data.title)}
+                <div class="attachment_title"><a href="{if empty($data.href)}javascript://{else}{$data.href}{/if}" target="_blank">{$data.title}</a></div>
+            {/if}
+            {if !empty($data.description)}
+                <div class="attachment_desc ow_remark">{$data.description}</div>
+            {/if}
+        </div>
+        {/if}
+
+    </div>
+</div>

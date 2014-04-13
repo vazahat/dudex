@@ -1,0 +1,44 @@
+{$menu}
+
+{form name='cacheControlForm'}
+
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='cacheextreme+cache_settings'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='templateCache'}</td>
+        <td class="ow_value">
+            {input name='templateCache' class='ow_settings_input'} {error name='templateCache'}
+        </td>
+        <td class="ow_desc ow_small">{text key='cacheextreme+templateCache_setting_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='backendCache'}</td>
+        <td class="ow_value">
+            {input name='backendCache' class='ow_settings_input'} {error name='backendCache'}
+        </td>
+        <td class="ow_desc ow_small">{text key='cacheextreme+backendCache_setting_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='themeStatic'}</td>
+        <td class="ow_value">
+            {input name='themeStatic' class='ow_settings_input'} {error name='themeStatic'}
+        </td>
+        <td class="ow_desc ow_small">{text key='cacheextreme+themeStatic_setting_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='pluginStatic'}</td>
+        <td class="ow_value">
+            {input name='pluginStatic' class='ow_settings_input'} {error name='pluginStatic'}
+        </td>
+        <td class="ow_desc ow_small">{text key='cacheextreme+pluginStatic_setting_desc'}</td>
+    </tr>    
+</table>
+<div class="clearfix ow_stdmargin"><div class="ow_center">{submit name='clean' class='ow_ic_trash ow_positive'}</div></div>
+
+
+
+{/form}

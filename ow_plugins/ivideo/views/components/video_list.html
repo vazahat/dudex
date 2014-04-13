@@ -1,0 +1,59 @@
+{if $addItemAuthorized}
+<div class="clearfix">
+    <div class="ow_right">{decorator name='button' class='ow_ic_add' id='btn-add-new-item' langLabel='ivideo+upload_new_video'}</div>
+    {literal}
+    <script>
+        $(function(){
+            $('#btn-add-new-item').click(function(){location.href='{/literal}{url_for_route for="ivideo_upload"}{literal}'})
+        })
+    </script>
+    {/literal}
+</div>
+{/if}
+
+{if !$no_content}
+
+<div class="ow_video_list ow_stdmargin clearfix">
+
+    {assign var='alt1' value=true}
+    {assign var='cnt' value=0}
+
+    {foreach from=$videos item='clip' name='c'}
+
+    {if $cnt == $count}
+    {if $alt1}{assign var='alt1' value=false}{else}{assign var='alt1' value=true}{/if}
+    {assign var='cnt' value=0}
+    {/if}
+
+    {assign var='cnt' value=$cnt+1}
+
+    {assign var='userId' value=$clip.owner}
+
+    {if $cnt == 1}
+    <div class="clearfix {if $alt1}ow_alt1{else}ow_alt2{/if}">
+        {/if} 
+
+        {decorator name='ivideo_list_item'
+        data=$clip
+        listType=$listType
+        username=$usernames[$userId]
+        videoPreviewWidth=$videoPreviewWidth		
+        videoPreviewHeight=$videoPreviewHeight
+        displayName=$displayNames[$userId]
+        getUserFilesUrl=$getUserFilesUrl
+        posterImage=$posterImage
+        defaultThumb=$defaultThumb}  
+
+        {if $cnt == $count && $smarty.foreach.c.iteration != 1 || $smarty.foreach.c.last}
+    </div>
+    {/if}
+
+    {/foreach}
+
+</div>
+
+{$paging}
+
+{else}
+<div class="ow_nocontent">{$no_content}</div>
+{/if}

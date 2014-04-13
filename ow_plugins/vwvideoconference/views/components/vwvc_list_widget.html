@@ -1,0 +1,67 @@
+
+{script}
+{literal}
+    $(document).ready(function(){
+        var $tb_container = $(".ow_box_toolbar_cont", $("#vwvc_list_widget").parents('.ow_box, .ow_box_empty').get(0));
+
+        $("#vwvc-widget-menu-featured").click(function(){
+            $tb_container.html($("div#vwvc-widget-toolbar-featured").html());
+        });
+
+        $("#vwvc-widget-menu-latest").click(function(){
+            $tb_container.html($("div#vwvc-widget-toolbar-latest").html());
+        });
+
+        $("#vwvc-widget-menu-toprated").click(function(){
+            $tb_container.html($("div#vwvc-widget-toolbar-toprated").html());
+        });
+    });
+{/literal}
+{/script}
+
+<div id="vwvc_list_widget">
+    
+    {capture assign='nocontent'}
+       <div class="ow_nocontent">{text key='vwvc+no_vwvc'}</div>
+    {/capture}
+
+	<div id="{$items.latest.contId}">
+	{if $showTitles}
+	   {foreach from=$online item='c' name='clips'}
+	   <div class="clearfix ow_smallmargin">
+            <div class="ow_other_video_thumb ow_left">
+                <a href="{url_for_route for="vwview_clip:[id=>`$c.id`]"}">
+                    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+                </a>
+            </div>
+            <div class="ow_other_video_item_title ow_small">
+                <a href="{url_for_route for="vwview_clip:[id=>`$c.id`]"}">{$c.title}</a> <br>
+				{text key='vwvc+online_user'}: ({$c.onlineCount}) <br>
+				{$c.onlineUser}
+			</div>
+	   </div>
+	   {foreachelse}
+          {$nocontent}
+	   {/foreach}
+	{else}
+	<div class="clearfix ow_center">
+	{foreach from=$online item='c' name='clips'}
+		{if $smarty.foreach.clips.iteration == 1}
+		   <div class="ow_smallmargin">{$c.code}</div>
+		{else}
+			<a class="ow_other_video_floated" href="{url_for_route for="vwview_clip:[id=>`$c.id`]"}" title="{$c.title}">
+			    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+			</a>
+		{/if}
+    {foreachelse}
+        {$nocontent}		
+	{/foreach}
+	</div>
+	{/if}	
+	</div>
+		
+	{if $online}<div id="vwvc-widget-toolbar-latest" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.latest}</div>{/if}
+    {if $featured}<div id="vwvc-widget-toolbar-featured" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.featured}</div>{/if}  
+    {if $toprated}<div id="vwvc-widget-toolbar-toprated" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.toprated}</div>{/if}
+    
+</div>

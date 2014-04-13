@@ -1,0 +1,80 @@
+{$menu}
+<div class="ow_automargin ow_superwide">
+
+    {form name='adminForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr> 
+            <td class="ow_label">{label name="allowedFileSize"}</td>
+            <td class="ow_value">{input name="allowedFileSize"} {error name='allowedFileSize'}</td>
+            <td class="ow_desc ow_small">{desc name="allowedFileSize"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="allowedExtensions"}</td>
+            <td class="ow_value">{input name="allowedExtensions"} {error name='allowedExtensions'}</td>
+            <td class="ow_desc ow_small">{desc name="allowedExtensions"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="videoPreviewWidth"}</td>
+            <td class="ow_value">
+                {input name="videoPreviewWidth" class='ow_settings_input'} {error name='videoPreviewWidth'} x
+                {input name="videoPreviewHeight" class='ow_settings_input'} {error name='videoPreviewHeight'}
+            </td>
+            <td class="ow_desc ow_small">{desc name="videoPreviewWidth"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="videoWidth"}</td>
+            <td class="ow_value">
+                {input name="videoWidth" class='ow_settings_input'} {error name='videoWidth'} x
+                {input name="videoHeight" class='ow_settings_input'} {error name='videoHeight'}
+            </td>
+            <td class="ow_desc ow_small">{desc name="videoWidth"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="videoApproval"}</td>
+            <td class="ow_value">{input name="videoApproval"} {error name='videoApproval'}</td>
+            <td class="ow_desc ow_small">{desc name="videoApproval"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="resultsPerPage"}</td>
+            <td class="ow_value">{input name="resultsPerPage"} {error name='resultsPerPage'}</td>
+            <td class="ow_desc ow_small">{desc name="resultsPerPage"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="videosPerRow"}</td>
+            <td class="ow_value">{input name="videosPerRow"} {error name='videosPerRow'}</td>
+            <td class="ow_desc ow_small">{desc name="videosPerRow"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="theme"}</td>
+            <td class="ow_value">{input name="theme"} {error name='theme'}</td>
+            <td class="ow_desc ow_small">{desc name="theme"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="makeUploaderMain"}</td>
+            <td class="ow_value">{input name="makeUploaderMain"} {error name='makeUploaderMain'}</td>
+            <td class="ow_desc ow_small">{desc name="makeUploaderMain"} </td>
+        </tr>
+
+        <tr> 
+            <td class="ow_label">{label name="ffmpegPath"}</td>
+            <td class="ow_value">{input name="ffmpegPath"} {error name='ffmpegPath'}</td>
+            <td class="ow_desc ow_small">{desc name="ffmpegPath"} </td>
+        </tr>
+
+        <tr>
+            <td colspan="3" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+        </tr>
+
+    </table>
+    {/form}
+
+</div>

@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="snowfall" label="Snow Fall Effect" language_tag="ru-RU" language_label="Russia"><key name="admin_invalid_number_error"/><key name="admin_max_size"/><key name="admin_min_size"/><key name="admin_new_flake_color"/><key name="admin_new_flake_time"/><key name="admin_save_settings"/><key name="admin_settings_title"/><key name="user_save_success"/></prefix>

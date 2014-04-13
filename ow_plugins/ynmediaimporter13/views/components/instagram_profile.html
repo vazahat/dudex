@@ -1,0 +1,17 @@
+<div>
+    <div>
+        <img src="{$userThumb}" />    
+    </div>
+   <div>
+       {text key="ynmediaimporter+text_connected_as"}<a href="{$userProfileUrl}" target="_default"> {$userDisplayName}</a>
+   </div>
+</div>
+
+<ul>
+    <li>
+        <a href="{$disconnectUrl}" class="buttonlink ynmediaimporter_link_disconnect">Disconnect</a>
+    </li>
+    <li>
+        <a onclick="YnMediaImporter.updatePage('service=instagram&media=photo&extra=my')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_photo">My Photos</a>
+    </li>
+</ul>

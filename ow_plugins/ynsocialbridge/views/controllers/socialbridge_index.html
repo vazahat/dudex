@@ -1,0 +1,46 @@
+<script type="text/javascript">
+	function confirmDisconnect(link)
+	{
+		if(confirm('{text key = "ynsocialbridge+conform_disconnect"}'))
+		{
+			window.location = link;
+		}
+	}
+</script>
+{$contentMenu}
+{$menu}
+<div class="ynsocialbridge_connections">
+	<h3>{text key="ynsocialbridge+connections_label"}</h3>
+	<p>{text key="ynsocialbridge+connections_description"}</p>
+	<br/>
+	{foreach from = $arrObjServices item='service'}
+	<div class="socialbridge_service_wrapper">
+        <div>
+            <img class='socialbridge_service_image' src="{$service['logo']}" />
+        </div>
+        {if !$service['profile']}
+        	<div>
+        		{assign var = "connectUrl" value = $service['connectUrl']}
+				{decorator name='button' langLabel='ynsocialbridge+connect' onclick="window.location='$connectUrl'"}
+	        </div>
+       {else}
+       		<div class="socialbridge_connect">
+       		    {if isset($service['profile']['picture'])} {$service['profile']['photo_url'] = $service['profile']['picture']}{/if}
+       		    {if !empty($service['profile']['photo_url'])}
+       		    	{assign var = "image_url" value = $service['profile']['photo_url']}
+       		    {else}
+       		    	{assign var = "image_url" value = $noImageUrl}
+       		    {/if}
+				<img src="{$image_url}" alt="{$service['profile']['username']}" align="left" height="32" width="32">
+        		<p>	
+        			{text key = 'ynsocialbridge+connected_as'} <strong>{$service['profile']['displayname']}</strong>
+        		</p>
+	        </div>
+	        <div class="soialbridge_disconnect"> 
+        			{assign var = "disconnect" value = $service["disconnectUrl"]}
+        			 {decorator name='button' langLabel='ynsocialbridge+disconnect' onclick="return confirmDisconnect('$disconnect')"}
+        	</div>
+       {/if}
+	</div>
+	{/foreach}
+</div>

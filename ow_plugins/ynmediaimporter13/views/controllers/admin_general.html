@@ -1,0 +1,112 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+{form name='configSaveGeneralForm'}
+
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ic_gear_wheel">{text key='ynmediaimporter+general_settings'}</span>
+        </th>
+    </tr>
+            
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='page'}</td>
+        <td class="ow_value">{input name='page' class='ow_settings_input'} album(s)/photo(s) {error name='page'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+page_des'}</td>
+    </tr>    
+    
+        
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='albumThumbWidth'}</td>
+        <td class="ow_value">{input name='albumThumbWidth' class='ow_settings_input'} px {error name='albumThumbWidth'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+album_thumb_width_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='albumThumbHeight'}</td>
+        <td class="ow_value">{input name='albumThumbHeight' class='ow_settings_input'} px {error name='albumThumbHeight'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+album_thumb_height_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='albumWrapHeight'}</td>
+        <td class="ow_value">{input name='albumWrapHeight' class='ow_settings_input'} px {error name='albumWrapHeight'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+album_wrap_height_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='albumWrapMargin'}</td>
+        <td class="ow_value">{input name='albumWrapMargin' class='ow_settings_input'} px {error name='albumWrapMargin'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+album_wrap_margin_des'}</td>
+    </tr>
+     
+     
+     
+    
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='photoThumbWidth'}</td>
+        <td class="ow_value">{input name='photoThumbWidth' class='ow_settings_input'} px {error name='photoThumbWidth'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+photo_thumb_width_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='photoThumbHeight'}</td>
+        <td class="ow_value">{input name='photoThumbHeight' class='ow_settings_input'} px {error name='photoThumbHeight'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+photo_thumb_height_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='photoWrapHeight'}</td>
+        <td class="ow_value">{input name='photoWrapHeight' class='ow_settings_input'} px {error name='photoWrapHeight'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+photo_wrap_height_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='photoWrapMargin'}</td>
+        <td class="ow_value">{input name='photoWrapMargin' class='ow_settings_input'} px {error name='photoWrapMargin'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+photo_wrap_margin_des'}</td>
+    </tr>   
+        
+        
+        
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='numberPhoto'}</td>
+        <td class="ow_value">{input name='numberPhoto' class='ow_settings_input'} photo(s) {error name='numberPhoto'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+number_photo_des'}</td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'} ow_tr_last">
+        <td class="ow_label">{label name='numberQueue'}</td>
+        <td class="ow_value">{input name='numberQueue' class='ow_settings_input'} queue(s) {error name='numberQueue'}</td>
+        <td class="ow_desc ow_small">{text key='ynmediaimporter+number_queue_des'}</td>
+    </tr>
+    
+</table>
+
+<div class="clearfix ow_stdmargin">
+	{submit name='save' class='ow_ic_save ow_submit ow_right'}
+	<span class="ow_button">
+		<span class=" ow_ic_save ow_submit ow_right">
+			<input type="button" value="Set as default" class="ow_ic_gear_wheel" name="default" onclick="setDefault();" />
+		</span>
+	</span>
+</div>
+
+{/form}
+</div>
+
+<script>
+	function setDefault()
+	{
+		$("input[name='page']").val(20);
+		
+		$("input[name='albumThumbWidth']").val(160);
+		$("input[name='albumThumbHeight']").val(116);
+		$("input[name='albumWrapHeight']").val(200);
+		$("input[name='albumWrapMargin']").val(10);
+		
+		$("input[name='photoThumbWidth']").val(160);
+		$("input[name='photoThumbHeight']").val(116);
+		$("input[name='photoWrapHeight']").val(180);
+		$("input[name='photoWrapMargin']").val(10);
+		
+		$("input[name='numberPhoto']").val(20);
+		$("input[name='numberQueue']").val(20);
+		
+		$("form .error").css("display","none");
+	}
+</script>

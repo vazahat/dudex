@@ -1,0 +1,40 @@
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_tr_first">
+        <th colspan="4" class="ow_name ow_txtleft">
+            <span class="ow_section_icon ow_ic_monitor">{text key='ocsaffiliates+general_stats'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label"></td>
+        <td class="ow_value" width="25%"><b>{text key='ocsaffiliates+clicks'}</b></td>
+        <td class="ow_value" width="25%"><b>{text key='ocsaffiliates+registrations'}</b></td>
+        <td class="ow_value" width="25%"><b>{text key='ocsaffiliates+sales'}</b></td>
+    </tr>
+    <tr>
+        <td class="ow_label ow_alt2"><b>{text key='ocsaffiliates+total'}</b></td>
+        <td class="ow_value ow_alt1">{$clicksCount}</td>
+        <td class="ow_value ow_alt1">{$signupCount}</td>
+        <td class="ow_value ow_alt1">{$salesCount}</td>
+    </tr>
+    <tr class="ow_tr_last">
+        <td class="ow_label ow_alt2"><b>{text key='ocsaffiliates+commission'}</b></td>
+        <td class="ow_value ow_alt1">{$clicksSum} <span class="ow_tiny">{$currency}</span></td>
+        <td class="ow_value ow_alt1">{$signupSum} <span class="ow_tiny">{$currency}</span></td>
+        <td class="ow_value ow_alt1">{$salesSum} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td colspan="3"></td></tr>
+
+    <tr class="ow_tr_first">
+        <td class="ow_label ow_alt2"><b>{text key='ocsaffiliates+earnings'}</b></td>
+        <td class="ow_value ow_alt1" colspan="3">{$earnings} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+    <tr>
+        <td class="ow_label ow_alt2"><b>{text key='ocsaffiliates+payouts'}</b></td>
+        <td class="ow_value ow_alt1" colspan="3">{$payouts} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+    <tr class="ow_tr_last">
+        <td class="ow_label ow_alt2"><b>{text key='ocsaffiliates+balance'}</b></td>
+        <td class="ow_value ow_alt1" colspan="3">{$balance} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+</table>

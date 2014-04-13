@@ -1,0 +1,23 @@
+{if empty($list)}
+
+<div class="ow_nocontent">
+    {text key="ucarousel+no_users"}
+</div>
+
+{else}
+<div class="uc-shape-{$shape}">
+    <div class="uc-carousel-wrap uc-size-{$size}">
+        <ul id="{$uniqId}" class="uc-carousel uc-carousel-size" style="visibility: hidden">
+            {foreach from=$list item="item"}
+            <li class="uc-item uc-avatar-size ow_border ow_avatar_console ow_small ow_bg_color">
+
+                <img src="{$item.thumb}" />
+                <div class="uc-info uc-line-height">
+                    <a href="{$item.url}">{$item.displayName}</a>{if $size != 'small'}{if !empty($item.sex)}, {$item.sex}{/if} {if !empty($item.birthdate)}, {text key="ucarousel+list_ages" age=$item.birthdate}{/if}{/if}
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+</div>
+{/if}

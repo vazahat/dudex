@@ -1,0 +1,43 @@
+{$menu}
+
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="2">
+            <span class="ow_section_icon ow_ic_up_arrow">{text key='ocsaffiliates+banner_list'}</span>
+        </th>
+    </tr>
+    {foreach from=$bannerList item='banner'}
+    <tr class="ow_alt2">
+        <td class="ow_label" style="width: 93%; text-align: left">
+            <div class="ow_smallmargin clearfix"><img height="100" src="{$banner.url}" /></div>
+        </td>
+        <td width="1"><a href="javascript://" bid="{$banner.dto->id}" class="ow_lbutton ow_mild_red action_delete_banner">
+            {text key='ocsaffiliates+delete'}
+        </a></td>
+    </tr>
+    {foreachelse}
+    <tr><td>{text key='ocsaffiliates+no_banners'}</td></tr>
+    {/foreach}
+</table>
+
+<div class="ow_automargin ow_column">
+    <table class="ow_table_1 ow_form ow_stdmargin">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft">
+                <span class="ow_section_icon ow_ic_add">{text key='ocsaffiliates+add_banner'}</span>
+            </th>
+        </tr>
+        <tr>
+            <td class="ow_center">
+                <form method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="action" value="add_banner" />
+                    <div class="ow_stdmargin">
+                        <div class="ow_smallmargin"><input type="file" name="banner_file" /></div>
+                        <span class="ow_small">{text key='ocsaffiliates+allowed_file_types'}</span>
+                    </div>
+                    {decorator name='button' type='submit' langLabel='ocsaffiliates+upload'}
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

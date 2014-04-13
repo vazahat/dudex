@@ -1,0 +1,36 @@
+{$menu}
+
+<table class="ow_table_1 ow_form ow_stdmargin">
+    <tr class="ow_tr_first">
+        <th colspan="4" class="ow_name ow_txtleft">
+            <span class="ow_section_icon ow_ic_monitor">{text key='ocsaffiliates+recent_events'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label" width="25%"><b>{text key='ocsaffiliates+date'}</b></td>
+        <td class="ow_value" width="20%"><b>{text key='ocsaffiliates+event_type'}</b></td>
+        <td class="ow_value" width="15%"><b>{text key='ocsaffiliates+commission'}</b>, <span class="ow_small">{$currency}</span></td>
+        <td class="ow_value" width="40%"><b>{text key='ocsaffiliates+details'}</b></td>
+    </tr>
+    {foreach from=$log item='event'}
+    <tr class="">
+        <td class="ow_label">{$event.timestamp|simple_date}</td>
+        <td class="ow_value">{text key="ocsaffiliates+event_type_`$event.type`"}</td>
+        <td class="ow_value">{$event.bonusAmount}</td>
+        <td class="ow_value">
+            {if $event.type=='sale'}
+                <span class="ow_small">{text key='ocsaffiliates+user'}:</span> {$event.user}<br />
+                <span class="ow_small">{text key='ocsaffiliates+sale_amount'}:</span> {$event.amount}<br />
+                <span class="ow_small">{text key='ocsaffiliates+description'}:</span> {$event.details}
+            {elseif $event.type=='signup'}
+                <span class="ow_small">{text key='ocsaffiliates+user'}:</span> {$event.details}
+            {else}-{/if}</td>
+    </tr>
+    {foreachelse}
+    <tr class="ow_alt1">
+        <td class="ow_label" colspan="4"><div class="ow_left">{text key='ocsaffiliates+no_events_yet'}</div></td>
+    </tr>
+    {/foreach}
+</table>
+
+{$paging}

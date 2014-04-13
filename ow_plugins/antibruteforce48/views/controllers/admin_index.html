@@ -1,0 +1,80 @@
+{*
+
+/**
+ * Copyright (c) 2013, Kairat Bakytow
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ */
+
+*}
+<div class="ow_std_margin clearfix">
+    {form name="settings"}
+        <table class="ow_table_1 ow_form" style="margin: 0">
+            <tbody>
+                <tr class="ow_alt1">
+                    <td width="1" class="ow_label">
+                        Authentication
+                    </td>
+                    <td class="ow_value">
+                        {input name='auth'}
+                        {error name='auth'}
+                    </td>
+                </tr>
+                <tr class="ow_alt2">
+                    <td width="1" class="ow_label">
+                        Registration
+                    </td>
+                    <td class="ow_value">
+                        {input name='reg'}
+                        {error name='reg'}
+                    </td>
+                </tr>
+                <tr class="ow_alt1">
+                    <td width="1" class="ow_label">
+                        The number of attempts
+                    </td>
+                    <td class="ow_value">
+                        {input name='tryCount'}
+                        {error name='tryCount'}
+                    </td>
+                </tr>
+                <tr class="ow_alt2">
+                    <td width="1" class="ow_label">
+                        Lock on (min.)
+                    </td>
+                    <td class="ow_value">
+                        {input name='expTime'}
+                        {error name='expTime'}
+                    </td>
+                </tr>
+                <tr class="ow_alt1">
+                    <td width="1" class="ow_label">
+                        The title of locked page
+                    </td>
+                    <td class="ow_value">
+                        {input name='title'}
+                        {error name='title'}
+                    </td>
+                </tr>
+                <tr class="ow_alt2">
+                    <td width="1" class="ow_label">
+                        The description of locked page.
+                    </td>
+                    <td class="ow_value">
+                        {input name='desc'}
+                        {error name='desc'}
+                    </td>
+                </tr>
+                
+                <tr class="ow_tr_last ow_center">
+                    <td colspan="2">
+                        {submit name='save'}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    {/form}
+</div>

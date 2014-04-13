@@ -1,0 +1,29 @@
+
+{style}
+{literal}
+    .ow_featured_faq_widget {
+        padding-left: 20px;
+    }
+{/literal}
+{/style}
+
+{script}
+{literal}
+    $(".ow_featured_faq_widget .ow_ic_header a").click(function(){
+        $(this).parent().parent().find(".ow_faq_answer").toggle();
+    });
+{/literal}
+{/script}
+
+<div class="ow_featured_faq_widget">
+{foreach from=$list item='q'}
+    {capture assign='info'}<div class="ow_faq_answer ow_small"{if !$expand} style="display: none;"{/if}>{$q->answer}</div>{/capture}
+    <div class="clearfix">
+    {decorator name="ic" 
+        titleHref='javascript://' 
+        title=$q->question 
+        info=$info first=null last=null
+    }
+    </div>
+{/foreach}
+</div>

@@ -1,0 +1,77 @@
+<div class="ow_page_wrap">
+<div class="ow_page_padding">
+	<div class="ow_site_panel">
+		<div class="ow_site_panel_wrap">{component class='BASE_CMP_Console'}</div>
+	</div>
+
+	<div class="ow_page_container">
+		<div class="ow_logo_wrap">
+		  {if isset($imageControlValues.logoImage.src)}
+		      <a href="{$siteUrl}" class="ow_logo_img"></a>
+		  {else}
+		      <a href="{$siteUrl}">{$siteName}</a>
+		  {/if}
+        </div>
+		<div class="ow_header">
+		<div class="ow_header_wrap">
+			<div class="ow_menu_wrap">{$main_menu}</div>
+	    </div>
+	    </div>
+	        
+		<div class="ow_canvas">
+		<div class="ow_canvas_lwrap">
+		<div class="ow_canvas_rwrap">
+		    {if isset($imageControlValues.headerImage.src)}
+		        <img class="ow_header_img" src="{$imageControlValues.headerImage.src}" />
+		    {else}
+		        <div class="ow_header_pic"><img class="ow_header_img" src="{$themeImagesUrl}header.png" /></div>
+		    {/if}
+			<div class="ow_bg_color">
+				<div class="ow_page clearfix">
+					{if !empty($heading)}<h1 class="ow_stdmargin {$heading_icon_class}">{$heading}</h1>{/if}
+					<div class="ow_content">
+						{add_content key='base.add_page_top_content'}
+						{$content}
+						{add_content key='base.add_page_bottom_content'}
+					</div>
+					<div class="ow_sidebar">
+						{component class="BASE_CMP_Sidebar"}
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		</div>
+			
+		<div class="ow_canvas_footer_lwrap"><div class="ow_canvas_footer_rwrap"><div class="ow_canvas_footer"></div></div></div>
+	</div>
+		
+	<div class="ow_footer">
+	    <div class="ow_canvas">
+	        <div class="clearfix">
+	            {$bottom_menu}
+	            <div class="ow_copyright">
+	                {text key='base+copyright'}
+	            </div>
+	            <div class="poweredby_link">
+	                {$bottomPoweredByLink}
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
+</div>
+
+<script type="text/javascript">
+{literal}
+$(document).ready(function() {
+    $('input[name=userPhoto]').attr("size", "4");
+    $('form[name=add-topic-form] input[name^=attachments]').attr("size", "4");
+    $('form[name=GROUPS_CreateGroupForm] input[name=image]').attr("size", "4");
+    $('form[name=event_add] input[name=image]').attr("size", "4");
+    $('form[name=photoUploadForm] input[name^=photos]').attr("size", "4");
+});
+{/literal}
+</script>
+    
+{decorator name='floatbox'}

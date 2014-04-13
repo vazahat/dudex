@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="googlelocation" label="Google Map Location" language_tag="ru-RU" language_label="Russia"><key name="admin_page_heading"/><key name="api_key"/><key name="api_key_description"/><key name="api_key_too_long"/><key name="general_settings"/><key name="map_page_heading"/><key name="settings_updated"/><key name="users_map_menu_item"/></prefix>

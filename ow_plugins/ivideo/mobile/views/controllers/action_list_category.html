@@ -1,0 +1,23 @@
+{$menu}
+
+{if count($details) gt 0}
+<table class="owm_table_1 ow_form">
+    <tr>
+        <th>{text key='ivideo+category_name_label'}</th>
+        <th>{text key='ivideo+category_desc_label'}</th>
+        <th>{text key='ivideo+category_count_label'}</th>
+    </tr>
+
+    {foreach from=$details item=feed}
+
+    <tr class="{cycle values='ow_alt1,ow_alt2'}">
+        <td><a href="{$feed.url}">{$feed.name}</a></td>
+        <td>{$feed.description}</td>
+        <td>{$feed.count}</td>
+    </tr>
+    {/foreach}
+</table>
+
+{else}
+<div class="ow_automargin ow_superwide">{text key='ivideo+no_vidoes_categories'}</div>
+{/if}

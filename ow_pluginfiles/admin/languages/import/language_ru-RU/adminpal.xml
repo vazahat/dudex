@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="adminpal" label="Admin Pal" language_tag="ru-RU" language_label="Russia"><key name="admin_enable_login_cron"/><key name="admin_enable_login_cron_desc"/><key name="admin_friend_all"/><key name="admin_friend_all_desc"/><key name="admin_select_user"/><key name="admin_select_user_desc"/><key name="admin_setting"/><key name="admin_setting_title"/><key name="user_save_success"/></prefix>

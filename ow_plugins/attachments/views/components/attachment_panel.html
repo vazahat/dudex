@@ -1,0 +1,25 @@
+<div class="att-panel clearfix" id="{$uniqId}">
+
+    <div class="ap-left ow_border">
+
+        {foreach from=$tabs item="tab"}
+
+            <a id="{$tab.id}-btn" class="apt-item {$tab.iconClass} ATT_PanelTab" href="javascript://" onclick="{$tab.onClick}">
+                {$tab.label}
+            </a>
+
+        {/foreach}
+
+    </div>
+    <div class="ap-right">
+
+        <div class="ap-body ATT_PanelContents"></div>
+
+        <div class="ap-bottom ow_border"></div>
+
+    </div>
+
+</div>
+
+
+<a href="#" class="grey">click</a>

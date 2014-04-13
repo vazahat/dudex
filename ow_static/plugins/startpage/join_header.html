@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="[ttcontentlang]" dir="ltr">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>[tttitle]</title>
+<meta name="keywords" content="[ttkeywords]" />
+<meta name="description" content="[ttdescription]" />
+<meta http-equiv="Content-type" content="text/html; charset=[ttcharset]" />
+<meta http-equiv="Content-language" content="[ttcontentlang]" />
+
+<link rel="shortcut icon" type="image/x-icon" href="[tturl]ow_userfiles/plugins/base/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="[tturl]ow_static/plugins/base/css/ow.css" media="all" />
+
+<link rel="stylesheet" type="text/css" href="[tturl]ow_static/themes/[tthemename]/base.css" media="all" />
+
+<script type="text/javascript" src="[tturl]ow_static/plugins/base/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="[tturl]ow_static/plugins/startpage/ajaxfileupload.js"></script>
+
+[additional_je_files]
+
+<style>
+body, html {
+height: 100%;
+background: #fff;
+}
+
+#bgimg{
+    position:fixed;
+    z-index: 1;
+    margin: auto;
+    min-width: 100%;
+    min-height: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+#mainBody{
+    position:absolute;
+    z-index:5;    
+    overflow:auto; 
+    height:100%;
+    width:100%;
+}
+
+.tt_cont{
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+background: #fff;
+z-index: 97;
+}
+
+.tt_wrap{
+width:980px;
+min-width:980px;
+max-width: 1090px;
+position: absolute;
+top: 100px;
+left: 50%;
+margin: 0 0 0 -490px;
+}
+.tt_wrap_wl{
+width:980px;
+min-width:980px;
+max-width: 1090px;
+position: absolute;
+
+left: 50%;
+margin: 0 0 0 -490px;
+}
+
+.tt_wrap_mobi{
+width:900px;
+min-width:900px;
+max-width: 1090px;
+position: absolute;
+top: 100px;
+left: 50%;
+margin: 0 0 0 -450px;
+}
+
+
+
+div.tt_wrapper {position: relative}
+div.tt_wrapper_mobi {position: relative}
+
+label.tt_placeholder {
+position: absolute; color: #BBB; left: 5px; top: 5px;
+} 
+
+#online_overlay_form{
+position: absolute;
+border: 3px solid gray;
+padding: 6px;
+padding-bottom:12px;
+background: white;
+max-width: 200px;
+width: 180px;
+height: 110px;
+float:left;
+}
+
+#startpage_overlay_form{
+position: absolute;
+border: 3px solid gray;
+padding: 6px;
+padding-bottom:12px;
+background: white;
+max-width: 200px;
+width: 180px;
+height: 110px;
+float:left;
+}
+</style>
+
+
+<style>[theme_css_private]</style>
+
+<script type="text/javascript">
+function onInputBlur(input) {
+        if(input.value == '')
+                input.value = input.defaultValue;
+}
+
+function onInputFocus(input) {
+        if(input.value == '' || input.value == input.defaultValue) 
+                input.value = '';
+}
+</script>
+
+<script type="text/javascript" src="[tturl]ow_static/plugins/base/js/json2.js"></script>
+<script type="text/javascript" src="[tturl]ow_static/plugins/base/js/ow.js"></script>
+<script type="text/javascript" src="[tturl]ow_static/plugins/base/js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="[tturl]ow_static/plugins/base/js/jquery.jscrollpane.js"></script>
+
+
+
+<script type="text/javascript">
+(function() {
+OW.ajaxComponentLoaderRsp = "[tturlsl]base\/ajax-loader\/component\/";
+OW.ajaxAttachmentLinkRsp = "[tturlsl]base\/attachment\/add-link\/";
+OW.getPing().setRspUrl("[tturlsl]base\/ping\/index\/");
+OW.Users = new OW_UsersApi();
+})();
+
+function isValidEmailAddress(emailAddress) {
+    var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+    return pattern.test(emailAddress);
+};
+
+
+ function ConfirmOKCancel(msg) {
+      $('#confirmdialog p').text(msg);
+      $('#confirmdialog').show();
+    
+    if ($('#main_top').offset()!=null){
+         $('html,body').animate({
+            scrollTop: $('#main_top').offset().top
+         },1000);
+    }else {
+        $('#mainBody').animate({ scrollTop: 0 }, 'slow');
+    }
+
+
+
+ }   
+ function ConfirmOKCancelHide() {
+      $('#confirmdialog').hide();
+ }   
+var was_checked=false;
+
+
+var show_realname=[show_realname];
+
+
+function ajaxFileUpload(){
+    return false;
+}
+
+function  start_page_docheck_other(){
+    $('#muname').css('border',''); 
+    $('#uname').css('border',''); 
+
+    $('#email').css('border',''); 
+    $('#pass').css('border',''); 
+    $('#pass2').css('border',''); 
+    $('#fileToUpload').css('border',''); 
+
+
+
+    if (show_realname==true && $('#muname').val().length<4){
+        ConfirmOKCancel('[error_muname]');
+        $('#muname').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#uname').val().length<4){
+        ConfirmOKCancel('[error_uname]');
+        $('#uname').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#email').val().length<5 || !isValidEmailAddress($('#email').val())){
+        ConfirmOKCancel('[error_email]');
+        $('#email').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#pass').val().length<6){
+        ConfirmOKCancel('[error_passwordl]');
+        $('#pass').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#pass2').val()<5){
+        ConfirmOKCancel('[error_passretype]');
+        $('#pass2').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#pass').val()!= $('#pass2').val()){
+        ConfirmOKCancel('[error_passmisma]');
+        $('#pass').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        $('#pass2').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else if ($('#av_thumn').attr('uploaded')!= 'yok'){
+        ConfirmOKCancel('[error_uploadavatar]');
+        $('#fileToUpload').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        return false;
+    }else{
+        var muname=$('#muname').val();
+        var uname=$('#uname').val();
+        var email=$('#email').val();
+        var pass=$('#pass').val();
+        var passx=$('#pass2').val();
+        var actype=$('#input_actype').val();
+
+        var sex=$('#sex').val();
+
+        var eage_d=$('#eage_d').val();
+        var eage_m=$('#eage_m').val();
+        var eage_y=$('#eage_y').val();
+      $.ajax({  
+          type: 'POST',
+          url: '[tturl]startpage/check',  
+          data: { 'ss':'[tt_ss]', 'pass': pass , 'pass2':passx, 'uname':uname, 'email':email,'acctype': actype,'muname':muname,'sex':sex,'eage_d':eage_d,'eage_m':eage_m,'eage_y':eage_y},  
+          dataType: 'json',
+          beforeSend:function(){
+          },
+          success: function(data) {
+//alert(data['comm']);
+            if (data['ss']=='[tt_ss]' && data['comm']=='OK'){
+                window.location.href='[url_jon_finished]';
+            }else{
+//alert('e');
+//                alert(data['comm']);
+//                ConfirmOKCancel('[error_connection]');
+                ConfirmOKCancel(data['comm']);
+///                window.location.href='[url_jon_errror]';
+            }
+            return false;
+          },
+          error: function(){
+//alert(data['cc']);
+            ConfirmOKCancel('[error_connection]');
+//alert('error');
+            return false;
+          }
+      }).done(function() {
+//          $(this).addClass('done');
+//alert('done');
+            return false;
+      });
+
+        return false;
+    }
+}
+
+
+$(document).ready(function() {
+
+$('#refreshcapthabutton').click(function() {
+    if ($('#capthaimagex').length){
+        $("#capthaimagex").attr('src', '[tturl]/base/captcha/index/?aa='+Math.random());
+    }
+});
+$('#refreshcapthabuttonx').click(function() {
+    if ($('#capthaimagex').length){
+        $("#capthaimagex").attr('src', '[tturl]/base/captcha/index/?aa='+Math.random());
+    }
+});
+
+
+$('#login_submit').click(function() {
+    var iname = $.trim($('#identity').val());
+    var ipass = $.trim($('#password').val());
+//    if ($('#identity').val() AND $('#password').val()){
+    if (iname !=='' && ipass!==''){
+        $('#form_login').attr('action','[tturl]sign-in?back-uri=[after_login_backto]');
+        $('#form_login').submit();        
+    }else{
+        alert('[ttalertlform]');
+        return false;
+    }
+});
+
+
+$('#b_home').click(function() {
+    window.location = '[tturl]index';
+});
+
+$('#b_forgot_password').click(function() {
+    window.location = '[tturl]forgot-password';
+});
+
+$('#b_login').click(function() {
+    window.location = '[tturl]sign-in?back-uri=index';
+});
+
+$('#buttonUpload').click(function() {
+/*
+        $("#loading").ajaxStart(function(){
+            $(this).show();
+        })
+
+        .ajaxComplete(function(){
+            $(this).hide();
+        });
+*/
+        
+        $.ajaxFileUpload
+        (
+            {
+                url:'[tturl]startpage/checkf', 
+                secureuri:false,
+                fileElementId:'fileToUpload',
+                dataType: 'json',
+                success: function (data, status)
+                {
+$('#fileToUpload').css('border','');
+                    if(typeof(data.error) != 'undefined'){
+                        $('#av_thumn').attr("uploaded","er");
+                        if(data.error != ''){
+                            alert(data.error);
+                        }else{
+                            alert(data.msg);
+                        }
+                    }else{
+//alert(data['comm']);
+                        if (data['comm']=='OK'){
+
+                            $('#av_thumn').css('background-image','url([tt_urlavthimb]?a='+Math.floor((Math.random()*1000)+100)+')');
+                            $('#av_thumn').css("display","block");
+                            $('#av_thumn').attr("uploaded","yok");
+                            ConfirmOKCancelHide();
+                        }else{
+                            $('#av_thumn').css("display","none");
+                            $('#av_thumn').attr("uploaded","er");
+                            ConfirmOKCancel(data['comm']);
+                        }
+
+                    }
+                },
+                error: function (data, status, e){
+                    $('#av_thumn').attr("uploaded","er");
+                    alert(e);
+                    
+                }
+            }
+        )
+        return false;
+});
+
+$('#fileToUpload').change(function() {        
+        $.ajaxFileUpload
+        (
+            {
+                url:'[tturl]startpage/checkf', 
+                secureuri:false,
+                fileElementId:'fileToUpload',
+                dataType: 'json',
+                success: function (data, status)
+                {
+$('#fileToUpload').css('border','');
+                    if(typeof(data.error) != 'undefined'){
+                        $('#av_thumn').attr("uploaded","er");
+                        if(data.error != ''){
+                            alert(data.error);
+                        }else{
+                            alert(data.msg);
+                        }
+                    }else{
+                        if (data['comm']=='OK'){
+                            $('#av_thumn').css('background-image','url([tt_urlavthimb]?a='+Math.floor((Math.random()*1000)+100)+')');
+                            $('#av_thumn').css("display","block");
+                            $('#av_thumn').attr("uploaded","yok");
+                            ConfirmOKCancelHide();
+                        }else{
+                            $('#av_thumn').css("display","none");
+                            $('#av_thumn').attr("uploaded","er");
+                            ConfirmOKCancel(data['comm']);
+                        }
+
+                    }
+                },
+                error: function (data, status, e){
+                    $('#av_thumn').attr("uploaded","er");
+                    alert(e);
+                    
+                }
+            }
+        )
+        return false;
+});
+
+
+
+$('#tt_form').submit(function() {
+    var using_captha='[tusingcaptha]';
+    var using_therm='[tusingtherm]';
+    var using_therm_therm='[tusingtherm_therm]';
+
+    if (was_checked==true) return true;
+
+    if (using_captha=='true'){
+        $('#captcha_image').css('border',''); 
+        $('#captcha_retype').css('border',''); 
+    }
+
+    if (using_therm=='true'){
+        $('#td_agree_newsletter').css('border',''); 
+        if ($('#agree_newsletter').prop('checked')==false) {
+            $('#td_agree_newsletter').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+            ConfirmOKCancel('[error_agree_newsletter]');
+            return false;
+        }
+    }
+    
+    if (using_therm_therm=='true'){
+        $('#td_agree_therm_of_use').css('border',''); 
+        if ($('#agree_therm_of_use').prop('checked')==false) {
+            $('#td_agree_therm_of_use').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+            ConfirmOKCancel('[error_agree_therm_of_use]');
+            return false;
+        }
+    }
+
+
+
+
+  if (using_captha=='true'){
+//    $('#captcha_image').css('border',''); 
+//    $('#captcha_retype').css('border',''); 
+    var captha=$('#captha').val();
+      $.ajax({  
+          type: 'POST',
+          url: '[tturl]base/captcha/ajax-responder/',  
+          data: { 'command':'checkCaptcha', 'value': captha},  
+//          dataType: 'json',
+          beforeSend:function(){
+          },
+          success: function(data) {
+        response = jQuery.parseJSON(data);
+//alert(data['comm']);
+//alert(response.result);
+            if (response.result==true){
+                return start_page_docheck_other();
+            }else{
+        $('#captcha_image').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        $('#captcha_retype').css({'border-color': '#FF0000', 
+             'border-weight':'px',
+             'border-width':'2px', 
+             'border-style':'solid'});
+alert('[tusingcapthaerror]');
+                return false;
+            }
+          },
+          error: function(){
+        $('#captcha_image').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+        $('#captcha_retype').css({'border-color': '#FF0000', 
+             'border-weight':'px', 
+             'border-width':'2px',
+             'border-style':'solid'});
+alert('[tusingcapthaerror]');
+            return false;
+          }
+      }).done(function() {
+//alert('done');
+            return false;
+      });
+        return false;
+  }else{
+        return start_page_docheck_other();
+  }
+    return false;
+});
+
+
+
+
+$("input.withPlaceholder").on({
+    focus: function() {
+        $("label[for=" + $(this).prop("id") + "]").hide();
+    },
+    blur: function() {
+        if ($(this).val().length == 0) {
+            $("label[for=" + $(this).prop("id") + "]").show();
+        }
+    }
+});
+
+$('#real_pass').hide();
+
+$('#fake_pass').show();
+
+$('#fake_pass').focus(function(){
+    $(this).hide();
+    $('#real_pass').show().focus();
+});
+
+$('#real_pass').blur(function(){
+    if($(this).val() == ""){
+        $(this).hide();
+        $('#fake_pass').show(); 
+    }
+});
+
+
+});
+
+</script>
+
+[tbaddheader]
+
+</head>
+<!--[if IE 8]><body class="ow ie8 base_sign_in [bodyclass]" [tbckground]><![endif]-->
+<!--[if !IE 8]><!--><body class="ow base_sign_in [bodyclass]" [tbckground]><!--<![endif]-->
+[tbckgroundim]

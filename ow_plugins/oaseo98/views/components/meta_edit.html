@@ -1,0 +1,136 @@
+{style}{literal}
+.oa_form input[type=text],
+.oa_form textarea{
+    border: 1px solid #ced1da !important;
+	border-top: 1px solid #abadb3 !important;
+	border-left:1px solid #abadb3 !important;
+    color: #333 !important;
+    font-family: "Lucida Grande", "Verdana" !important;
+    font-size: 13px !important;
+    padding: 4px !important;
+    background:#fff !important;
+    border-radius:0 !important;
+    -moz-border-radius:0 !important;
+    -webkit-border-radius:0 !important;
+
+}
+
+.oa_form input[type=text]:focus,
+.oa_form textarea:focus,
+.oa_form ul.oa_tags_field.focused{
+	border: 1px solid #b5cfe7 !important;
+	border-top: 1px solid #3d7bad !important;
+	border-left:1px solid #3d7bad !important;
+	background: #fbfceb !important;
+}
+
+.oa_form ul.oa_tags_field input[type=text]{
+    background:none !important;
+    border:none !important;
+}
+
+.oa_form ul.oa_tags_field, .oa_form textarea{
+    height:160px !important;
+    overflow-y:scroll !important;
+}
+
+.cst_meta_edit textarea,
+.cst_meta_edit input[type=text]{
+    width:729px !important;
+}
+
+.cst_meta_edit ul.oa_tags_field input[type=text]{
+    width:170px !important;
+}
+
+.oa_form .ow_alt1, .oa_form tr.ow_alt1 td{
+    background-color: #e0e3eb !important;
+}
+
+.oa_form .ow_alt2, .oa_form tr.ow_alt2 td{
+    background-color: #eef0f5 !important;
+}
+
+.cst_meta_edit table.ow_form td.ow_label{
+    width:80px !important;
+}
+
+.cst_meta_edit table.ow_form td.ow_value{
+    
+}
+
+.cst_meta_edit table.ow_form td.ow_desc{
+    padding-left:0 !important;
+    width:115px !important;
+}
+
+.oaseo_pos_button{
+    position:fixed !important;
+    z-index:100000000000000000 !important;
+    top:45% !important;
+    right:0 !important;
+    cursor: pointer !important;
+    box-shadow:0 0 10px #555555 !important;
+    background: #292d3a url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACe0lEQVR4nI3PS08TARQF4NPOjBRNS2OBoBjCw8L0KYatINAoGxNpjI8N0YULtrIyLiDUGF7+C0xMTEoT05CgGxeaYJGVBgtBAwN0ZrDt0GnpTOfpQqwiVL3JXX7nnmvBf8zkRPScpnELmi54AYCwOhiKrH/w8NGdOcu/cGR89kZOXHne2Rmgurouwm63g+N5vH71xrCi8eZfA55Ox0Li/urCwNXLRF19HRiGgcPhAEmS4Dgey0urDFkJz0zNhapPavFAsJfw+TzQDR08z2P9y1dQJAlVVaEbYtOxATNTc6EqmxJvbWu2eTxtYBgBgAQrQYAgCPC7uwAAgiRw5IXpyWjoRFUp3t7RbPP73MjlJKTTIlj2GyxEDi0tjVBVFYuLCZQkaoX8E5OUFHe7D2OOy2B7iwPLpeCwn0J1NQU2tavX13UNlBtMTURDBFGI055WWzBIH8JbTAosx8IwZAgCC0kWjIB/4Nbo2FD0VwNr/kXDmQab399REWcFFqWSpHg9V8KjY0PzAEACwMST2aGaGqv9bGMNCgUZ2WzhCM5kUpBLkuL19oTHI3fny3cB4P1StP+8u4EqSntgttYhinmkdrgyTmd2IMlFxevpDkd+w+UGNE0Ptrvbkc5ksPxhGWJehZjHD5zeRlEuKgFfbzjy+N4hDAAkTdPXaZp2KqoCTdNwutaFz8l32N/XIO7JkOSiEgz0HYt/BgzGYjFsbG7iUncPVEVFba0LGxsfdZg2KeDvvV0JA4BlZGRESCQSTpfLhb7+fnAsKyaTyZcXgtcWxiP3n1WC5YDh4eFPTqezaW1t7e3PBaAfrGkYRhaAYRhGAYBsmqZhmqZ04PXvnxJcjThBj5sAAAAASUVORK5CYII=) no-repeat 8px 7px !important;
+    padding: 5px 7px 7px 30px !important;
+    color:#fff !important;
+    border-bottom-left-radius:7px !important;
+    -moz-border-bottom-left-radius:7px !important;
+    -webkit-border-bottom-left-radius:7px !important;
+    border-top-left-radius:7px !important;
+    -moz-border-top-left-radius:7px !important;
+    -webkit-border-top-left-radius:7px !important;
+}
+
+.oaseo_pos_button:hover{
+    padding-right:10px !important;
+}
+
+{/literal}{/style}
+{if !empty($no_compile)}
+Empty
+{else}
+{if !empty($frontend)}
+<div style="display: none;">{/if}
+<div id="oaseo_edit_form_{$id}" class="oa_form cst_meta_edit">
+{form name="meta_edit"}
+<table class="ow_form ow_table_1">
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='title'}</td>
+        <td class="ow_value">{input name='title'}</td>
+        {*<td class="ow_desc">{desc name='title'}</td>*}
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='keywords'}</td>
+        <td class="ow_value">{input name='keywords'}</td>
+        {*<td class="ow_desc">{desc name='keywords'}</td>*}
+    </tr>
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='desc'}</td>
+        <td class="ow_value">{input name='desc'}</td>
+        {*<td class="ow_desc">{desc name='desc'}</td>*}
+    </tr>
+    {if !empty($urlAvail)}
+    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+        <td class="ow_label">{label name='url'}</td>
+        <td class="ow_value">{input name='url'}</td>
+        {*<td class="ow_desc">{desc name='url'}</td>*}
+    </tr>
+    {else}
+    <tr>
+        <td colspan="3">{text key='oaseo+url_not_editable'}</td>
+    </tr>
+    {/if}
+    <tr>
+        <td colspan="2" class="ow_center">
+            {submit name="submit"}
+        </td>
+    </tr>
+</table>
+{/form}
+</div>
+{if !empty($frontend)}
+</div>
+<div class="oaseo_pos_button" id="aoseo_button_{$id}">{text key='oaseo+frontend_button_label'}</div>
+{/if}
+{/if}

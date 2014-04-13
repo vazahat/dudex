@@ -1,0 +1,145 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package gheader.views
+ *}
+
+{style}
+
+    html .ow_page_container .ow_page h1
+    {
+        display: none;
+    }
+
+    .hg-avatar-image
+    {
+        height: {$config.avatarSize}px;
+        width: {$config.avatarSize}px;
+        background: url({$group.image}) no-repeat center center;
+    }
+
+    .uh-avatar
+    {
+        margin-top: -{math equation="x - 56" x=$config.avatarSize}px;
+    }
+
+    .uh-toolbox
+    {
+        margin-left: {math equation="x + 20" x=$config.avatarSize}px;
+    }
+
+    .uh-cover
+    {
+        height: {$config.coverHeight}px;
+    }
+
+    .uh-cover-no-cover .uh-cover
+    {
+        height: {math equation="x - 56" x=$config.avatarSize}px;
+    }
+
+    .uh-cover-no-cover .uh-cover-preloader
+    {
+        margin-left: {math equation="x + 30" x=$config.avatarSize}px;
+        margin-top: {math equation="((x - 50) / 2) - 13" x=$config.avatarSize}px;
+    }
+
+{/style}
+
+<div class="gh-header uh-header uh-mode-view {if $group.hasImage}gh-has-image{else}gh-no-image{/if} {if $permissions.moderation}uh-mode-moderation{/if}" id="uh-header">
+
+    <div class="uh-cover-wrap {if $cover.hasCover}uh-cover-has-cover{else}uh-cover-no-cover{/if} uh-cover-mode-view" id="uh-cover">
+
+    <div class="uh-cover">
+
+        {if $permissions.view}
+            <img class="uh-cover-image" id="uh-cover-image" {if $cover.hasCover}src="{$cover.src}" style="{$cover.css}"{else}style="display: none"{/if} />
+        {/if}
+
+        {if $permissions.reposition}
+        <div class="uh-cover-center-tip" id="uh-cover-center-tip">
+            <div class="uh-cover-drag-instruction">
+                {text key="gheader+cover_reposition_tip"}
+            </div>
+        </div>
+
+        <div class="uh-cover-preloader ow_floatbox_preloader" id="uh-cover-preloader">&nbsp;</div>
+
+        <div class="uh-cover-overlay uh-cursor-drag" id="uh-cover-overlay"></div>
+        {/if}
+
+    </div>
+
+    {if $permissions.controls}
+    <div class="uh-cover-controls" id="uhc-controls" >
+
+        <div class="uh-cover-reposition-controls ow_bg_controls">
+            {decorator name="button_list_item" langLabel="gheader+cancel_changes_label" id="uh-reposition-cancel" class="uh-btn-cancel"}
+            {decorator name="button_list_item" langLabel="gheader+save_changes_label" id="uh-reposition-save" class="uh-btn-save ow_green"}
+        </div>
+
+
+        <div class="uh-cover-add-btn-wrap {if $cover.hasCover}ow_photo_context_action{/if}">
+            {$contextToolbar}
+        </div>
+
+    </div>
+    {/if}
+
+    </div>
+
+    <div class="gh-content-wrap">
+        <div class="uh-cont ow_border">
+            <div class="uh-head clearfix">
+                <div class="uh-avatar">
+                    <div class="ow_avatar_console ow_border uh-avatar-console ow_bg_color">
+                        <div class="hg-avatar-image">
+                        </div>
+                    </div>
+                </div>
+                <div class="uh-toolbox clearfix">
+                    <a class="uh-display-name ow_smallmargin" href="{$group.url}" style="display:block;">
+                        {$group.title}
+                    </a>
+
+                    <div class="gh-info ow_small">
+                        <span class="gh-info-item">
+                            <span class="gh-info-field ow_remark">{text key="gheader+info_created_label"}</span>
+                            <span class="gh-info-value">{$group.time}</span>
+                        </span>
+
+                        <span class="gh-info-item">
+                            <span class="gh-info-field ow_remark">{text key="gheader+info_admin_label"}</span>
+                            <a href="{$group.admin.url}">{$group.admin.name}</a>
+                        </span>
+                    </div>
+
+                    <ul class="ow_bl ow_small uh-action-toolbar">
+                        {foreach from=$toolbar item="item"}
+                            <li>
+                                <a href="{$item.href}" {if !empty($item.id)}id="{$item.id}"{/if}>{$item.label}</a>
+                            </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="gh-body clearfix">
+
+            <div class="gh-description ow_box ow_border">
+                {$group.description}
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

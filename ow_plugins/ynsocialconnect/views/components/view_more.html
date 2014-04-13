@@ -1,0 +1,23 @@
+{style}
+	{literal}
+		ul#opensocialconnect_holder_header_view_more li
+		{
+		    padding: 3px;
+		    float: left;
+		}  
+		ul#opensocialconnect_holder_header_view_more li img
+		{
+		    width: 32px;
+		    height: 32px;
+		} 
+	{/literal}
+{/style}
+
+{if count($aOpenProviders)}
+	<ul id="opensocialconnect_holder_header_view_more">
+		{foreach from=$aOpenProviders key=index item=aOpenProvider name=opr}
+			<li> <a href="javascript: void(YNSocialConnect.opensopopup('{url_for_route for="ynsocialconnect-socialconnect:[service => `$aOpenProvider->getName()`, type => sync]"}', '{$aOpenProvider->getName()}'));" title="{$aOpenProvider->getTitle()}"><img src="{$sImgSrc}{$aOpenProvider->getName()}.png" alt="{$aOpenProvider->getTitle()}" /></a> </li>
+		{/foreach}
+	</ul>
+	<div class="ynsc_clear"></div>
+{/if}

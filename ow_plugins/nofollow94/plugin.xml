@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>External NoFollow</name>
+	<key>nofollow</key>
+	<description>Automatically add rel="nofollow" attributes for all external links to discourage spam bots. Not all search engines can parse this.</description>
+        <author>Purusothaman Ramanujam</author>
+        <authorEmail>purushoth.r@gmail.com</authorEmail>
+	<authorUrl>http://www.iYaffle.com</authorUrl>
+	<developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+        <build>1</build>
+        <copyright>(C) 2013 Purusothaman Ramanujam. All rights reserved.</copyright>
+	<license>http://www.iYaffle.com</license>
+        <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>

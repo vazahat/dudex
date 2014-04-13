@@ -1,0 +1,28 @@
+    {if !$auth_msg} 
+		{form name='vwvrAddForm'}
+		
+		<table class="ow_table_1 ow_form">
+		<tr class="ow_alt1">
+		        <td class="ow_label">{label name='room_name'}</td>
+		        <td class="ow_value">{input name='room_name'} <br /> {error name='room_name'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+room_name_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt2">
+		        <td class="ow_label">{label name='description'}</td>
+		        <td class="ow_value">{input name='description'} <br /> {error name='description'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+description_desc'}</td>
+		    </tr>
+		    <tr class="ow_alt1">
+		        <td class="ow_label">{label name='tags'}</td>
+		        <td class="ow_value">{input name='tags'} <br /> {error name='tags'}</td>
+		        <td class="ow_desc ow_small">{text key='vwvr+tags_desc'}</td>
+		    </tr>			
+		    <tr>
+		        <td colspan="3" class="ow_submit">{submit name='add' class='ow_ic_add'}</td>
+		    </tr>  
+		</table>
+		
+		{/form}
+    {else}
+        <div class="ow_anno ow_std_margin ow_nocontent">{$auth_msg}</div>
+    {/if}

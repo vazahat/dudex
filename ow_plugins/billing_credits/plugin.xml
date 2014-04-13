@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Payment by User Credits</name>
+    <key>billingcredits</key>
+    <description>Payment Gateway for users to pay using their Credit points. User Credits plugin needed. Supports Finance log and log view using Credits History plugin.</description>
+    <author>Purusothaman Ramanujam</author>
+    <authorEmail>purushoth.r@gmail.com</authorEmail>
+    <authorUrl>http://www.iYaffle.com</authorUrl>
+    <developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+    <build>2.1</build>
+    <copyright>(C) 2014 Purusothaman Ramanujam. All rights reserved.</copyright>
+    <license>http://www.iYaffle.com</license>
+    <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>

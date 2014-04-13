@@ -1,0 +1,54 @@
+html body div .ow_yn_facebook_icon
+{ 
+	background-image: url(../img/facebook_icon.png); 
+}
+html body div .ow_yn_twitter_icon
+{ 
+	background-image: url(../img/twitter_icon.png); 
+}
+html body div .ow_yn_linkedin_icon
+{ 
+	background-image: url(../img/linkedin_icon.png); 
+}
+html body div .ow_yn_socialbridge_connects
+{ 
+	background-image: url(../img/connection_icon.png); 
+}
+.socialbridge_service_wrapper 
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+	border-color: #BBBBBB;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.1);
+	float: left;
+	margin-bottom: 10px;
+	margin-right: 1%;
+	padding: 1%;
+	width: 30%;
+}
+.socialbridge_connect img
+{
+	float: left;
+	padding-left: 2px;
+}
+.socialbridge_connect > p
+{
+	font-size: 12px;
+	text-align: center;
+	padding-top: 5px;
+}
+.soialbridge_disconnect
+{
+	margin-top: 16px;
+}
+
+img.socialbridge_service_image 
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	height: 90px;
+	padding-bottom: 10px;
+}

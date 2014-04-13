@@ -1,0 +1,9 @@
+<form method="post" id="connect_form" action="{$callbackUrl}">
+<input type="hidden" name="task" value="get_contacts" />
+<input type="hidden" name="service" value="linkedin" />
+</form>
+{script}
+{literal}
+	document.getElementById('connect_form').submit(); 
+{/literal}
+{/script}

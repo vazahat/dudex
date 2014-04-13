@@ -1,0 +1,137 @@
+{style}
+{literal}
+    .question_tr,
+    .category_tr { cursor: move; }
+    
+    td.faq_actions_cont,
+    td.cat_actions_cont {
+        padding-top: 2px; 
+        padding-bottom: 2px;
+    }
+    
+    #category_input { width: 200px; }
+{/literal}
+{/style}
+
+<div class="clearfix">
+    <div class="ow_right ow_stdmargin"><a href="http://oxcandystore.com/?plugin=ocs-faq"><img src="{$logo}" /></a></div>
+</div>
+
+<div class="clearfix">
+    <div class="ow_left ow_wide">
+    {block_decorator name='box' langLabel='ocsfaq+add_question' iconClass='ow_ic_add' addClass='ow_stdmargin'}
+        {form name='add-question-form'}
+        <table class="ow_table_3 ow_nomargin">
+            <tr>
+                <td class="ow_label" style="width: 10%">{label name='question'}</td>
+                <td class="ow_value">{input name='question'}</td>
+            </tr>
+            <tr>
+                <td class="ow_label">{label name='answer'}</td>
+                <td class="ow_value">{input name='answer'}</td>
+            </tr>
+            <tr>
+                <td class="ow_label">{label name='isFeatured'}</td>
+                <td class="ow_value">{input name='isFeatured'}</td>
+            </tr>
+            {if $categories}
+            <tr>
+            	<td class="ow_label">{label name='category'}</td>
+            	<td class="ow_value">{input name='category'}</td>
+            </tr>
+            {/if}
+            <tr>
+                <td class="ow_label"></td>
+                <td class="ow_value" style="border: none;">{submit name='add' class='ow_ic_add'}</td>
+            </tr>
+        </table>
+        {/form}
+    {/block_decorator}
+    
+    {block_decorator name='box' langLabel='ocsfaq+questions' iconClass='ow_ic_info'}
+        {if $catAssigned}
+        {foreach from=$questions item='category' key='id'}
+        <div class="question_rows{$id}">
+            <div class="ow_smallmargin"><b>{$category.name}</b></div>
+            <table class="ow_table_2">
+            {foreach from=$category.questions item='q'}
+            <tr class="ow_alt1 questions question_tr{$id}" id="question_{$q->id}">
+                <td style="width: 90%;">
+                    <div class="ow_txtleft" style="padding: 2px 0px;">
+                        <a href="{url_for_route for="ocsfaq.faq"}#q-{$q->id}" target="_blank">{$q->question}</a>
+                    </div>
+                </td>
+                <td class="faq_actions_cont">
+                    <div style="width: 50px;">
+                        <a class="ow_lbutton ocs_faq_edit" ref="{$q->id}" style="display: none;" href="javascript://">{text key="base+edit"}</a>
+                        <a class="ow_lbutton ow_red ocs_faq_delete" ref="{$q->id}" style="display: none;" href="javascript://">{text key="admin+delete"}</a>
+                    </div>
+                </td>
+            </tr>
+            {/foreach}
+            </table>
+        </div>
+        {/foreach}
+        {else}
+        <div class="question_rows">
+        <table class="ow_table_2">
+        {foreach from=$questions item='q'}
+            <tr class="ow_alt1 questions question_tr" id="question_{$q->id}">
+                <td style="width: 90%;">
+                    <div class="ow_txtleft" style="padding: 2px 0px;">
+                        <a href="{url_for_route for="ocsfaq.faq"}#q-{$q->id}" target="_blank">{$q->question}</a>
+                    </div>
+                </td>
+                <td class="faq_actions_cont">
+                    <div style="width: 50px;">
+                        <a class="ow_lbutton ocs_faq_edit" ref="{$q->id}" style="display: none;" href="javascript://">{text key="base+edit"}</a>
+                        <a class="ow_lbutton ow_red ocs_faq_delete" ref="{$q->id}" style="display: none;" href="javascript://">{text key="admin+delete"}</a>
+                    </div>
+                </td>
+            </tr>
+        {foreachelse}
+            <div class="ow_nocontent">{text key='ocsfaq+no_questions'}</div>
+        {/foreach}
+        </table>
+        </div>
+        {/if}
+    {/block_decorator}
+    </div>
+    <div class="ow_right ow_narrow">
+    {block_decorator name='box' langLabel='ocsfaq+settings' iconClass='ow_ic_gear_wheel' addClass='ow_stdmargin'}
+        {form name='update-settings-form'}
+            <div class="ow_smallmargin">
+                {input name='expand'} {label name='expand'}
+            </div>
+            {submit name='update' class='ow_ic_save'}
+        {/form}
+    {/block_decorator}
+    
+    {block_decorator name='box' langLabel='ocsfaq+categories' iconClass='ow_ic_folder'}
+    	{form name='add-category-form'}
+    		{if $categories}
+    		<table class="ow_table_2 cat_rows">
+    			{foreach from=$categories item='cat'}
+    				<tr class="ow_alt1 category_tr" id="cat_{$cat->id}">
+    					<td style="width: 90%">
+    					<div class="ow_txtleft ow_small" style="padding: 5px 0px;">
+    						{$cat->name}
+    					</div>
+    					</td>
+    					<td class="cat_actions_cont">
+    					<div style="width: 50px;">
+	                        <a class="ow_lbutton cat_edit" ref="{$cat->id}" style="display: none;" href="javascript://">{text key="base+edit"}</a>
+	                        <a class="ow_lbutton ow_red cat_delete" ref="{$cat->id}" style="display: none;" href="javascript://">{text key="admin+delete"}</a>
+	                    </div>
+    					</td>
+    				</tr>
+    			{/foreach}
+    		</table>
+    		{else}
+    		<div class="ow_nocontent">{text key='ocsfaq+no_categories_added'}</div>
+    		{/if}
+    		{input name='category'} {submit name='add'}
+    	{/form}
+    {/block_decorator}
+    </div>
+</div>

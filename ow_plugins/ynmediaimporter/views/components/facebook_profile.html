@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <img src="{$userThumb}" />    
+    </div>
+   <div>
+       {text key="ynmediaimporter+text_connected_as"}<a href="{$userProfileUrl}" target="_default"> {$userDisplayName}</a>
+   </div>
+</div>
+
+<ul>
+       <li>
+           <a href="{$disconnectUrl}" class="buttonlink ynmediaimporter_link_disconnect">Disconnect</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=album&extra=my')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_album">My Albums</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=album&extra=friend')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_friendalbum">Friends Albums</a>
+       </li>
+        <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=album&extra=like')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_likedalbum">Liked Albums</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=photo&extra=my')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_photo">My Photos</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=photo&extra=friend')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_friendphoto">Friends Photos</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=photo&extra=like')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_likedphoto">Liked Photos</a>
+       </li>
+       <li>
+           <a onclick="YnMediaImporter.updatePage('service=facebook&media=photo&extra=tag')" href="javascript:void(0);" class="buttonlink ynmediaimporter_link_taggedme">Tagged Photos</a>
+       </li>
+</ul>

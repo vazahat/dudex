@@ -1,0 +1,77 @@
+{$menu}
+
+<div class="ow_superwide ow_automargin">
+{form name='settings'}
+
+<table class="ow_table_1 ow_form ow_stdmargin">
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_online">{text key='ocsaffiliates+commission_settings'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='clickAmount'}</td>
+        <td class="ow_value">{input name='clickAmount' class='ow_settings_input'} {error name='clickAmount'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='regAmount'}</td>
+        <td class="ow_value">{input name='regAmount' class='ow_settings_input'} {error name='regAmount'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='saleCommission'}</td>
+        <td class="ow_value">{input name='saleCommission'} {error name='saleCommission'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr id="tr_amount" class="ow_alt2"{if $saleComission != 'amount'} style="display: none;"{/if}>
+        <td class="ow_label">{label name='saleAmount'}</td>
+        <td class="ow_value">{input name='saleAmount' class='ow_settings_input'} {error name='saleAmount'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>  
+    <tr id="tr_percent" class="ow_alt2"{if $saleComission != 'percent'} style="display: none;"{/if}>
+        <td class="ow_label">{label name='salePercent'}</td>
+        <td class="ow_value">{input name='salePercent' class='ow_settings_input'} {error name='salePercent'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last">
+        <td class="ow_label">{label name='showRates'}</td>
+        <td class="ow_value">{input name='showRates'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+
+    <tr class="ow_tr_delimiter"><td colspan="3"></td></tr>
+
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='ocsaffiliates+general_settings'}</span>
+        </th>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='status'}</td>
+        <td class="ow_value">{input name='status'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='allowBanners'}</td>
+        <td class="ow_value">{input name='allowBanners'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='terms'}</td>
+        <td class="ow_value">{input name='terms'}</td>
+        <td class="ow_desc ow_small">
+            <a href="javascript://" id="edit-agreement">{text key='ocsaffiliates+edit_agreement'}</a>
+        </td>
+    </tr>
+    <tr class="ow_alt2 ow_tr_last">
+        <td class="ow_label">{label name='period'}</td>
+        <td class="ow_value">{input name='period' class='ow_settings_input'} {text key='ocsaffiliates+hour'}</td>
+        <td class="ow_desc ow_small">{text key='ocsaffiliates+timeout_desc'}</td>
+    </tr>
+</table>
+<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div></div>
+
+{/form}
+</div>

@@ -1,0 +1,22 @@
+
+<div class="ow_video_list_item ow_small{if isset($data.set_class)} {$data.set_class}{/if}">
+
+    {capture name='url'}{url_for_route for="vwview_clip_ls:[id=>`$data.id`]"}{/capture}
+
+    {if $data.thumb == 'undefined'}
+        <a href="{$smarty.capture.url}" class="ow_vwls_thumb"></a>
+    {else}
+        <a href="{$smarty.capture.url}"><img src="{$data.thumb}" /></a>
+    {/if}
+    <div class="ow_vwls_item_rate">{if $data.listType == 'toprated'}{if $data.score}{display_rate avg_rate=$data.score}{/if}{/if}</div>
+    <div class="ow_vwls_item_title">{$data.title}, {text key='base+by'} {user_link username=$data.username name=$data.displayName}</div>
+	{if $data.userIsOwner == '1'}
+    <div class="ow_other_vwls_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls:[id=>`$data.id`]"}">{text key='vwls+broadcast'}</a></div>
+	{else}
+    <div class="ow_other_vwls_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls_w:[id=>`$data.id`]"}">{text key='vwls+watch'}</a></div>
+    <div class="ow_other_vwls_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls_v:[id=>`$data.id`]"}">{text key='vwls+videoOnly'}</a></div>
+	{/if}
+    <div class="ow_other_vwls_item_title ow_small">{text key='vwls+online_user'}: ({$data.onlineCount})</a></div>
+    <div class="ow_other_vwls_item_title ow_small">{$data.onlineUser}</a></div>
+
+</div>

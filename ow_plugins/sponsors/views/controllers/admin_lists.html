@@ -1,0 +1,49 @@
+{$menu}
+
+<table id="logTable" class="tablesorter"> 
+    <thead> 
+        <tr> 
+            <th>{text key='sponsors+details'}</th>         
+            <th>{text key='sponsors+image'}</th> 
+            <th>{text key='sponsors+price_usd'}</th> 
+            <th>{text key='sponsors+userId'}</th> 
+            <th>{text key='sponsors+validity'}</th>      
+            <th>{text key='sponsors+action'}</th>       
+            <th></th>               
+        </tr> 
+    </thead> 
+    <tbody> 
+
+        {foreach from=$sponsors item=sponsor}
+        <tr>
+            <td>{$sponsor.name} ({if $sponsor.status == 0}{text key='sponsors+pending'}{else}{text key='sponsors+approved'}{/if})<br/>
+                {$sponsor.email} <br/>
+                {$sponsor.website}<br/>
+                {format_date timestamp=$sponsor.timestamp}</td> 
+            <td><img src="{$sponsor.image}" height="80" width="80"/></td>       
+            <td>{$sponsor.price}</td>     
+            <td>{if $sponsor.userId == 0}N/A{else}<a href="$sponsor.userUrl" target="_blank">{$sponsor.userName}</a>{/if}</td>            
+            <td>{$sponsor.validity}</td>               
+            <td><a href="{$sponsor.activityUrl}">{if $sponsor.status == 0}{text key='sponsors+approve'}{else}{text key='sponsors+disapprove'}{/if}</a></td>     
+            <td><a href="{$sponsor.editUrl}" style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_edit"></a><br/>
+                <a href="{$sponsor.deleteUrl}" onclick="return confirm('{text key="base+are_you_sure"}');" style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_delete"></a>            
+            </td>             
+        </tr>
+        {foreachelse}
+        <tr>
+            <td colspan="7"><center>{text key='sponsors+no_sponsors_yet'}</center></td> 
+</tr>
+{/foreach}
+
+</tbody> 
+</table> 
+
+{script}
+{literal}
+$(document).ready(function() 
+{ 
+$("#logTable").tablesorter(); 
+} 
+); 
+{/literal}
+{/script}

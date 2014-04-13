@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Sponsors Wall</name>
+    <key>sponsors</key>
+    <description>Members/Guests can become a Sponsor. Supports Free and Payment options(Payment Gateway plugins needed). Special Widget for Sponsors. </description>
+    <author>Purusothaman Ramanujam</author>
+    <authorEmail>purushoth.r@gmail.com</authorEmail>
+    <authorUrl>http://www.iYaffle.com</authorUrl>
+    <developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+    <build>1</build>
+    <copyright>(C) 2013 Purusothaman Ramanujam. All rights reserved.</copyright>
+    <license>http://www.iYaffle.com</license>
+    <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>

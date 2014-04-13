@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Cache Extreme</name>
+	<key>cacheextreme</key>
+	<description>
+		Clear the cache while not in DEV-mode
+	</description>
+    <author>Top Motion</author>
+    <authorEmail>info@top-motion.be</authorEmail>
+	<authorUrl>http://www.oxwall-plugins.com/</authorUrl>
+	<developerKey>739b70d3f71e5c060fb0fe30836732a4</developerKey>
+    <build>10000</build>
+    <copyright>(c) 2013 Top-Motion.be. All rights reserved.</copyright>
+	<license>The BSD License</license>
+    <licenseUrl>https://github.com/ycicom/cacheextreme#license</licenseUrl>
+</plugin>

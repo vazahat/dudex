@@ -1,0 +1,71 @@
+
+{script}
+{literal}
+    $(document).ready(function(){
+        var $tb_container = $(".ow_box_toolbar_cont", $("#vwls_list_widget").parents('.ow_box, .ow_box_empty').get(0));
+
+        $("#vwls-widget-menu-featured").click(function(){
+            $tb_container.html($("div#vwls-widget-toolbar-featured").html());
+        });
+
+        $("#vwls-widget-menu-latest").click(function(){
+            $tb_container.html($("div#vwls-widget-toolbar-latest").html());
+        });
+
+        $("#vwls-widget-menu-toprated").click(function(){
+            $tb_container.html($("div#vwls-widget-toolbar-toprated").html());
+        });
+    });
+{/literal}
+{/script}
+
+<div id="vwls_list_widget">
+    
+    {capture assign='nocontent'}
+       <div class="ow_nocontent">{text key='vwls+no_vwls'}</div>
+    {/capture}
+
+	<div id="{$items.latest.contId}">
+	{if $showTitles}
+	   {foreach from=$online item='c' name='clips'}
+	   <div class="clearfix ow_smallmargin">
+            <div class="ow_other_video_thumb ow_left">
+                <a href="{url_for_route for="vwview_clip_ls:[id=>`$c.id`]"}">
+                    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+                </a>
+            </div>
+            <div class="ow_other_video_item_title ow_small">{$c.title} channel</div>
+				{if $userId == $c.userId}
+				<div class="ow_other_video_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls:[id=>`$c.id`]"}">{text key='vwls+broadcast'}</a></div>
+				{else}
+				<div class="ow_other_video_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls_w:[id=>`$c.id`]"}">{text key='vwls+watch'}</a></div>
+				<div class="ow_other_video_item_title ow_small"><a href="{url_for_route for="vwview_clip_ls_v:[id=>`$c.id`]"}">{text key='vwls+videoOnly'}</a></div>
+				{/if}
+				<div class="ow_other_video_item_title ow_small">{text key='vwls+online_user'}: ({$c.onlineCount})</a></div>
+				<div class="ow_other_video_item_title ow_small">{$c.onlineUser}</a></div>
+	   </div>
+	   {foreachelse}
+          {$nocontent}
+	   {/foreach}
+	{else}
+	<div class="clearfix ow_center">
+	{foreach from=$online item='c' name='clips'}
+		{if $smarty.foreach.clips.iteration == 1}
+		   <div class="ow_smallmargin">{$c.code}</div>
+		{else}
+			<a class="ow_other_video_floated" href="{url_for_route for="vwview_clip_ls:[id=>`$c.id`]"}" title="{$c.title}">
+			    {if $c.thumb != 'undefined'}<img src="{$c.thumb}" />{/if}
+			</a>
+		{/if}
+    {foreachelse}
+        {$nocontent}		
+	{/foreach}
+	</div>
+	{/if}	
+	</div>
+		
+	{if $online}<div id="vwls-widget-toolbar-latest" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.latest}</div>{/if}
+    {if $featured}<div id="vwls-widget-toolbar-featured" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.featured}</div>{/if}  
+    {if $toprated}<div id="vwls-widget-toolbar-toprated" style="display: none">{decorator name='box_toolbar' itemList=$toolbars.toprated}</div>{/if}
+    
+</div>

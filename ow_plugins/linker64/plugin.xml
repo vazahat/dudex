@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>External Linker</name>
+	<key>linker</key>
+	<description>Keep your members on your site and increase your viewership by opening all external website links in a new window</description>
+        <author>Purusothaman Ramanujam</author>
+        <authorEmail>purushoth.r@gmail.com</authorEmail>
+	<authorUrl>http://www.plugins.iYaffle.com</authorUrl>
+	<developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+        <build>1.0</build>
+        <copyright>(C) 2012 Purusothaman Ramanujam. All rights reserved.</copyright>
+	<license>http://www.plugins.iYaffle.com</license>
+        <licenseUrl>http://www.plugins.iYaffle.com</licenseUrl>
+</plugin>

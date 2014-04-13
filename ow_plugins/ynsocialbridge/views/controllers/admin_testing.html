@@ -1,0 +1,79 @@
+{$menu}
+<div class="ow_automargin">
+	<table class="ow_table_1 ow_form">
+		{foreach from = $arrObjServices item='service'}
+	    <tr class="ow_tr_first">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{$service.serviceName} - Contact Importer</span>
+	        </th>
+	    </tr>
+	    
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Get Contacts (limit 2)</td>
+	    	<td class="ow_value"> 
+	    		{$service.infoOfContact}
+	    	</td>
+	    </tr>
+	     <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Send Invites </td>
+	    	<td class="ow_value"> 
+	    
+	    	</td>
+	    </tr>
+	     <tr class="">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{$service.serviceName} - Social Connect</span>
+	        </th>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Get Info </td>
+	    	<td class="ow_value"> 
+	    		{$service.ownerInfo}
+	    	</td>
+	    </tr>
+	     <tr class="">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{$service.serviceName} - Social Stream</span>
+	        </th>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Get Activities (limit 1)</td>
+	    	<td class="ow_value"> 
+	    		{$service.activities}
+	    	</td>
+	    </tr>
+	    {if $service.serviceName == 'Facebook'}
+	     <tr class="">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{$service.serviceName} - Social Media Importer</span>
+	        </th>
+	    </tr>
+	     <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Get Albums (limit 2)</td>
+	    	<td class="ow_value"> 
+	    		{$service.albums}
+	    	</td>
+	    </tr>
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+	    	<td class="ow_label">Get Photos (limit 2)</td>
+	    	<td class="ow_value"> 
+	    		{$service.photos}
+	    	</td>
+	    </tr>
+	    {/if}
+	     <tr class="">
+	        <th class="ow_name ow_txtleft" colspan="3">
+	            <span class="ow_section_icon ow_ic_gear_wheel">{$service.serviceName} - Social Publisher</span>
+	        </th>
+	    </tr>
+	    
+	    <tr class="{cycle values='ow_alt1, ow_alt2'} ow_tr_last">
+	    	<td class="ow_label">Post Activity </td>
+	    	<td class="ow_value"> 
+	    		
+	    	</td>
+	    </tr>
+	     <tr class="ow_tr_delimiter"><td colspan="3"> </td> </tr>
+	    {/foreach}
+	</table>
+</div>

@@ -1,0 +1,59 @@
+{*
+
+/**
+ * Copyright (c) 2014, Kairat Bakytow
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ */
+ 
+*}
+
+<div class="ow_stdmargin">
+    {$menu}
+</div>
+
+{form name='settingsForm'}
+    <table class="ow_table_1 ow_form">
+        <tbody>
+            <tr class="ow_alt1'">
+                <td width="1" class="ow_label">
+                    {label name='themeList'}
+                </td>
+                <td class="ow_value">
+                    {input name='themeList'}
+                    {error name='themeList'}
+                </td>
+            </tr>
+
+            <tr class="ow_tr_last ow_center">
+                <td colspan="2">
+                    {submit name='save'}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    {block_decorator name='box' addClass='ow_stdmargin' langLabel='profileprogressbar+preview'}
+        <table class="ow_table_1 ow_form ow_stdmargin" style="margin: 0">
+            <tr class="ow_alt1">
+                <td class="ow_label">
+                    {text key='profileprogressbar+progressbar_label'}
+                </td>
+                <td class="ow_value">
+                    <div id="profile_progressbar" class="profile-progressbar clearfix">
+                        <span class="profile-progressbar-caption">60%</span>
+                        <div class="profile-progressbar-complete" style="width: 60%"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="ow_alt1">
+                <td colspan="2">
+                    <div id="slider"></div>
+                </td>
+            </tr>
+        </table>
+    {/block_decorator}
+{/form}

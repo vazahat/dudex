@@ -1,0 +1,20 @@
+
+{block_decorator name='box_cap' iconClass='ow_ic_files' langLabel='vwvr+other_vwvr'}{/block_decorator}
+{block_decorator name='box' addClass='ow_small'}
+
+	<div class="ow_other_vwvr_list clearfix">
+	{if $clips}
+		{foreach from=$clips item='clip'}      
+		    <div class="ow_other_vwvr_list_item ow_smallmargin clearfix">
+		        {capture name='url'}{url_for_route for="vwview_clip_vr:[id=>`$clip.id`]"}{/capture}
+		
+                <div class="ow_other_video_thumb ow_left">
+                    <a href="{$smarty.capture.url}">{if $clip.thumb != 'undefined'}<img src="{$clip.thumb}" style = "max-width: 100%; width: 85px;" />{/if}</a>
+			    </div>
+		        <div class="ow_other_video_item_title"><a href="{$smarty.capture.url}">{$clip.room_name}</a></div>
+		    </div>
+		{/foreach}
+	{/if}
+	</div>
+	
+{/block_decorator}

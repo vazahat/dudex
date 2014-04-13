@@ -1,0 +1,13 @@
+{form name='register_payout'}
+<table class="ow_table_1 ow_form">
+    <tr class="ow_alt1 ow_tr_first">
+        <td class="ow_label">{label name='amount'}</td>
+        <td class="ow_value">{input name='amount'}</td>
+    </tr>
+    <tr class="ow_alt1 ow_tr_last"{if !$creditsOption} style="display: none;"{/if}>
+        <td class="ow_label"></td>
+        <td class="ow_value">{input name='byCredits'} {label name='byCredits'}: {if $assocUser}<a href="{$assocUser.url}">{$assocUser.name}</a>{/if}</td>
+    </tr>
+</table>
+<div class="ow_txtright ow_submit ow_positive">{submit name='add'}</div>
+{/form}

@@ -1,0 +1,76 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+    {form name='adminForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="introWidth"}</td>
+            <td class="ow_value">{input name="introWidth"} {error name='introWidth'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="guidePos"}</td>
+            <td class="ow_value">{input name="guidePos"} {error name='guidePos'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="guideColor"}</td>
+            <td class="ow_value">{input name="guideColor"} {error name='guideColor'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="exitOnEsc"}</td>
+            <td class="ow_value">{input name="exitOnEsc"} {error name='exitOnEsc'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="exitOnOverlayClick"}</td>
+            <td class="ow_value">{input name="exitOnOverlayClick"} {error name='exitOnOverlayClick'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="showStepNumbers"}</td>
+            <td class="ow_value">{input name="showStepNumbers"} {error name='showStepNumbers'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="keyboardNavigation"}</td>
+            <td class="ow_value">{input name="keyboardNavigation"} {error name='keyboardNavigation'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="showButtons"}</td>
+            <td class="ow_value">{input name="showButtons"} {error name='showButtons'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="showBullets"}</td>
+            <td class="ow_value">{input name="showBullets"} {error name='showBullets'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="enableForGuests"}</td>
+            <td class="ow_value">{input name="enableForGuests"} {error name='enableForGuests'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}"> 
+            <td class="ow_label">{label name="enableRTL"}</td>
+            <td class="ow_value">{input name="enableRTL"} {error name='enableRTL'}</td>
+        </tr>
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td colspan="2" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+        </tr>
+
+    </table>
+    {/form}  
+</div>
+
+{script}
+{literal}
+jQuery(document).ready(function(){
+$("#colorBox").spectrum({preferredFormat: "hex",showInput: true});
+});
+{/literal}
+{/script}

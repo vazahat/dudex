@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+    <name>Extended Events(stand-alone)</name>
+    <key>eventx</key>
+    <description>Advanced stand-alone Events plugin with Location Auto-suggestion, Maps, Categories, Tags, Calendar and more</description>
+    <author>Purusothaman Ramanujam</author>
+    <authorEmail>purushoth.r@gmail.com</authorEmail>
+    <authorUrl>http://www.iYaffle.com</authorUrl>
+    <developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+    <build>2</build>
+    <copyright>(C) 2013 Purusothaman Ramanujam. All rights reserved.</copyright>
+    <license>http://www.iYaffle.com</license>
+    <licenseUrl>http://www.iYaffle.com</licenseUrl>
+</plugin>
+

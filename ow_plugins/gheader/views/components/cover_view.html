@@ -1,0 +1,47 @@
+{**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ *}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package gheader.views
+ *}
+
+{if !empty($error)}
+
+    <div class="uhcv-nocover">
+        {$error}
+    </div>
+
+{else}
+
+    {script}
+
+    $('#uhcv-cover').hover(function() {
+        $("#uhcv-cover-info").slideDown("fast");
+    }, function() {
+        $("#uhcv-cover-info").slideUp("fast");
+    });
+
+    {/script}
+
+    <div class="uh-cover-view">
+        <div class="uhcv-cover ow_stdmargin" id="uhcv-cover" style="width: {$dimensions.width}px;">
+
+            <img src="{$src}" style="margin-top: {$top}px;" />
+
+            <div class="uhcv-hover-info" id="uhcv-cover-info">
+                <a href="{$src}" target="_blank" class="uhcv-hover-zoom"></a>
+            </div>
+        </div>
+        <div class="uhcv-bottom clearfix">
+             {$comments}
+        </div>
+    </div>
+
+{/if}

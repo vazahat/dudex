@@ -1,0 +1,17 @@
+<div style="height: 0;position: relative;"><a style="position: absolute;right:0;top:-65px;width:100px;height:100px;" href="http://oxart.net" target="_blank"><img src="{$oaseoImageUrl}" /></a></div>
+{$contentMenu}
+{text key="oaseo+admin_settings_robots_txt"}<br /><br />
+{form name='robots'}
+	<table class="ow_table_1 ow_form">
+	    <tr class="{cycle values='ow_alt1, ow_alt2'}">
+            <td class="ow_value">
+                <div style="width:95%;margin:0 auto;">{input name='robots' style='height:400px;'}</div>
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td colspan="3" class="ow_center">
+	    		{submit name="submit" class="ow_ic_save"}
+	    	</td>
+	    </tr>
+	</table>
+{/form}

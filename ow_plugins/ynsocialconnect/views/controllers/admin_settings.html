@@ -1,0 +1,36 @@
+{$menu}
+{form name="admin_settings_form"}
+	<table class="ow_table_1 ow_form">
+		<tr class="ow_tr_first">
+			<th class="ow_name ow_txtleft" colspan="3">
+				<span class="ow_section_icon ow_ic_gear_wheel">{text key='ynsocialconnect+txt_global_settings'}</span>
+			</th>	
+		</tr>
+		<tr class="{cycle name="limit_provider" values="ow_alt2, ow_alt1"}">
+		        <td class="ow_label">{text key='ynsocialconnect+txt_limit_provider'}</td>
+		        <td class="ow_value">{input name='limit_provider'} {error name='limit_provider'}</td>
+		        <td class="ow_desc">{text key='ynsocialconnect+txt_limit_provider_desc'}</td>
+		</tr>
+		<tr class="{cycle name="limit_provider" values="ow_alt2, ow_alt1"}">
+		        <td class="ow_label">{text key='ynsocialconnect+txt_size_provider'}</td>
+		        <td class="ow_value">{input name='size_icon'} {error name='size_icon'}</td>
+		        <td class="ow_desc">{text key='ynsocialconnect+txt_size_provider_desc'}</td>
+		</tr>
+		<tr class="{cycle name="limit_provider" values="ow_alt2, ow_alt1"}">
+		        <td class="ow_label">{text key='ynsocialconnect+txt_position_provider'}</td>
+		        <td class="ow_value">{input name='position_providers_on_header'} {error name='position_providers_on_header'}</td>
+		        <td class="ow_desc">{text key='ynsocialconnect+txt_position_provider_desc'}</td>
+		</tr>
+		<tr class="{cycle name="limit_provider" values="ow_alt2, ow_alt1"}">
+		        <td class="ow_label">{text key='ynsocialconnect+signup_mode'}</td>
+		        <td class="ow_value">{input name='signup_mode'} {error name='signup_mode'}</td>
+		        <td class="ow_desc">{text key='ynsocialconnect+signup_mode_desc'}</td>
+		</tr>
+	</table>
+	<div class="clearfix ow_submit ow_stdmargin">
+		<div class="ow_right">
+			{submit name="save" class='ow_ic_save ow_positive'}
+		</div>
+	</div>
+{/form}
+

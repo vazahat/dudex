@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+	<name>Start Page Pro</name>
+	<key>startpage</key>
+	<description>Start Page Pro- change your home page in a simple way...</description>
+    <author>Aron</author>
+    <authorEmail>aron1aron@gmail.com</authorEmail>
+	<authorUrl>http://www.oxwall.a6.pl</authorUrl>
+	<developerKey>dd00b1f44ad08b29c885cde8e035356a</developerKey>
+    <build>95</build>
+    <copyright>(C) 2012 by Aron. All rights reserved.</copyright>
+	<license>Aron licence</license>
+    <licenseUrl>http://www.oxwall.a6.pl</licenseUrl>
+</plugin>

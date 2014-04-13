@@ -1,0 +1,119 @@
+{$contentMenu}
+{$menu}
+
+{form name='YNSOCIALSTREAM_FrontSettingsForm'}
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='ynsocialstream+front_settings_title'}</span>
+        </th>
+    </tr>
+    {if $configs['get_feed_cron']}
+    <tr class="ow_alt1 ow_tr_last" id="cron_job_user">
+        <td class="ow_label">{label name='cron_job_user'}</td>
+        <td class="ow_value cron_job_user">{input name='cron_job_user'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+cron_job_user'}</td>
+    </tr>
+    {/if}
+    
+    <tr class="ow_alt1 ow_tr_last" id="enable_facebook">
+        <td class="ow_label">{label name='enable_facebook'}</td>
+        <td class="ow_value enable_facebook">{input name='enable_facebook'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+enable_facebook'}</td>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="auth_fb">
+        <td class="ow_label">{label name='auth_fb'}</td>
+        <td class="ow_value auth_fb">{input name='auth_fb'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+auth_fb'}</td>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="enable_twitter">
+        <td class="ow_label">{label name='enable_twitter'}</td>
+        <td class="ow_value enable_twitter">{input name='enable_twitter'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+enable_twitter'}</td>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="auth_tw">
+        <td class="ow_label">{label name='auth_tw'}</td>
+        <td class="ow_value auth_tw">{input name='auth_tw'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+auth_tw'}</td>
+    </tr>
+    
+    
+     <tr class="ow_alt1 ow_tr_last" id="enable_linkedin">
+        <td class="ow_label">{label name='enable_linkedin'}</td>
+        <td class="ow_value enable_linkedin">{input name='enable_linkedin'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+enable_linkedin'}</td>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="auth_li">
+        <td class="ow_label">{label name='auth_li'}</td>
+        <td class="ow_value auth_li">{input name='auth_li'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+auth_li'}</td>
+    </tr> 
+    
+
+</table>
+<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div><div class="ow_right"></div></div>
+
+{/form}
+
+{script}{literal}
+
+if ( $(".enable_facebook :input[name*='enable_facebook']")[0].checked )
+    {
+        $('#auth_fb').show();
+    }
+else
+    {
+        $('#auth_fb').hide();
+    }
+if ( $(".enable_twitter :input[name*='enable_twitter']")[0].checked )
+    {
+        $('#auth_tw').show();
+    }
+else
+    {
+        $('#auth_tw').hide();
+    }
+if ( $(".enable_linkedin :input[name*='enable_linkedin']")[0].checked )
+    {
+        $('#auth_li').show();
+    }
+else
+    {
+        $('#auth_li').hide();
+    }
+$('#enable_facebook').click(function() { 
+    if ( $(".enable_facebook :input[name*='enable_facebook']")[0].checked )
+    {
+        $('#auth_fb').show();
+    }
+    else
+    {
+        $('#auth_fb').hide();
+    }
+});
+$('#enable_twitter').click(function() { 
+    if ( $(".enable_twitter :input[name*='enable_twitter']")[0].checked )
+    {
+        $('#auth_tw').show();
+    }
+    else
+    {
+        $('#auth_tw').hide();
+    }
+});
+$('#enable_linkedin').click(function() { 
+    if ( $(".enable_linkedin :input[name*='enable_linkedin']")[0].checked )
+    {
+        $('#auth_li').show();
+    }
+    else
+    {
+        $('#auth_li').hide();
+    }
+});
+
+{/literal}{/script}

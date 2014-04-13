@@ -1,0 +1,468 @@
+<div class="contactimporter_contactlist">
+	<div class="clearfix">
+		<div class="ow_left">
+			{text key='yncontactimporter+total_contacts' count=$totalContacts}
+			</div>
+		<div class="ow_right ow_txtright">
+			<form method="post" id="search_contacts">
+				<div class="ow_box ow_admin_search_box ow_smallmargin">
+					{text key='yncontactimporter+name'}
+					<input type="text" name="search" id="contacts-search-input" style="width: 280px" value="{$currentSearch}" />
+					{decorator name='button' type="submit" langLabel='yncontactimporter+go'}
+				</div>
+				<input type="hidden" name="service" value="{$service}" />
+				<input type="hidden" name="contact" value="{$contacts}"/>
+				<input type="hidden" value="{$skip_add}" name="skip_add" />
+				<input type="hidden" value="1" name="search_page_id" id = 'search_page_id' />
+				<input type='hidden' name='page_friendIds' id = 'page_friendIds' value='{$friendIds}'>
+				<input type='hidden' name='page_friendNames' id = 'page_friendNames' value='{$friendNames}'>
+			</form>
+		</div>
+	</div>
+	<div class="clearfix ow_smallmargin">
+		<div class="ow_left"> </div>
+		<div class="ow_right">
+			{text key = 'yncontactimporter+found'}: <b>{$totalSearchContacts}</b> {text key = 'yncontactimporter+contacts'}
+		</div>
+	</div>
+	{if $totalSearchContacts > 0}
+	{script}
+		{literal}
+			$("#contacts-search-input").focus();
+		{/literal}
+	{/script}
+	<div id = 'page_1' class = 'contact_page'>
+		<table class='ow_table_2' style="margin-bottom: 0px">
+			<tbody>
+				<tr class="ow_tr_first">
+					<th style="width: 9%">
+					<input id='checkallBox' type='checkbox' onclick='toggleAll(this)' name='toggle_all' title='{text key='yncontactimporter+select_all'}'>
+					</th>
+					{if !$isEmail}
+					<th style="width: 86%">{text key='yncontactimporter+name'}</th>
+					<th> </th>
+					{else}
+					<th style="width: 50%">{text key='yncontactimporter+name'}</th>
+					<th>{text key='yncontactimporter+email'}</th>
+					{/if}
+				</tr>
+			</tbody>
+		</table>
+		<div style="max-height: 560px; overflow-x: hidden; overflow-y: auto; float: left; width: 100%;margin-bottom: 10px">
+			<table class='ow_table_2'>
+				<tbody>
+					{$contents}
+				</tbody>
+			</table>
+		</div>
+		{$pages}
+	</div>
+	{$pagination}
+	<div>
+		{text key = 'yncontactimporter+total_contact_selected'}: <b><span id = "count_contacts">{$invitation_selected}</span></b>
+	</div>
+	<form method="post" action="{$actionUrl}" name='openinviter' id = 'openinviter' enctype="application/x-www-form-urlencoded" onsubmit="return check_select() ">
+	<input type='hidden' name='friendIds' id = 'friendIds' value='{$friendIds}'> 
+	<input type='hidden' name='friendNames' id = 'friendNames' value='{$friendNames}'> 
+	{if !$add_friend}
+		<label>{text key = 'yncontactimporter+custom_message'}:</label>
+		<div><textarea style="width: 70%" id="message" name="message">{$defaultMessage}</textarea></div>
+		<input type='hidden' name='provider' value='{$service}'> 
+		<br/>
+		{decorator name='button' type="submit" langLabel='yncontactimporter+send_invitation'}
+		{decorator class = 'ow_ic_delete' name='button' onclick = 'return gotoImportPage()' type="submit" langLabel='yncontactimporter+skip'}
+	{else}
+		<input type="hidden" value="do_add" name="task" />
+		<input type='hidden' name='service' value='{$service}'> 
+		<input type="hidden" name="contact" value="{$contacts}"/>
+		<br/>
+		{decorator name='button' type="submit" langLabel='yncontactimporter+add_connection'}
+		{decorator class = 'ow_ic_delete' name='button' onclick = 'return skip_add_connection()' type="submit" langLabel='yncontactimporter+skip'}
+	{/if}
+	</form>
+	{if $add_friend}
+	<form method="post" id="form_skip">
+		<input type="hidden" value="skip_add" name="skip_add" />
+		<input type='hidden' name='service' value='{$service}'> 
+		<input type="hidden" name="contact" value="{$contacts}"/>
+	</form>
+	{/if}
+{else}
+	<div class="ow_box clearfix ow_center" style="">
+	       {text key = "yncontactimporter+no_contact_search"}
+	</div>
+{/if}
+</div>
+<script type="text/javascript">
+var totalContacts = parseInt('{$totalSearchContacts}');
+var total_allow_select = parseInt('{$maxInvitePerTimes}');
+var contactPerPage = parseInt('{$contactPerPage}');
+var invitation_selected = parseInt('{$invitation_selected}');
+var total_checked = parseInt('{$invitation_selected}');
+var page = 1;
+var service = '{$service}';
+var gotoImportPage = function()
+{
+	document.location = '{$importUrl}';
+	return false;
+}
+function check_toggle(element_id, isCheckBox) 
+{
+	var check_element = document.getElementById('check_'+element_id);
+	if(isCheckBox)
+		check_element.checked = !check_element.checked;
+	if(check_element.checked == true)
+		total_checked ++;
+	else
+		total_checked --;
+	document.getElementById('count_contacts').innerHTML = total_checked;
+	if (total_checked > total_allow_select && check_element.checked)
+	{
+		alert('{$warningMaxInvite}');
+		check_element.checked = false;
+		return false;
+	} 
+}
+function toggleAll(element) 
+{
+	if(service == 'facebook')
+	{
+		for(var id = 1; id <= contactPerPage; id++)
+		{
+			if(document.getElementById('check_'+ id))
+			{
+				if(element.checked == true && document.getElementById('check_'+ id).checked == false)
+					total_checked ++;
+				else if(document.getElementById('check_'+ id).checked == true)
+					total_checked --;
+				if (element.checked == true && total_checked > total_allow_select)
+				{
+					total_checked --;
+					if(id == 1)
+					{
+						element.checked = false;
+					}
+					document.getElementById('count_contacts').innerHTML = total_checked;
+					alert('{$warningMaxInvite}');
+					return false;
+				}
+				document.getElementById('check_'+ id).checked = element.checked;
+			}
+		}
+	}
+	else
+	{
+		for(var id = (page - 1)*contactPerPage + 1; id <= page*contactPerPage; id++)
+		{
+			if(document.getElementById('check_'+ id))
+			{
+				if(element.checked == true && document.getElementById('check_'+ id).checked == false)
+					total_checked ++;
+				else if(document.getElementById('check_'+ id).checked == true)
+					total_checked --;
+				if (element.checked == true && total_checked > total_allow_select)
+				{
+					total_checked --;
+					if(id == (page - 1)*contactPerPage + 1)
+					{
+						element.checked = false;
+					}
+					document.getElementById('count_contacts').innerHTML = total_checked;
+					alert('{$warningMaxInvite}');
+					return;
+				}
+				document.getElementById('check_'+ id).checked = element.checked;
+			}
+		}
+	}
+	if(total_checked < invitation_selected)
+	{
+		document.getElementById('count_contacts').innerHTML = invitation_selected;
+	}
+	else
+	{
+		document.getElementById('count_contacts').innerHTML = total_checked;
+	}
+	
+}
+function check_select()
+{
+    var limit_select = 0;
+    var sIds = document.getElementById('friendIds').value;
+    var sNames = document.getElementById('friendNames').value;
+    for(var id = 1; id <= totalContacts;id++)
+    {   
+    	if(document.getElementById('check_'+id))
+    	{
+    		var ele = document.getElementById('check_'+id);
+        if (ele.checked)
+        {
+            limit_select ++;
+            sIds += document.getElementById('email_'+id).value + ',';
+            sNames += document.getElementById('name_'+id).value + ',';
+        }
+      }
+    }
+    if (limit_select > 0)
+    {
+    	document.getElementById('friendIds').value = sIds;
+    	document.getElementById('friendNames').value = sNames;
+    	document.getElementById('invite_friends').style.display = 'none';
+    	document.getElementById('loading').style.display = 'block';
+        document.getElementById('openinviter').submit();
+        return true;
+    }
+    else
+    {
+   		alert('{$warningNoContactSelected}');
+   	}
+    return false;
+}
+function skip_add_connection()
+{
+	 document.getElementById('form_skip').submit();
+     return false;
+}
+$("#contactimporter_page_list a").on("click", function(e)
+{
+	var page_heads = document.getElementById('contactimporter_page_list').getElementsByTagName("a");
+	var total = page_heads.length;
+	if(this.id != 0 && this.id != total - 1)
+	{
+		   page = this.id;
+		   //set active for current tab head
+       for(i=0; i < page_heads.length; i++)
+       {
+          page_heads[i].className = '';
+       }
+       $('.contact_page').each(function()
+		{
+			 if(service != 'facebook')
+			{
+		    	this.style.display = 'none';
+		   	}
+		});
+       this.className = 'active';
+       if(service == 'facebook')
+       {
+       	 	var sIds = '';
+			    var sNames = '';
+			    for(var id = 1; id <= contactPerPage; id++)
+			    {   
+			    	if(document.getElementById('check_'+id))
+			    	{
+			    		var ele = document.getElementById('check_'+id);
+			        if (ele.checked)
+			        {
+			            sIds += document.getElementById('email_'+id).value + ',';
+			            sNames += document.getElementById('name_'+id).value + ',';
+			        }
+			      }
+			    }
+	    	 document.getElementById('page_friendIds').value = sIds;
+	    	 document.getElementById('page_friendNames').value = sNames;
+       	 document.getElementById('search_page_id').value = this.id;
+       	 document.getElementById('search_contacts').submit();
+       }
+       else 
+       {
+       	document.getElementById('page_' + this.id).style.display = 'block';
+       }
+       var sub_page = 5;
+       if((total - 2 - parseInt(this.id)) < 5)
+       {
+       		sub_page = total - 2 - parseInt(this.id);
+       }
+			var end_page = parseInt(this.id) + sub_page;
+			if(this.id > 5 && total - 2 > 10)
+			{
+				for(var l = 1; l <= total - 1; l ++)
+				{
+					document.getElementById(l).style.display = 'none';
+				}
+				
+				for(var j = 1; j < 10 - (end_page - parseInt(this.id)); j ++)
+				{
+					document.getElementById(parseInt(this.id) - j).style.display = 'inline-block';
+				}
+				for(var k = parseInt(this.id); k <= end_page; k ++)
+				{
+					document.getElementById(k).style.display = 'inline-block';
+				}
+			}
+			if(this.id <= 5 && total - 1 > 10)
+			{
+				var max = 10;
+				if(total - 1 > 10)
+				{
+					max = 10;
+				}
+				else
+				{
+					max = total - 1;
+				}
+				for(var j = 1; j <= max; j ++)
+				{
+					document.getElementById(j).style.display = 'inline-block';
+				}
+				for(var k = max + 1; k <= total - 1; k ++)
+				{
+					document.getElementById(k).style.display = 'none';
+				}
+			}
+			if(this.id > 1)
+			{
+				document.getElementById('0').style.display = 'inline-block';
+			}
+			else
+			{
+				document.getElementById('0').style.display = 'none';
+			}
+			if(this.id == total - 2)
+			{
+				document.getElementById(total - 1).style.display = 'none';
+			}
+			else
+			{
+				document.getElementById(total - 1).style.display = 'inline-block';
+			}
+          return false;
+	}
+	else
+	{
+		var page_selected = byClass('active')[0];
+		var page_id = parseInt(page_selected.id);
+		if(this.id == 0)
+		{
+			//Previous
+			page_id = page_id - 1;
+		}
+		else
+		{
+			//Next
+			page_id = page_id + 1;
+		}
+		if(page_id < 1)
+	   	{
+	   		page_id = 1;
+	   	}
+	   	page = page_id;
+		var obj = document.getElementById(page_id);
+		//set active for current tab head
+     for(i = 0; i < page_heads.length; i++)
+     {
+        page_heads[i].className = '';
+     }
+     $('.contact_page').each(function()
+			{
+				 if(service != 'facebook')
+       		{
+			    	this.style.display = 'none';
+			    }
+			});
+		 if(service == 'facebook')
+       {
+       		var sIds = '';
+			    var sNames = '';
+			    for(var id = 1; id <= contactPerPage; id++)
+			    {   
+			    	if(document.getElementById('check_'+id))
+			    	{
+			    		var ele = document.getElementById('check_'+id);
+			        if (ele.checked)
+			        {
+			            sIds += document.getElementById('email_'+id).value + ',';
+			            sNames += document.getElementById('name_'+id).value + ',';
+			        }
+			      }
+			    }
+	    	 document.getElementById('page_friendIds').value = sIds;
+	    	 document.getElementById('page_friendNames').value = sNames;
+       	 document.getElementById('search_page_id').value = obj.id;
+       	 document.getElementById('search_contacts').submit();
+       }
+       else 
+       {
+       	document.getElementById('page_' + obj.id).style.display = 'block';
+       }  
+     obj.className = 'active';
+     var sub_page = 5;
+     if((total - 2 - page_id) < 5)
+     {
+     		sub_page = total - 2 - page_id;
+     }
+			var end_page = page_id + sub_page;
+			if(page_id > 5 && total - 2 > 10)
+			{
+				for(var l = 1; l <= total - 1; l ++)
+				{
+					document.getElementById(l).style.display = 'none';
+				}
+				
+				for(var j = 1; j < 10 - (end_page - page_id); j ++)
+				{
+					document.getElementById(page_id - j).style.display = 'inline-block';
+				}
+				for(var k = page_id; k <= end_page; k ++)
+				{
+					document.getElementById(k).style.display = 'inline-block';
+				}
+			}
+			if(page_id <= 5 && total - 1 > 10)
+			{
+				var max = 10;
+				if(total - 1 > 10)
+				{
+					max = 10;
+				}
+				else
+				{
+					max = total - 1;
+				}
+				for(var j = 1; j <= max; j ++)
+				{
+					document.getElementById(j).style.display = 'inline-block';
+				}
+				for(var k = max + 1; k <= total - 1; k ++)
+				{
+					document.getElementById(k).style.display = 'none';
+				}
+			}
+			if(page_id > 1)
+			{
+				document.getElementById('0').style.display = 'inline-block';
+			}
+			else
+			{
+				document.getElementById('0').style.display = 'none';
+			}
+			if(page_id == total - 2)
+			{
+				document.getElementById(total - 1).style.display = 'none';
+			}
+			else
+			{
+				document.getElementById(total - 1).style.display = 'inline-block';
+			}
+          return false;
+	}
+});
+function byClass(sel) 
+{
+    var results;
+    if(document.getElementById('contactimporter_page_list').querySelectorAll ) 
+    {
+        results = document.getElementById('contactimporter_page_list').querySelectorAll( '.' + sel );
+    }
+    else if( document.getElementById('contactimporter_page_list').getElementsByClassName ) 
+    {
+        results = document.getElementById('contactimporter_page_list').getElementsByClassName( sel );
+    } 
+    else 
+    {
+        results = [];
+    }
+    return results;
+}
+</script>
+

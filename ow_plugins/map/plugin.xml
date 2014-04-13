@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Maps Pro</name>
+	<key>map</key>
+	<description>Members can add self Markers (POI) with images and description on the map. Map support for some other plugins...</description>
+    <author>Aron</author>
+    <authorEmail>aron1aron@gmail.com</authorEmail>
+	<authorUrl>http://www.oxwall.a6.pl</authorUrl>
+	<developerKey>dd00b1f44ad08b29c885cde8e035356a</developerKey>
+    <build>158</build>
+    <copyright>(C) 2013 by Aron. All rights reserved.</copyright>
+	<license>Aron licence</license>
+    <licenseUrl>http://www.oxwall.a6.pl</licenseUrl>
+</plugin>

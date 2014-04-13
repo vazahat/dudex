@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+    <name>Profile progress bar</name>
+    <key>profileprogressbar</key>
+    <description>Progress bar to show member profile completeness</description>
+    <author>Kairat Bakytow</author>
+    <authorEmail>kainisoft@gmail.com</authorEmail>
+    <authorUrl>http://www.oxwall.org/user/kaini</authorUrl>
+    <developerKey>4ac98c58ea95347f443968a8fb045ad5</developerKey>
+    <build>4</build>
+    <copyright>(C) 2009 Oxwall Foundation. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

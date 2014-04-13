@@ -1,0 +1,23 @@
+<div class="av-youtube-result" id="{$uniqId}">
+
+    <div class="ytl-input ow_border">
+        <div class="ytl-input-wrap av-icon av-ic-youtube clearfix">
+            <input type="text" class="av-youtube-input YT_Input" value="{$query}" inv="{text key="attachments+attachments_search_video_inv"}" />
+            <a href="javascript://" class="av-icon-button av-yt-icon-button ow_ic_lens YT_SearchBtn"></a>
+        </div>
+    </div>
+
+    <div class="yt-list YT_List" style="max-height: {$window.height}px">
+
+        <div class="YT_ListBody">
+            {$list}
+        </div>
+
+        {if $viewMore}
+            <a href="javascript://" class="ytl-more ow_border YT_More">
+                <span class="ow_icon_control ytl-more-label YT_MoreLabel">{text key="attachments+attachments_video_list_more"}</span>
+            </a>
+        {/if}
+    </div>
+
+</div>

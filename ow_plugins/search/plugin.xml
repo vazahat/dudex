@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Search Plus (with top search Widget like Facebook)</name>
+	<key>search</key>
+	<description>Search system for Oxwall with Top Search Widget (like Facebook). Support for plugins: Users, Pages, ShopPro, Groups, Links, Video, Photo, Blogs, Groups, Forum,...</description>
+    <author>Aron</author>
+    <authorEmail>aron1aron@gmail.com</authorEmail>
+	<authorUrl>http://oxwall.a6.pl</authorUrl>
+    <developerKey>dd00b1f44ad08b29c885cde8e035356a</developerKey>
+    <build>29</build>
+    <copyright>(C) 2012 by Aron. All rights reserved.</copyright>
+	<license>The Aron License</license>
+    <licenseUrl>http://oxwall.a6.pl</licenseUrl>
+</plugin>

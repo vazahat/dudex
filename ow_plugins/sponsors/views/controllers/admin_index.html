@@ -1,0 +1,55 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+
+    {form name='adminForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="minimumPayment"}</td>
+            <td class="ow_value">{input name="minimumPayment"} {error name='minimumPayment'}</td>
+            <td class="ow_desc">{desc name="minimumPayment"}</td>            
+        </tr>
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="topSponsorsCount"}</td>
+            <td class="ow_value">{input name="topSponsorsCount"} {error name='topSponsorsCount'}</td>
+            <td class="ow_desc">{desc name="topSponsorsCount"}</td>             
+        </tr>
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="sponsorValidity"}</td>
+            <td class="ow_value">{input name="sponsorValidity"} {error name='sponsorValidity'}</td>
+            <td class="ow_desc">{desc name="sponsorValidity"}</td>             
+        </tr>     
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="autoApprove"}</td>
+            <td class="ow_value">{input name="autoApprove"} {error name='autoApprove'}</td>
+            <td class="ow_desc">{desc name="autoApprove"}</td>             
+        </tr>   
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="newSponsorLinkAtLast"}</td>
+            <td class="ow_value">{input name="newSponsorLinkAtLast"} {error name='newSponsorLinkAtLast'}</td>
+            <td class="ow_desc">{desc name="newSponsorLinkAtLast"}</td>             
+        </tr>   
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="onlyAdminCanAdd"}</td>
+            <td class="ow_value">{input name="onlyAdminCanAdd"} {error name='onlyAdminCanAdd'}</td>
+            <td class="ow_desc">{desc name="onlyAdminCanAdd"}</td>             
+        </tr>    
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="alwaysSingleFlip"}</td>
+            <td class="ow_value">{input name="alwaysSingleFlip"} {error name='alwaysSingleFlip'}</td>
+            <td class="ow_desc">{desc name="alwaysSingleFlip"}</td>             
+        </tr>        
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td class="ow_label">{label name="cutoffDay"}</td>
+            <td class="ow_value">{input name="cutoffDay"} {error name='cutoffDay'}</td>
+            <td class="ow_desc">{desc name="cutoffDay"}</td>             
+        </tr>          
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td colspan="3" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+        </tr>
+
+    </table>
+    {/form}
+
+</div>

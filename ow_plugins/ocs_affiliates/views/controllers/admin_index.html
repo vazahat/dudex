@@ -1,0 +1,78 @@
+{style}
+{literal}
+.affiliate_status .ow_lbutton { cursor: default; vertical-align: middle; margin-top: 3px; }
+{/literal}
+{/style}
+
+<div class="clearfix ow_stdmargin">
+    <div class="ow_right"><a href="http://oxcandystore.com/?pk=ocsaffiliates"><img src="{$logo}" /></a></div>
+</div>
+
+{$menu}
+
+{if $unverified}
+<div class="ow_automargin ow_wide">
+    <div class="ow_anno ow_std_margin ow_ic_info" style="padding-left: 40px;">
+        {text key='ocsaffiliates+unverified_info' count=$unverified}
+    </div>
+</div>
+{/if}
+
+{capture assign='sort'}{text key='ocsaffiliates+sort_by'}{/capture}
+<table class="ow_table_1 ow_form ow_stdmargin affiliate_list">
+    <tr class="ow_tr_first">
+    <th colspan="10" class="ow_name ow_txtleft">
+        <span class="ow_section_icon ow_ic_up_arrow">{text key='ocsaffiliates+general_stats'}</span>
+    </th>
+    </tr>
+    {if $list}
+    <tr class="ow_alt2">
+        <td class="ow_label">
+            <a title="{$sort} {text key='ocsaffiliates+affiliate_name'}" href="{$sortUrls.name}">{text key='ocsaffiliates+affiliate_name'}</a>
+        </td>
+        <td class="ow_value" width="7%">
+            <a title="{$sort} {text key='ocsaffiliates+status'}" href="{$sortUrls.status}">{text key='ocsaffiliates+status'}</a>
+        </td>
+        <td class="ow_value" width="7%">
+            <a title="{$sort} {text key='ocsaffiliates+registered'}" href="{$sortUrls.registerStamp}">{text key='ocsaffiliates+registered'}</a>
+        </td>
+        <td class="ow_value" width="10%">
+            <a title="{$sort} {text key='ocsaffiliates+clicks'}" href="{$sortUrls.clickCount}">{text key='ocsaffiliates+clicks'}</a>
+        </td>
+        <td class="ow_value" width="10%">
+            <a title="{$sort} {text key='ocsaffiliates+registrations'}" href="{$sortUrls.signupCount}">{text key='ocsaffiliates+registrations'}</a>
+        </td>
+        <td class="ow_value" width="10%">
+            <a title="{$sort} {text key='ocsaffiliates+sales'}" href="{$sortUrls.saleCount}">{text key='ocsaffiliates+sales'}</a>
+        </td>
+        <td class="ow_value" width="11%"><span class="ow_nowrap">
+            <a title="{$sort} {text key='ocsaffiliates+earnings'}" href="{$sortUrls.earnings}">{text key='ocsaffiliates+earnings'}</a>, <span class="ow_tiny">{$currency}</span>
+        </span></td>
+        <td class="ow_value" width="11%"><span class="ow_nowrap">
+            <a title="{$sort} {text key='ocsaffiliates+payouts'}" href="{$sortUrls.payouts}">{text key='ocsaffiliates+payouts'}</a>, <span class="ow_tiny">{$currency}</span>
+        </span></td>
+        <td class="ow_value" width="11%"><span class="ow_nowrap">
+            <a title="{$sort} {text key='ocsaffiliates+balance'}" href="{$sortUrls.balance}">{text key='ocsaffiliates+balance'}</a>, <span class="ow_tiny">{$currency}</span>
+        </span></td>
+        <td class="ow_value" width="7%"></td>
+    </tr>
+    {foreach from=$list item='aff'}
+    <tr class="ow_alt1">
+        <td class="ow_label"><a href="{$aff.url}">{$aff.name}</a></td>
+        <td class="ow_value affiliate_status"><span class="ow_lbutton{if $aff.status=='active'} ow_mild_green{else} ow_mild_red{/if}">{text key="ocsaffiliates+status_`$aff.status`"}</span></td>
+        <td class="ow_value ow_tiny">{$aff.registerStamp|simple_date}</td>
+        <td class="ow_value">{$aff.clickCount}</td>
+        <td class="ow_value">{$aff.signupCount}</td>
+        <td class="ow_value">{$aff.saleCount}</td>
+        <td class="ow_value">{$aff.earnings}</td>
+        <td class="ow_value">{$aff.payouts}</td>
+        <td class="ow_value">{$aff.balance}</td>
+        <td class="ow_value"><a href="javascript://" class="ow_lbutton ow_mild_red action_delete" affid="{$aff.id}">{text key='ocsaffiliates+delete'}</a></td>
+    </tr>
+    {/foreach}
+    {else}
+    <tr><td colspan="10">{text key='ocsaffiliates+no_affiliates_registered'}</td></tr>
+    {/if}
+</table>
+
+{$paging}

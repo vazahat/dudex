@@ -1,0 +1,73 @@
+<div id="{$uniqId}" class="ui-user-list">
+
+    <div class="ul-top ow_border">
+        <div class="ul-search ow_ic_lens UL_FilterC">
+            <input {if empty($list)}disabled="disabled"{/if} type="text" class="ul-search-input invitation UL_FilterInput" inv="{if $friendsMode}{text key="equestions+user_select_search_friends_inv"}{else}{text key="equestions+user_select_search_users_inv"}{/if}" value="{if $friendsMode}{text key="equestions+user_select_search_friends_inv"}{else}{text key="equestions+user_select_search_users_inv"}{/if}" />
+            <a href="javascript://" class="ul-clear ow_miniic_delete ow_miniicon_control UL_Clear" style="display: none;"></a>
+        </div>
+
+    </div>
+
+
+    <div class="ul-body">
+        <div class="ul-overlay UL_Overlay" style="display: none;"></div>
+
+        <div class="UL_Templates" style="display: none;">
+
+            <div class="ul-item UL_Item" >
+                <div class="ul-item-check">
+                    <input type="checkbox" class="UL_ItemCheck" value="" />
+                </div>
+                <div class="ul-item-avatar UI_ItemAvatar">
+                    {decorator name="avatar_item" data=$fakeAvatar}
+                </div>
+                <div class="ul-item-content ow_small UI_ItemTitle"></div>
+            </div>
+
+        </div>
+        <div class="ul-list UL_ListWrap">
+            <div class="UL_List clearfix">
+
+                <div class="ul-no-result ow_remark UL_NoResult" style="display: none;">
+                    {capture name="searchWord"}<span class="UL_ResultKW"></span>{/capture}
+                    {text key="equestions+user_select_empty_search_result" searchWord=$smarty.capture.searchWord}
+                </div>
+
+                {foreach from=$list item="data"}
+
+                    <div class="ul-item UL_Item" id="li-{$data.userId}" >
+                        <div class="ul-item-check">
+                            <input type="checkbox" class="UL_ItemCheck" value="{$data.userId}" />
+                        </div>
+                        <div class="ul-item-avatar">
+                            {decorator name="avatar_item" data=$data}
+                        </div>
+                        <div class="ul-item-content ow_small">
+                            {$data.title}
+                        </div>
+                    </div>
+
+                {foreachelse}
+                    <div class="ow_nocontent on-nocontent">
+                        {capture name="allUsersButton"}<a href="javascript://" class="ON_AllUsers">{text key="equestions+user_select_all_users"}</a>{/capture}
+                        {if $friendsMode}{text key="equestions+user_select_no_friends" switchToAllButton=$smarty.capture.allUsersButton}{else}{text key="equestions+user_select_no_items"}{/if}
+                    </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+
+    <div class="ul-bottom ow_border clearfix">
+        <div class="ul-statistics ow_txt_value ow_ic_user ow_small UL_SelectedCount" title="{text key="equestions+user_select_counter_title"}" style="display: none;">0</div>
+        <div class="ul-controls">
+            {if $moderator}
+                <span class="ul-all-users-check">
+                    <input type="checkbox" class="UL_SelectAll" />{text key="equestions+user_select_from_all_users"}
+                </span>
+            {/if}
+            {decorator name="button" class="UL_Save" label=$langs.ask}
+        </div>
+
+    </div>
+
+</div>

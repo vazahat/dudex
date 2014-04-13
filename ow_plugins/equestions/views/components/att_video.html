@@ -1,0 +1,18 @@
+<div class="av-attachment {if $expandedView}att-expanded{/if}">
+    {if $expandedView}
+
+        <div class="av-html">
+            {$data.html}
+        </div>
+
+    {else}
+
+        <a href="{$data.href}" class="ow_border att-thumb av-item-thumb av-thumb {if empty($data.thumbnail_url)}av-empty-thumb q-opacity10{/if}" {if !empty($data.onclick)}onclick="{$data.onclick}"{/if}>
+            <div class="av-thumb-overlay"></div>
+            {if !empty($data.thumbnail_url)}
+                <img src="{$data.thumbnail_url}" />
+            {/if}
+        </a>
+
+    {/if}
+</div>

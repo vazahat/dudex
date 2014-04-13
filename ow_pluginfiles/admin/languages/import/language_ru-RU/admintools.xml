@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="admintools" label="Admin Tools" language_tag="ru-RU" language_label="Russia"><key name="admin_change_pword_title"/><key name="auth_group_label"/><key name="avatar_reset_failed"/><key name="avatar_reset_success"/><key name="password_edit_success"/><key name="password_edit_value_error"/><key name="profile_change_password"/><key name="profile_reset_avatar"/></prefix>

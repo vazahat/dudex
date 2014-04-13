@@ -1,0 +1,113 @@
+{$menu}
+
+<center>
+{foreach from=$categories item='category' key="key"}
+<input type="checkbox" name="{$key}" value="{$key}" checked/>{$category}
+{/foreach}
+</center>
+<br>
+
+{foreach from=$allSteps key='id' item='step' name="loop"}
+
+{if $smarty.foreach.loop.first}
+{assign var="current" value=$step.page }
+
+<table id="{$current}" class="ow_table_2">
+    <thead>
+        <tr>
+            <th>{text key='sitetour+page'}</th>
+            <th>{text key='sitetour+text'}</th>
+            <th>{text key='sitetour+position'}</th>
+            <th>{text key='sitetour+status'}</th>        
+        </tr> 
+    </thead>
+    <tr id="{$step.id}" class="ow_alt{cycle values='1,2'}">
+        <td>{$step.pageText}</td>
+        <td>{$step.text}</td>
+        <td><a href="#" class="position" data-value="{$step.position}" data-pk="{$step.id}">{$step.position}</a></td>  
+        <td><a href="#" class="status" data-value="{$step.active}" data-pk="{$step.id}">{if $step.active EQ '1'}{text key='sitetour+enabled'}{else}{text key='sitetour+disabled'}{/if}</a></td>                  
+    </tr>
+    {else}
+    {if $current == $step.page }
+    <tr id="{$step.id}" class="ow_alt{cycle values='1,2'}">
+        <td>{$step.pageText}</td>
+        <td>{$step.text}</td>
+        <td><a href="#" class="position" data-value="{$step.position}" data-pk="{$step.id}">{$step.position}</a></td>  
+        <td><a href="#" class="status" data-value="{$step.active}" data-pk="{$step.id}">{if $step.active EQ '1'}{text key='sitetour+enabled'}{else}{text key='sitetour+disabled'}{/if}</a></td>                 
+    </tr>
+
+    {else} 
+    {assign var="current" value=$step.page }
+</table>
+
+<table id="{$current}" class="ow_table_2">
+    <thead>
+        <tr>
+            <th>{text key='sitetour+page'}</th>
+            <th>{text key='sitetour+text'}</th>
+            <th>{text key='sitetour+position'}</th>
+            <th>{text key='sitetour+status'}</th>        
+        </tr> 
+    </thead>
+    <tr id="{$step.id}" class="ow_alt{cycle values='1,2'}">
+        <td>{$step.pageText}</td>
+        <td>{$step.text}</td>
+        <td><a href="#" class="position" data-value="{$step.position}" data-pk="{$step.id}">{$step.position}</a></td>  
+        <td><a href="#" class="status" data-value="{$step.active}" data-pk="{$step.id}">{if $step.active EQ '1'}{text key='sitetour+enabled'}{else}{text key='sitetour+disabled'}{/if}</a></td>         
+    </tr>
+    {/if}
+    {/if}
+    {/foreach}
+</table>
+
+{script}
+{literal}
+jQuery(document).ready(function(){
+
+$('.position').editable({
+type: 'select',
+name: 'position',
+url: '{/literal}{$updateUrl1}{literal}',
+source: [
+{value: 'Left', text: '{/literal}{text key='sitetour+left'}{literal}'},
+{value: 'Right', text: '{/literal}{text key='sitetour+right'}{literal}'},
+{value: 'Top', text: '{/literal}{text key='sitetour+top'}{literal}'},
+{value: 'Bottom', text: '{/literal}{text key='sitetour+bottom'}{literal}'}
+] 
+});
+
+$('.status').editable({
+type: 'checklist',
+url: '{/literal}{$updateUrl1}{literal}',
+name: 'status',
+source: {'1': '{/literal}{text key='sitetour+enabled'}{literal}'},
+emptytext: '{/literal}{text key='sitetour+disabled'}{literal}'  
+});
+
+$("table").tableDnD(
+{
+onDragClass: "myDragClass",
+onDrop: function(table, row) {           
+$.post("{/literal}{$updateUrl2}{literal}", $.tableDnD.serialize());
+
+}
+});
+
+$('input[type="checkbox"]').click(function(){
+    var item = $(this).attr('name');
+    $('#'+item).toggle();
+});
+
+});
+{/literal}
+{/script}
+
+
+{style}
+{literal}
+tr.myDragClass td {
+color: yellow;
+background-color: black;
+}
+{/literal}
+{/style}

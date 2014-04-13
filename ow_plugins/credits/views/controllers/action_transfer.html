@@ -1,0 +1,25 @@
+{$menu}
+
+{if $userCredits > 0}
+<div class="ow_narrow ow_automargin">
+{block_decorator name='box_cap' iconClass='ow_ic_move' langLabel='credits+send_credits_label'}{/block_decorator}
+{block_decorator name='box'}
+    {form name='creditForm'}
+    <table class="ow_table_3">
+        <tr>
+            <td class="ow_label ow_supernarrow">{text key='credits+available_credits'}</td><td class="ow_value">{$userCredits}</td>
+        </tr>
+        <tr>
+            <td class="ow_label ow_supernarrow">{label name='receiveUser'}</td><td class="ow_value">{input name='receiveUser'}{error name='receiveUser'}</td>
+        </tr>
+        <tr>
+            <td class="ow_label ow_supernarrow">{label name='creditPoint'}</td><td class="ow_value">{input name='creditPoint'}<br/>{error name='creditPoint'}</td>
+        </tr>
+    </table>
+    <div class="ow_center">{submit name='sendCredit' class='ow_ic_send'}</div>
+    {/form}
+{/block_decorator}   
+</div>
+{else}
+{text key='credits+no_available_credits'}
+{/if}

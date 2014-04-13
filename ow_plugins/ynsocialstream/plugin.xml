@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>Social Stream 1.01p1</name>
+	<key>ynsocialstream</key>
+	<description>Social Stream allows users to get all activities from their Facebook’s Walls, Twitter accounts and LinkedIn</description>
+    <author>Oxwall Foundation</author>
+    <authorEmail>plugins@oxwall.org</authorEmail>
+	<authorUrl>http://www.oxwall.org/foundation</authorUrl>
+	<developerKey>5f4e7f2f0fb2da439d9280b671e79a86</developerKey>
+    <build>1.01</build>
+    <copyright>(C) 2010 Oxwall Foundation. All rights reserved.</copyright>
+	<license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

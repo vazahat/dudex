@@ -1,0 +1,29 @@
+<div class="ow_automargin ow_superwide">
+    {form name='adminForm'}
+         <table class="ow_table_1 ow_form">
+
+           <tr class="ow_alt{cycle values='1,2'}"> 
+               <td class="ow_label">{label name="actionMember"}</td>
+               <td class="ow_value">{input name="actionMember"} {error name='actionMember'}</td>
+               <td class="ow_desc ow_small">{desc name="actionMember"} </td>
+           </tr>
+                     
+           <tr class="ow_alt{cycle values='1,2'}">
+               <td class="ow_label">{label name="postLocation"}</td>
+               <td class="ow_value">{input name="postLocation"} {error name='postLocation'}</td>
+               <td class="ow_desc ow_small">{desc name="postLocation"} </td>
+           </tr>
+                     
+           <tr class="ow_alt{cycle values='1,2'}">
+               <td class="ow_label">{label name="disablePosting"}</td>
+               <td class="ow_value">{input name="disablePosting"} {error name='disablePosting'}</td>
+               <td class="ow_desc ow_small">{desc name="disablePosting"} </td>
+           </tr>
+                                
+           <tr class="ow_alt{cycle values='1,2'}">
+               <td colspan="3" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+           </tr>
+
+         </table>
+    {/form}
+</div>

@@ -1,0 +1,167 @@
+
+{$menu}
+
+{form name='configSaveForm'}
+
+<table class="ow_table_1 ow_form">
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='server'}</td>
+        <td class="ow_value">{input name='server'} <br />{error name='server'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+server_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='serverAMF'}</td>
+        <td class="ow_value">{input name='serverAMF'} <br />{error name='serverAMF'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+serverAMF_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='serverRTMFP'}</td>
+        <td class="ow_value">{input name='serverRTMFP'} <br />{error name='serverRTMFP'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+serverRTMFP_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='enableRTMP'}</td>
+        <td class="ow_value">{input name='enableRTMP'} <br />{error name='enableRTMP'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+enableRTMP_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='enableP2P'}</td>
+        <td class="ow_value">{input name='enableP2P'} <br />{error name='enableP2P'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+enableP2P_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='supportRTMP'}</td>
+        <td class="ow_value">{input name='supportRTMP'} <br />{error name='supportRTMP'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+supportRTMP_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='supportP2P'}</td>
+        <td class="ow_value">{input name='supportP2P'} <br />{error name='supportP2P'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+supportP2P_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='alwaysRTMP'}</td>
+        <td class="ow_value">{input name='alwaysRTMP'} <br />{error name='alwaysRTMP'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+alwaysRTMP_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='alwaysP2P'}</td>
+        <td class="ow_value">{input name='alwaysP2P'} <br />{error name='alwaysP2P'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+alwaysP2P_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='videoCodec'}</td>
+        <td class="ow_value">{input name='videoCodec'} <br />{error name='videoCodec'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+videoCodec_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='codecProfile'}</td>
+        <td class="ow_value">{input name='codecProfile'} <br />{error name='codecProfile'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+codecProfile_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='codecLevel'}</td>
+        <td class="ow_value">{input name='codecLevel'} <br />{error name='codecLevel'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+codecLevel_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='soundCodec'}</td>
+        <td class="ow_value">{input name='soundCodec'} <br />{error name='soundCodec'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+soundCodec_desc'}</td>
+    </tr>
+
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='p2pGroup'}</td>
+        <td class="ow_value">{input name='p2pGroup'} <br />{error name='p2pGroup'}</td>
+        <td class="ow_desc ow_small"></td>
+		</tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='camMaxBandwidth'}</td>
+        <td class="ow_value">{input name='camMaxBandwidth'} <br />{error name='camMaxBandwidth'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+camMaxBandwidth_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='bufferLive'}</td>
+        <td class="ow_value">{input name='bufferLive'} <br />{error name='bufferLive'}</td>
+        <td class="ow_desc ow_small"></td>
+	</tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='bufferFull'}</td>
+        <td class="ow_value">{input name='bufferFull'} <br />{error name='bufferFull'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='bufferLivePlayback'}</td>
+        <td class="ow_value">{input name='bufferLivePlayback'} <br />{error name='bufferLivePlayback'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='bufferFullPlayback'}</td>
+        <td class="ow_value">{input name='bufferFullPlayback'} <br />{error name='bufferFullPlayback'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='disableBandwidthDetection'}</td>
+        <td class="ow_value">{input name='disableBandwidthDetection'} <br />{error name='disableBandwidthDetection'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='disableUploadDetection'}</td>
+        <td class="ow_value">{input name='disableUploadDetection'} <br />{error name='disableUploadDetection'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='limitByBandwidth'}</td>
+        <td class="ow_value">{input name='limitByBandwidth'} <br />{error name='limitByBandwidth'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='ws_ads'}</td>
+        <td class="ow_value">{input name='ws_ads'} <br />{error name='ws_ads'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='adsTimeout'}</td>
+        <td class="ow_value">{input name='adsTimeout'} <br />{error name='adsTimeout'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+adsTimeout_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='adsInterval'}</td>
+        <td class="ow_value">{input name='adsInterval'} <br />{error name='adsInterval'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+adsInterval_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='statusInterval'}</td>
+        <td class="ow_value">{input name='statusInterval'} <br />{error name='statusInterval'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+statusInterval_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='availability'}</td>
+        <td class="ow_value">{input name='availability'} <br />{error name='availability'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+availability_desc'}</td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='status'}</td>
+        <td class="ow_value">{input name='status'} <br />{error name='status'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='member'}</td>
+        <td class="ow_value">{input name='member'} <br />{error name='member'}</td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt2">
+        <td class="ow_label">{label name='member_list'}</td>
+        <td class="ow_value">{input name='member_list'} <br />{error name='member_list'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+member_list_desc'}</td>
+    </tr>
+    <tr class="ow_alt1">
+        <td class="ow_label">{label name='baseSwf_url'}</td>
+        <td class="ow_value">{input name='baseSwf_url'} <br />{error name='baseSwf_url'}</td>
+        <td class="ow_desc ow_small">{text key='vwvc+baseSwf_url_desc'}</td>
+    </tr>
+	
+    <tr><td colspan="3" class="ow_submit">{submit name='save' class='ow_ic_save'}</td></tr>
+</table>
+
+{/form}

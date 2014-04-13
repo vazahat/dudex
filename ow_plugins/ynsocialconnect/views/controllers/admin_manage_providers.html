@@ -1,0 +1,137 @@
+{$menu}
+{script}
+{literal}
+$(document).ready(function()
+{
+	$('#providers').sortable({
+		items: 'tr.provider',
+		helper: 'clone',
+		placeholder: 'placeholder',
+		start: function(event, ui){
+			$(ui.placeholder).append('<td colspan="4"></td>');
+		},
+		update: function(event, ui){
+			var set = {};
+
+			$('#providers tr.provider td input:checkbox[name="provider[]"]').each(function(i){
+				var id = $(this).val();
+				set['order['+id+']'] = ++i;
+			});
+
+			url = '{/literal}{url_for for="YNSOCIALCONNECT_CTRL_Admin:ajaxReorder"}{literal}';
+
+			$.post( url, set , function(data){
+				OW.info('{/literal}{text key="ynsocialconnect+txt_update_successfully"}{literal}');
+			});
+		},
+		stop: function(event, ui){
+
+			$set = $('#providers tr.provider td input:checkbox[name="provider[]"]');
+			 
+			$set.attr('disabled', false);
+
+			//$( $set[0] ).attr('disabled', 'disabled').attr('checked', false);
+
+			$('td span.default-provider:visible', this).hide();
+
+			$('td input:checkbox[name]')
+			
+			$( $(this).sortable('option', 'items'), this ).each(function(i){
+				//if(i == 0)
+					//$('td span.default-provider', this).show();
+
+				var isEven = (i+1) % 2 === 0;
+
+				remClass = isEven ? 'ow_alt1':'ow_alt2';
+				addClass = isEven ? 'ow_alt2':'ow_alt1';
+				
+				if( $(this).hasClass(remClass) )
+					$(this).removeClass( remClass );
+
+				if( !$(this).hasClass(addClass) )
+					$(this).addClass( addClass );
+
+			})
+		}
+	});
+});
+
+{/literal}
+{/script}
+
+{style}
+{literal}
+tr.placeholder td{
+	border: 1px dashed grey;
+	height: 35px;
+	width: 100%;
+}
+
+.provider{
+	cursor: move;
+}
+{/literal}
+{/style}
+
+<div class="ow_automargin ow_superwide">
+	<form action="{url_for for="YNSOCIALCONNECT_CTRL_Admin:updateActive"}" method="POST">
+	    <table id="providers" class="ow_table_2 ow_form ow_stdmargin ow_center">
+	        <tr class="ow_tr_first">
+	            <th width="1">{text key='ynsocialconnect+txt_active'}</th>
+	            <th width="1"></th>
+	            <th>{text key='ynsocialconnect+txt_name'}</th>
+	            <th>{text key='ynsocialconnect+txt_title'}</th>
+	            <th>{text key='ynsocialconnect+txt_options'}</th>
+	        </tr>
+	        {foreach name="providers" from=$providers item='item'}
+	        	{assign var='providerId' value=$item->id}
+	        	<tr class="{cycle values='ow_alt1, ow_alt2'} provider">
+	        		<td>
+	        			<input type="checkbox" name="provider[]" value="{$providerId}" {if $item->isActive}checked="checked"{/if} />
+        			</td>
+        			<td class="ow_nowrap">
+        				<img src="{$sImgSrc}{$item->getName()}.png" alt="{$item->getTitle()}" width="32px"/>
+					</td>
+					<td class="ow_txtleft">
+						{$item->getName()}
+					</td>
+					<td class="ow_txtleft">
+						{$item->getTitle()}
+					</td>
+					<td> 
+						<a class="ow_ic_edit" name= "{$item->getName()}" style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%;"  id="{$providerId}" href="javascript:;" title="{text key='ynsocialconnect+configure_fields'}"></a>
+					</td>
+        		</tr>
+	        {/foreach}
+
+		<tr class="ow_tr_last">
+			<td>
+				<input id="check_all" type="checkbox" onclick="$('#providers tr.provider td input:checkbox:enabled').attr('checked', this.checked );" />
+			</td>
+			<td colspan="4" style="text-align: left;">
+				<label for="check_all">{text key='ynsocialconnect+txt_permissions_check_all_selected'}</label>
+				<form>
+					{decorator name='button' type='submit' langLabel='ynsocialconnect+btn_update' class='ow_button ow_red ow_ic_update'}
+				</form>									
+			</td>
+		</tr>
+	    </table>
+	</form>
+</div>
+<script type="text/javascript">
+	$("a.ow_ic_edit").on("click", function(e)
+	{ 
+		var providerName = $(this).attr("name");
+		var title = '{text key = "ynsocialconnect+configuration_fields"}';
+		{literal}
+	   	OW.ajaxFloatBox("YNSOCIALCONNECT_CMP_PopupConfigFields", {providerName : providerName} , 
+	   	{
+	   		width:500, 
+	   		iconClass: "ow_ic_user", 
+	   		title: title
+	   	});
+	   	{/literal}
+	});
+</script>
+
+

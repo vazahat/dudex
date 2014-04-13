@@ -1,0 +1,64 @@
+<div class="ow_automargin ow_superwide">
+    {form name='newForm'}
+         <table class="ow_table_1 ow_form">
+
+           <tr class="ow_alt{cycle values='1,2'}">
+               <td class="ow_label">{label name="feedUser"}</td>
+               <td class="ow_value">{input name="feedUser"} {error name='feedUser'}</td>
+               <td class="ow_desc ow_small">{desc name="feedUser"} </td>
+           </tr>
+           
+           <tr class="ow_alt{cycle values='1,2'}"> 
+               <td class="ow_label">{label name="feedUrl"}</td>
+               <td class="ow_value">{input name="feedUrl"} {error name='feedUrl'}</td>
+               <td class="ow_desc ow_small">{desc name="feedUrl"} </td>
+           </tr>
+           
+           <tr class="ow_alt{cycle values='1,2'}"> 
+               <td class="ow_label">{label name="feedCount"}</td>
+               <td class="ow_value">{input name="feedCount"} {error name='feedCount'}</td>
+               <td class="ow_desc ow_small">{desc name="feedCount"} </td>
+           </tr>                 
+                                     
+           <tr class="ow_alt{cycle values='1,2'}">
+               <td colspan="3" class="ow_submit">{submit name="addFeed" class='ow_ic_rss'}</td>
+           </tr>
+
+         </table>
+    {/form}
+</div>
+
+{if count($feedDetails) gt 0}
+    <table border="1" class="tablesorter" id="feedTable">
+     <thead> 
+       <tr>
+           <th>{text key='grouprss+feed_url'}</th>
+           <th>{text key='grouprss+posted_by'}</th>
+           <th>{text key='grouprss+feed_count'}</th>           
+           <th>{text key='grouprss+feed_added_time'}</th>
+           <th></th>           
+       </tr>
+    </thead> 
+     <tbody> 
+       {foreach from=$feedDetails item=feed}
+
+       <tr class="{cycle values='ow_alt1,ow_alt2'}">
+       <td>{$feed.feedURL}</td>
+       <td><a href={$feed.userURL} target="_blank" title="{$feed.userName}">{$feed.userName}</a></td>
+       <td>{$feed.feedCount}</td>       
+       <td>{format_date timestamp=$feed.timestamp}</td>
+       <td><a href="{$deleteFeeds[$feed.feedID]}" onclick="return confirm('{text key="base+are_you_sure"}');" style="width:16px; height:16px; display:block; margin:0 auto;background-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_delete"></a></td>       
+       </tr>
+       {/foreach}
+     </tbody> 
+    </table>
+
+{else}
+    <div class="ow_automargin ow_superwide">{text key='grouprss+no_feed_for_group'}</div>
+{/if}
+
+{script}
+{literal}
+$(document).ready(function() { $("#feedTable").tablesorter(); } ); 
+{/literal}
+{/script}

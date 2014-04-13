@@ -1,0 +1,46 @@
+{$menu}
+<div class="ow_automargin ow_superwide">
+    {form name='adminForm'}
+    <table class="ow_table_1 ow_form">
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='eventsCount'}</td>
+            <td class="ow_value"> {input name='eventsCount'}<br/>{error name='eventsCount'}</td>
+        </tr> 
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='calendarHeight'}</td>
+            <td class="ow_value"> {input name='calendarHeight'}<br/>{error name='calendarHeight'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='showPastEvents'}</td>
+            <td class="ow_value"> {input name='showPastEvents'}<br/>{error name='showPastEvents'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='openLinksType'}</td>
+            <td class="ow_value"> {input name='openLinksType'}<br/>{error name='openLinksType'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='isRTLLanguage'}</td>
+            <td class="ow_value"> {input name='isRTLLanguage'}<br/>{error name='isRTLLanguage'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='showWeekends'}</td>
+            <td class="ow_value"> {input name='showWeekends'}<br/>{error name='showWeekends'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td class="ow_label">{label name='firstWeekDay'}</td>
+            <td class="ow_value"> {input name='firstWeekDay'}<br/>{error name='firstWeekDay'}</td>
+        </tr>
+
+        <tr class="{cycle values='ow_alt2,ow_alt1'}">
+            <td colspan="3" class="ow_submit">{submit name="saveSettings" class='ow_ic_save'}</td>
+        </tr>
+    </table>
+    {/form}
+</div>

@@ -1,0 +1,9 @@
+Jan 11, 2014 - Affiliates plugin build 10
+============
+* Oxwall 1.6 support added
+* Mobile version urls affiliate tracking implemented
+* Cron job notice fixed
+
+Jan 21, 2013 - Affiliates plugin build 1
+============
+Initial release

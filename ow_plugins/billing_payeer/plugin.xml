@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Payeer Billing</name>
+	<key>billingpayeer</key>
+	<description>Accept payments from users with Payeer payment provider</description>
+    <author>Andrew Crew</author>
+    <authorEmail>hohloma123@gmail.com</authorEmail>
+	<authorUrl>http://payeer.com</authorUrl>
+	<developerKey>12cdd752888b2c48ef4639b2e096800e</developerKey>
+    <build>2014</build>
+    <copyright>(C) 2013 OxAndrewSoftWare. All rights reserved.</copyright>
+    <license>BSD</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

@@ -1,0 +1,26 @@
+/** 
+ * Installation Guide for Social Stream 1.01p1 (compatible with Oxwall from 1.5.3 +)
+ * http://younetco.com
+ * Please follow all steps in this installation guide in order to make this plugin work properly
+ * If you need any assistance, please submit a new ticket at the Client Area (http://younetco.com/client)
+ */
+ ---------------------------------------------------------------------------------------
+*REQUIRE:
+	- Social Bridge plugin.
+    - Please go to your client area to download and install the lastest version of Social Bridge plugin.
+=======================================================================================
+----------------------------------------------------------------
+01. Install The Package
+ - Login to your administrator page
+ - Go to your Admin Panel > Plugins > Add New section.
+ - Click the Choose File/Browse button, select "ynsocialstream-1.01p1.zip" plugin archive and click Upload. 
+ - You will be redirected to the page where you are prompted to fill the FTP details to your server. Important: those should be FTP details that you used when installed your website.
+ - Go to your Admin Panel > Plugins > Available Plugins section. The plugin you uploaded should appear in the list.
+ - Click 'Install' to install the plugin you need.
+ 
+02. Setup Facebook/Twitter/LinkedIn Settings API.
+ - You have to go Admin Panel > Plugins > Installed Plugins > Social Bridge 1.02 > Settings to config.
+
+================================================================
+Congratulations! You finished the Installation process.
+================================================================

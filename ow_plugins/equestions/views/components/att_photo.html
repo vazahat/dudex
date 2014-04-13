@@ -1,0 +1,17 @@
+<div class="ai-attachment {if $expandedView}att-expanded{/if}">
+
+{if $expandedView}
+
+    <a href="{$data.href}" class="ai-image" target="_blank">
+        <img src="{$data.url}" />
+    </a>
+
+{else}
+
+    <a href="{$data.href}" class="att-thumb ai-item" {if !empty($data.onclick)}onclick="{$data.onclick}"{/if}>
+        <img src="{$data.url}" />
+    </a>
+
+{/if}
+
+</div>

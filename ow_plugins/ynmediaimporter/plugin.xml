@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin>
+    <name>Social Media Importer 1.01p1</name>
+    <key>ynmediaimporter</key>
+    <description>Social Media Importer is a right tool for your members to imports Photo from other top social networks like Facebook, Flickr, Picasa, etc.</description>
+    <author>YouNet Company</author>
+    <authorEmail>info@younetco.com</authorEmail>
+    <authorUrl>http://www.younetco.com</authorUrl>
+    <developerKey>5f4e7f2f0fb2da439d9280b671e79a86</developerKey>
+    <build>2</build>
+    <copyright>(C) 2013 Younetco. All rights reserved.</copyright>
+    <license>The BSD License</license>
+    <licenseUrl>http://www.opensource.org/licenses/bsd-license.php</licenseUrl>
+</plugin>

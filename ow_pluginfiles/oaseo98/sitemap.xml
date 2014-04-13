@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+    <loc>http://baksmaker.com/fulfill</loc>
+    <lastmod>2014-04-12T23:47:48+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/sign-in?back-uri=index</loc>
+    <lastmod>2014-04-12T23:47:51+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/start?language_id=1</loc>
+    <lastmod>2014-04-12T23:47:53+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/terms-of-use</loc>
+    <lastmod>2014-04-12T23:47:55+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/privacy-policy</loc>
+    <lastmod>2014-04-12T23:47:56+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/mobile-version</loc>
+    <lastmod>2014-04-12T23:47:57+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/forgot-password</loc>
+    <lastmod>2014-04-12T23:47:58+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/join</loc>
+    <lastmod>2014-04-12T23:47:59+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/index</loc>
+    <lastmod>2014-04-12T23:48:00+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/users</loc>
+    <lastmod>2014-04-12T23:48:01+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/blogs</loc>
+    <lastmod>2014-04-12T23:48:02+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/groups</loc>
+    <lastmod>2014-04-12T23:48:03+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/links</loc>
+    <lastmod>2014-04-12T23:48:51+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/photo</loc>
+    <lastmod>2014-04-12T23:48:52+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/video</loc>
+    <lastmod>2014-04-12T23:48:53+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/events</loc>
+    <lastmod>2014-04-12T23:48:53+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+<url>
+    <loc>http://baksmaker.com/fulfill/map</loc>
+    <lastmod>2014-04-12T23:48:54+03:00</lastmod>
+    <changefreq>weekly</changefreq>
+</url>
+</urlset>

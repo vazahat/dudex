@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Live streaming</name>
+	<key>vwls</key>
+	<description>Allow users to create VideoWhisper Live Streaming channels with comments, rates, and tags. Requires RTMP hosting. Visit VideoWhisper.com for more details.</description>
+    <author>VideoWhisper.com</author>
+    <authorEmail>videowhispers@gmail.com</authorEmail>
+	<authorUrl>http://www.videowhisper.com</authorUrl>
+	<developerKey>268b20837298d31675131c257c5db425</developerKey>
+    <build>5000</build>
+    <copyright>(C) 2012 VideoWhisper.com. All rights reserved.</copyright>
+	<license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

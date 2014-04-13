@@ -1,0 +1,26 @@
+{if isset($type)}
+
+	{if $type == "close_not_loading"}
+		{script}
+		{literal}
+			self.close();
+		{/literal}
+		{/script}				
+	{/if}
+	
+	{if $type != "close_not_loading"}
+		{script}
+		{literal}
+			if(typeof opener !== 'undefined' && opener != null &&  opener != undefined)
+			{
+				opener.location = '{/literal}{$sUrlRedirect}{literal}';
+				self.close();
+			}else
+			{
+				window.location.href = '{/literal}{$sUrlRedirect}{literal}';	
+			}
+		{/literal}
+		{/script}			
+	{/if}
+{/if}
+

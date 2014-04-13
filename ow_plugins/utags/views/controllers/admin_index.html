@@ -1,0 +1,67 @@
+{**
+ * Copyright (c) 2013, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ **}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package utags.view
+ **}
+
+{script}{literal}
+
+$('#copy_photo_check').click(function(){
+    $('#default_album_name')[this.checked ? "show" : "hide"]();
+    $('#crop_photo')[this.checked ? "show" : "hide"]();
+});
+
+{/literal}{/script}
+
+{style}
+
+.ut-leave-review {
+    background-repeat: no-repeat;
+    background-position: left top;
+    padding-left: 20px;
+}
+
+{/style}
+
+{form name='configForm'}
+    <table class="ow_table_1 ow_form">
+        <tr class="ow_tr_first">
+            <th class="ow_name ow_txtleft" colspan="3">
+                <span class="ow_section_icon ow_ic_script">{text key='utags+config_section_title'}</span>
+            </th>
+        </tr>
+
+        <tr class="{cycle name="utags" values="ow_alt1,ow_alt2"}">
+            <td class="ow_label">{text key='utags+config_copy_photo'}</td>
+            <td class="ow_value">{input name='copy_photo'} {error name='copy_photo'}</td>
+            <td class="ow_desc">{text key='utags+config_copy_photo_desc'}</td>
+        </tr>
+
+        <tr class="ow_tr_last {cycle name="utags" values="ow_alt1,ow_alt2"}" id="default_album_name" {if !$copyPhoto}style="display: none;"{/if}>
+            <td class="ow_label">{text key='utags+config_photo_album_name'}</td>
+            <td class="ow_value">{input name='photo_album_name'} {error name='photo_album_name'}</td>
+            <td class="ow_desc">{text key='utags+config_photo_album_name_desc'}</td>
+        </tr>
+        
+        <tr class="ow_tr_last {cycle name="utags" values="ow_alt1,ow_alt2"}" id="crop_photo" {if !$copyPhoto}style="display: none;"{/if}>
+            <td class="ow_label">{text key='utags+config_crop_photo'}</td>
+            <td class="ow_value">{input name='crop_photo'} {error name='crop_photo'}</td>
+            <td class="ow_desc">{text key='utags+config_crop_photo_desc'}</td>
+        </tr>
+
+    </table>
+    <div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div></div>
+{/form}
+
+<div class="ut-leave-review ow_ic_star">
+    {text key="utags+leave_review_suggest" pluginUrl=$pluginUrl}
+</div>
+

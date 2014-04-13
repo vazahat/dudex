@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="greetz" label="Greetz" language_tag="ru-RU" language_label="Russia"><key name="admin_email_body"/><key name="admin_email_format"/><key name="admin_email_subject"/><key name="admin_format_HTML"/><key name="admin_format_text"/><key name="admin_page_heading"/><key name="admin_save_settings"/><key name="admin_setting_title"/><key name="admin_variable_text"/></prefix>

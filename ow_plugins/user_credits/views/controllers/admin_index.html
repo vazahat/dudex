@@ -1,0 +1,95 @@
+
+{style}
+{literal}
+    td.ow_action_price_td {
+        padding: 5px;
+    }
+    
+    input.price_input {
+        width: 70px; 
+        display: none;
+    }
+    tr td.ow_inprogress {
+        background: url({/literal}{$imagesUrl}{literal}ajax_preloader_button.gif) no-repeat 7px 7px;
+    }
+{/literal}
+{/style}
+
+{$menu}
+
+{block_decorator name='box' addClass='ow_std_margin'}{text key='usercredits+actions_description'}{/block_decorator}
+
+<div class="ow_wide ow_automargin">
+    {block_decorator name='box' langLabel='usercredits+earning_actions' iconClass='ow_ic_add' type='empty' addClass='ow_stdmargin'}
+    {if $earning}
+    <table class="ow_table_2 ow_smallmargin">
+        <tr class="ow_alt2 ow_tr_first">
+            <th><b>{text key='usercredits+actions'}</b></th>
+            <th style="width: 130px"><b>{text key='usercredits+price_in_credits'}</b></th>
+        </tr>
+        {foreach from=$earning item='e' name='e'}
+        <tr class="ow_alt1 {if $smarty.foreach.e.last}ow_tr_last{/if}">
+            <td class="ow_txtleft">{text_edit key="`$e.dto->pluginKey`+usercredits_action_`$e.dto->actionKey`"}</td>
+            <td class="ow_action_price_td">
+            {if !empty($e.dto->settingsRoute)}
+                <a href="{url_for_route for=$e.dto->settingsRoute}">{text key='admin+btn_label_edit'}</a>
+            {else}
+                <a class="ow_action_price" rel="{$e.dto->id}" href="javascript://">{$e.dto->amount}</a>
+                <input class="price_input" type="text" id="price_input_{$e.dto->id}" name="amount[{$e.dto->id}]" value="{$e.dto->amount}" /></td>
+            {/if}
+        </tr>
+        {/foreach}
+    </table>
+    {else}
+        <div class="ow_nocontent">{text key='usercredits+no_actions'}</div>
+    {/if}
+    {/block_decorator}
+
+    {block_decorator name='box' langLabel='usercredits+spending_actions' iconClass='ow_ic_warning' type='empty' addClass='ow_stdmargin'}
+    {if $losing}
+    <table class="ow_table_2 ow_smallmargin">
+        <tr class="ow_alt2 ow_tr_first">
+            <td><b>{text key='usercredits+actions'}</b></td>
+            <td style="width: 130px"><b>{text key='usercredits+price_in_credits'}</b></td>
+        </tr>
+        {foreach from=$losing item='l' name='l'}
+        <tr class="ow_alt1 {if $smarty.foreach.l.last}ow_tr_last{/if}">
+            <td class="ow_txtleft">{text_edit key="`$l.dto->pluginKey`+usercredits_action_`$l.dto->actionKey`"}</td>
+            <td class="ow_action_price_td">
+            {if !empty($l.dto->settingsRoute)}
+                <a href="{url_for_route for=$l.dto->settingsRoute}">{text key='admin+btn_label_edit'}</a>
+            {else}
+                <a class="ow_action_price" rel="{$l.dto->id}" href="javascript://">{$l.dto->amount}</a>
+                <input class="price_input" type="text" id="price_input_{$l.dto->id}" name="amount[{$l.dto->id}]" value="{$l.dto->amount}" /></td>
+            {/if}
+        </tr>
+        {/foreach}
+    </table>
+    {else}
+        <div class="ow_nocontent">{text key='usercredits+no_actions'}</div>
+    {/if}
+    {/block_decorator}
+
+    {if $unset}    
+    {block_decorator name='box' langLabel='usercredits+unset_actions' iconClass='ow_ic_gear_wheel' type='empty' addClass='ow_stdmargin'}
+    <table class="ow_table_2 ow_smallmargin">
+        <tr class="ow_alt2 ow_tr_first">
+            <td><b>{text key='usercredits+actions'}</b></td>
+            <td style="width: 130px;"><b>{text key='usercredits+price'}</b></td>
+        </tr>
+        {foreach from=$unset item='u' name='u'}
+        <tr class="ow_alt1 {if $smarty.foreach.u.last}ow_tr_last{/if}">
+            <td class="ow_txtleft">{text_edit key="`$u.dto->pluginKey`+usercredits_action_`$u.dto->actionKey`"}</td>
+            <td class="ow_action_price_td">
+            {if !empty($u.dto->settingsRoute)}
+                <a href="{url_for_route for=$u.dto->settingsRoute}">{text key='admin+btn_label_edit'}</a>
+            {else}
+                <a class="ow_action_price" rel="{$u.dto->id}" href="javascript://">{$u.dto->amount}</a>
+                <input class="price_input" type="text" id="price_input_{$u.dto->id}" name="amount[{$u.dto->id}]" value="{$u.dto->amount}" /></td>
+            {/if}
+        </tr>
+        {/foreach}
+    </table>
+    {/block_decorator}
+    {/if}
+</div>

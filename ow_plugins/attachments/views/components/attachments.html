@@ -1,0 +1,45 @@
+<div id="{$uniqId}">
+<div  class="att-attachments-c">
+
+    <div class="att-attachments ATT_Result" style="display: none;" >
+        {block_decorator name='tooltip' addClass='att-attachments-tooltip'}
+            <a href="javascript://" title="{text key="attachments+attachments_delete_title"}" class="att-close ow_miniic_delete ATT_BodyClose"></a>
+            <div class="ATT_Prloader att-preloader ow_preloader_content" style="display: none;"></div>
+
+            <div class="att-preview ATT_ResultContent"></div>
+        {/block_decorator}
+    </div>
+
+    {*<div class="att-attachments ow_smallmargin ow_border ATT_Result" style="display: none;">
+
+        <a href="javascript://" title="{text key="attachments+attachments_delete_title"}" class="att-close ow_miniic_delete ATT_BodyClose"></a>
+        <div class="ATT_Prloader att-preloader ow_preloader_content" style="display: none;"></div>
+
+        <div class="att-preview ATT_ResultContent"></div>
+
+    </div>*}
+
+    <div style="display: none;" class="ATT_Panels">
+
+        {if isset($image)}
+        <div class="ATT_ImagePanel">
+           {$image}
+        </div>
+        {/if}
+
+        {if isset($video)}
+        <div class="ATT_VideoPanel">
+            {$video}
+        </div>
+        {/if}
+
+        {if isset($link)}
+        <div class="ATT_LinkPanel">
+            {$link}
+        </div>
+        {/if}
+
+    </div>
+
+</div>
+</div>

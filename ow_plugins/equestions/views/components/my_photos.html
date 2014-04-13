@@ -1,0 +1,10 @@
+{foreach from=$photos item="p"}
+    <div class="aim-photo ow_border AIM_Photo">
+        <textarea class="AIM_Oembed" style="display: none;">{$p.oembed}</textarea>
+        <img title="{$p.description}" src="{$p.thumb}" />
+    </div>
+{foreachelse}
+        <div class="ow_nocontent">
+            {text key="equestions+att_my_photo_no_items"}
+        </div>
+{/foreach}

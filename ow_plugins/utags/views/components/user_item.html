@@ -1,0 +1,30 @@
+{**
+ * Copyright (c) 2013, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ **}
+
+{**
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package utags.view
+ **}
+
+<div class="ut-dropdown-item clearfix ow_small">
+    <div class="ut-ddi-avatar ow_mini_avatar">
+        <div class="ow_avatar">
+            <img class="ut-ddi-avatar-image" src="{$data.avatar}" />
+        </div>
+    </div>
+    <div class="ut-ddi-content">
+        <span class="ut-ddi-text">{$data.text}</span>
+        <div class="ut-info-wrap">
+            <div class="ut-online {if !$data.online}ut-online-hidden{/if} ow_miniic_live">
+                <span class="ow_live_on"></span>
+            </div>
+            <div class="ut-ddi-info ow_remark" >{$data.info}</div>
+        </div>
+    </div>
+</div>

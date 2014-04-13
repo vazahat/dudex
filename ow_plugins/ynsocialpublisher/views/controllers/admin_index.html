@@ -1,0 +1,44 @@
+{$menu}
+<p>{text key='ynsocialpublisher+admin_description'}</p><br/>
+<form enctype="application/x-www-form-urlencoded" action="{$form_url}" method="post">
+{foreach $plugins as $key => $values}
+<table class="ow_table_1 ow_form ow_stdmargin">
+	<tr class="ow_tr_first">
+		<th class="ow_name ow_txtleft" colspan="4"><span class="ow_section_icon ow_ic_up_arrow">{text key="ynsocialpublisher+$key"}</span></th>
+	</tr>
+	<tr class="ow_alt">
+		<td class="ow_label">{text key='ynsocialpublisher+active'}</td>
+		<td class='ow_value'>
+			<label>
+				<input type="radio" name="params[{$key}][active]" id="active_yes" value='1' {if not empty($values.active)}checked{/if}>
+			{text key='ynsocialpublisher+yes'}</label>
+		</td>
+		<td class='ow_value' colspan='2'>
+			<label >
+				<input type="radio" name="params[{$key}][active]" id="active_no" value='0' {if empty($values.active)}checked{/if}>
+			{text key='ynsocialpublisher+no'}</label>
+		</td>
+	</tr>
+	<tr>
+		<td class="ow_label">{text key='ynsocialpublisher+providers'}</td>
+		<td class='ow_value'>
+			<label>
+				<input type="checkbox" name="params[{$key}][providers][]" value="facebook" {if isset($values.providers)} {if in_array('facebook', $values.providers)}checked{/if}{/if}>
+			{text key="ynsocialpublisher+facebook"}</label>
+		</td>
+		<td class='ow_value'>
+			<label>
+				<input type="checkbox" name="params[{$key}][providers][]" value="twitter" {if isset($values.providers)} {if in_array('twitter', $values.providers)}checked{/if}{/if}>
+			{text key="ynsocialpublisher+twitter"}</label>
+		</td>
+		<td class='ow_value'>
+			<label>
+				<input type="checkbox" name="params[{$key}][providers][]" value="linkedin" {if isset($values.providers)} {if in_array('linkedin', $values.providers)}checked{/if}{/if}>
+			{text key="ynsocialpublisher+linkedin"}</label>
+		</td>
+	</tr>
+</table>
+{/foreach}
+
+<div class="clearfix ow_stdmargin"><div class="ow_right"><span class="ow_button"><span class=" ow_ic_save ow_positive"><input type="submit" value="{text key='ynsocialpublisher+save'}" class="ow_ic_save ow_positive" name="save"></span></span></div></div>
+</form>

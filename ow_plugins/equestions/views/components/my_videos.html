@@ -1,0 +1,34 @@
+{foreach from=$list item="item"}
+<div class="avm-item clearfix AVM_Video ow_border">
+    <textarea class="AVM_Oembed" style="display: none;">{$item.oembed}</textarea>
+    <textarea class="AVM_Embed" style="display: none">{$item.embed}</textarea>
+
+    <div class="avm-item-thumb av-thumb ow_border AVM_ItemThumb">
+        <div class="avm-thumb-overlay av-thumb-overlay"></div>
+        {if !empty($item.thumb)}
+            <img src="{$item.thumb}" />
+        {/if}
+    </div>
+
+    <div class="avm-item-video ow_border AVM_ItemVideo" style="display:none;">
+
+    </div>
+
+    <div class="avm-item-content">
+        <div class="avm-item-title ow_ipc_header ow_small">
+            {$item.title}
+        </div>
+        <div class="avm-item-description ow_small">
+            {$item.description}
+        </div>
+        <div class="avm-item-bottom ow_remark ow_small">
+            <span class="avm-item-date">{$item.date}</span>
+        </div>
+    </div>
+
+</div>
+{foreachelse}
+<div class="ow_nocontent">
+    {text key="equestions+att_my_video_no_items"}
+</div>
+{/foreach}

@@ -1,0 +1,25 @@
+{$menu}
+
+<div class="ow_automargin ow_superwide">
+
+    {form name='sponsorForm'}
+    <table class="ow_table_1 ow_form">
+
+        {foreach from=$formData key='formEl' item='field' name='f'}
+        <tr class="{cycle values='ow_alt2,ow_alt1'} tr_{$formEl} {if $smarty.foreach.f.first}ow_tr_first{/if} {if $smarty.foreach.f.last}ow_tr_last{/if}">
+            <td class="ow_label">{label name=$formEl}</td>
+            <td class="ow_value">{input name=$formEl}<br/>{error name=$formEl}</td>
+        </tr>
+        {/foreach}  
+        <tr class="{cycle values='ow_alt2,ow_alt1'} tr_{$formEl} {if $smarty.foreach.f.first}ow_tr_first{/if} {if $smarty.foreach.f.last}ow_tr_last{/if}">
+            <td class="ow_label">{text key='sponsors+current_logo_image'}</td>
+            <td class="ow_value"><img src="{$currentLogoImage}" height="80" width="80" /></td>
+        </tr>        
+        <tr class="ow_alt{cycle values='1,2'}">
+            <td colspan="2" class="ow_submit">{submit name="editSponsor" class='ow_ic_save'}</td>
+        </tr>
+
+    </table>
+    {/form}
+
+</div>

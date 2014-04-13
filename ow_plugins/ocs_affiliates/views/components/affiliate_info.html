@@ -1,0 +1,56 @@
+{style}
+{literal}
+    .affiliate_info .ow_lbutton { cursor: default; vertical-align: middle; margin-top: 3px; }
+{/literal}
+{/style}
+<table class="ow_table_3 affiliate_info">
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+affiliate_name'}</td>
+        <td class="ow_value">{$affiliate->name}</td>
+    </tr>
+    {if $adminMode && $creditsEnabled}
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+site_user'}</td>
+        <td class="ow_value">
+            {if $assoc}
+            <a href="{$assoc.url}">{$assoc.name}</a> &nbsp;&nbsp;&nbsp;
+            {/if}
+            <a href="javascript://" class="ow_lbutton" id="assign-assoc" style="cursor: pointer">{text key='ocsaffiliates+assign'}</a>
+        </td>
+    </tr>
+    {/if}
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+email'}</td>
+        <td class="ow_value">{$affiliate->email}</td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+payment_details'}</td>
+        <td class="ow_value">{$affiliate->paymentDetails}</td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+status'}</td>
+        <td class="ow_value">
+            <span class="ow_lbutton{if $affiliate->status=='active'} ow_mild_green{else} ow_mild_red{/if}">
+                {text key="ocsaffiliates+status_`$affiliate->status`"}
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+email_verified'}</td>
+        <td class="ow_value">
+            {if $affiliate->emailVerified}
+            <span class="ow_lbutton ow_mild_green">{text key='ocsaffiliates+yes'}</span>
+            {else}
+            <span class="ow_lbutton">{text key='ocsaffiliates+no'}</span>
+            {/if}
+        </td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+register_date'}</td>
+        <td class="ow_value">{$affiliate->registerStamp|simple_date}</td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+activity_stamp'}</td>
+        <td class="ow_value">{$affiliate->activityStamp|simple_date}</td>
+    </tr>
+</table>

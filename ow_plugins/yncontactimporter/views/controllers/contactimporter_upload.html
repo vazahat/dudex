@@ -1,0 +1,9 @@
+<form method="post" id="upload_form" action="{$actionURL}">
+<input type="hidden" name="contact" value="{$contacts}" />
+<input type="hidden" name="service" value="File CSV" />
+</form>
+{script}
+{literal}
+	document.getElementById('upload_form').submit(); 
+{/literal}
+{/script}

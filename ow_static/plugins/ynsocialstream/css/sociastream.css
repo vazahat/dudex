@@ -1,0 +1,19 @@
+.ow_attachments a.ynsocialstream_get_feed_facebook
+{
+	background-position: 1px 1px;
+	background-image: url('../img/socialStream_icon.png');
+}
+.ow_attachments a.ynsocialstream_get_feed_twitter
+{
+	background-position:  -43px 1px;
+	background-image: url('../img/socialStream_icon.png');
+}
+.ow_attachments a.ynsocialstream_get_feed_linkedin
+{
+	background-position:  -21px 1px;
+	background-image: url('../img/socialStream_icon.png');
+}
+.ow_newsfeed_attachment
+{
+	margin-top: 8px;
+}

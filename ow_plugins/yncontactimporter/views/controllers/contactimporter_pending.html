@@ -1,0 +1,143 @@
+{$menu}
+<div>
+	<div class="clearfix">
+		<div class="ow_right ow_txtright">
+			<form method="GET" action="">
+				<div class="ow_box ow_admin_search_box ow_smallmargin">
+					{text key='yncontactimporter+name'}
+					<input type="text" name="search" id="contacts-search-input" style="width: 280px" value="{$currentSearch}" />
+					{decorator name='button' type="submit" langLabel='yncontactimporter+go'}
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="clearfix ow_smallmargin">
+		<div class="ow_left"> </div>
+		<div class="ow_right">
+			{text key = 'yncontactimporter+found'}: <b>{$totalSearch}</b> {text key = 'yncontactimporter+contacts'}
+		</div>
+	</div>
+	{script}
+		{literal}
+			$("#contacts-search-input").focus();
+		{/literal}
+	{/script}
+	{if $totalSearch > 0}
+	<form method="post" action="" name='openinviter_delete' enctype="application/x-www-form-urlencoded">
+	<table class='ow_table_2' style="margin-bottom: 0px">
+		<tbody>
+			<tr class="ow_tr_first">
+				<th style="width: 9%">
+					<input id='checkallBox' type='checkbox' onclick='toggleAll(this)' name='toggle_all' title='{text key='yncontactimporter+select_all'}'>
+				</th>
+				<th style="width: 50%">{text key='yncontactimporter+name'}</th>
+				<th> {text key='yncontactimporter+invite_time'}</th>
+				<th> {text key='yncontactimporter+options'}</th>
+			</tr>
+			{foreach from = $invitations item = 'invitation'}
+			<tr class="{cycle values='ow_alt1,ow_alt2'}">
+				<td style="width: 9%">
+					<input id='check_{$invitation->id}' name='check_{$invitation->id}' onclick='check_toggle({$invitation->id},false);' value='{$invitation->id}' type='checkbox' class='thCheckbox'>
+				</td>
+				<td style="width: 50%; text-align:left;" onclick='check_toggle({$invitation->id},true);'> 
+					{$invitation->email}
+					({if $invitation -> type == 'social'}{$invitation-> provider} - {/if}{$invitation->friendId})
+				</td>
+				<td> {format_date timestamp=$invitation->sentTime}</td>
+				<td width="2">
+					{if $invitation->type == 'email'}
+					<a aria-data = '{$invitation->id}' href="javascript:;" title="{text key='yncontactimporter+resend'}" style="width:16px; height:16px; display:block; float: left; margin:0 auto; background-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_mail"></a>
+					{/if}
+					<a aria-data = '{$invitation->id}' href="javascript:;"  title="{text key='yncontactimporter+delete'}" style="width:16px; height:16px; display:block; margin:0 auto; {if $invitation->type == 'email'} margin-left: 35px; {/if} mabackground-repeat:no-repeat;background-position: 50% 50%;" class="ow_ic_delete"></a>
+				</td>
+			</tr>
+			{/foreach}
+		</tbody>
+	</table>
+	<div style="padding-top: 10px">
+		<span class="ow_button"><span class=" ow_ic_mail"><input type="submit" name="resend" value='{text key = "yncontactimporter+resend_selected"}' class="ow_ic_mail"></span></span>
+		<span class="ow_button"><span class=" ow_ic_delete"><input type="submit" name="delete" value='{text key = "yncontactimporter+delete_selected"}' class="ow_ic_delete" onclick="return check_delete()"></span></span>
+	{if $paging}
+			<center>{$paging}</center>
+	{/if}
+	</div>
+	</form>
+	{else}
+	<div class="ow_box clearfix ow_center" style="">
+	       {text key = "yncontactimporter+no_contact_search"}
+	</div>
+	{/if}
+</div>
+
+<script type="text/javascript">
+var totalContacts = parseInt('{$totalSearch}');
+$("a.ow_ic_delete").on("click", function(e)
+{ 
+	var id = $(this).attr("aria-data");
+	if(confirm('{$confirmDeleteContact}'))
+	{
+		$.ajax({
+        type: "POST",
+        url: '{$deleteURL}',
+        data: "id=" + id,
+        dataType: "json",
+        success : function(data)
+        {
+            document.location.reload();
+        }
+     });
+	}
+});
+$("a.ow_ic_mail").on("click", function(e)
+{ 
+	var id = $(this).attr("aria-data");
+	$.ajax({
+        type: "POST",
+        url: '{$resendURL}',
+        data: "id=" + id,
+        dataType: "json",
+        success : function(data)
+        {
+            alert('{$messageResendCompleted}');
+        }
+     });
+});
+function check_toggle(element_id, isCheckBox) 
+{
+	var check_element = document.getElementById('check_'+element_id);
+	if(isCheckBox)
+		check_element.checked = !check_element.checked;
+}
+function toggleAll(element) 
+{
+	$('.thCheckbox').each(function ()
+	{
+		this.checked = element.checked;
+	});
+}
+function check_delete()
+{
+    var limit_select = 0;
+    $('.thCheckbox').each(function ()
+	{
+		if(this.checked)
+		{
+			limit_select ++;
+		}
+	});
+    if (limit_select > 0)
+    {
+    	 if(confirm('{$confirmDeleteSelected}'))
+    	 {
+         	document.getElementById('openinviter_delete').submit();
+         	return true;
+         }
+         return false;
+    }
+    else
+    {
+   		alert('{$warningNoContactSelected}');
+   	}
+    return false;
+}
+</script>

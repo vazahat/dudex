@@ -1,0 +1,38 @@
+{$menu}
+
+{$info}
+
+<div class="ow_center ow_stdmargin">
+    {decorator name='button_list_item' type='button' langLabel='ocsaffiliates+edit' id='btn-affiliate-edit'}
+    {decorator name='button_list_item' type='button' langLabel='ocsaffiliates+unregister' id='btn-affiliate-unregister'}
+</div>
+
+{if $configs.show_rates}
+<div class="ow_center"><b>{text key='ocsaffiliates+commission_rates'}</b></div>
+<table class="ow_table_3">
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+settings_click_amount'}</td>
+        <td class="ow_value">{$configs.click_amount} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+    <tr>
+        <td class="ow_label">{text key='ocsaffiliates+settings_reg_amount'}</td>
+        <td class="ow_value">{$configs.reg_amount} <span class="ow_tiny">{$currency}</span></td>
+    </tr>
+    <tr>
+        <td class="ow_label">
+            {if $configs.sale_commission == 'amount'}
+            {text key='ocsaffiliates+settings_sale_amount'}
+            {else}
+            {text key='ocsaffiliates+settings_sale_percent'}
+            {/if}
+        </td>
+        <td class="ow_value">
+            {if $configs.sale_commission == 'amount'}
+            {$configs.sale_amount} <span class="ow_tiny">{$currency}</span>
+            {else}
+            {$configs.sale_percent} %
+            {/if}
+        </td>
+    </tr>
+</table>
+{/if}

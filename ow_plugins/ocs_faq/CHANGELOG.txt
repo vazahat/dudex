@@ -1,0 +1,18 @@
+Jan 11, 2014 - FAQ plugin build 6060
+============
+* Oxwall 1.6 support added
+* Mobile version support
+
+Jul 4, 2013 - Faq plugin build 6000
+============
+* Oxwall 1.5.3 support
+* Various bug fixes
+
+Feb 27, 2011 - FAQ plugin build 1
+============
+Initial release with following features:
+* FAQs page
+* WYSIWYG editor for answers (photo, video support)
+* Answers expanding / collapsing option
+* Categories
+* Widget with featured questions

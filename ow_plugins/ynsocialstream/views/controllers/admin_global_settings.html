@@ -1,0 +1,75 @@
+{style}{literal}
+
+.comments_count input {
+    width: 50px;
+}
+
+{/literal}{/style}
+
+{script}{literal}
+
+$('#allow_comments_btn').click(function() {
+    if ( this.checked )
+    {
+        $('#comments_count_c').show();
+    }
+    else
+    {
+        $('#comments_count_c').hide();
+    }
+});
+
+{/literal}{/script}
+
+
+
+{form name='YNSOCIALSTREAM_ConfigSaveForm'}
+<table class="ow_table_1 ow_form">
+    <tr class="ow_tr_first">
+        <th class="ow_name ow_txtleft" colspan="3">
+            <span class="ow_section_icon ow_ic_gear_wheel">{text key='ynsocialstream+admin_settings_title'}</span>
+        </th>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="get_feed_cron">
+        <td class="ow_label">{label name='get_feed_cron'}</td>
+        <td class="ow_value get_feed_cron">{input name='get_feed_cron'}</td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+admin_get_feed_cron'}</td>
+    </tr>
+    
+    <tr class="ow_alt1 ow_tr_last" id="max_facebook_get_feed">
+        <td class="ow_label">{label name='max_facebook_get_feed'}</td>
+        <td class="ow_value max_facebook_get_feed">        	
+        	{input name='max_facebook_get_feed'}<br />
+	    	{error name='max_facebook_get_feed'}        	
+        </td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+admin_max_facebook_get_feed'}</td>
+        
+    </tr>
+    
+     <tr class="ow_alt1 ow_tr_last" id="max_twitter_get_feed">
+        <td class="ow_label">{label name='max_twitter_get_feed'}</td>
+        <td class="ow_value max_facebook_get_feed">        	
+        	{input name='max_twitter_get_feed'}<br />
+	    	{error name='max_twitter_get_feed'}         		
+        </td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+admin_max_twitter_get_feed'}</td>
+        
+    </tr>
+    
+     <tr class="ow_alt1 ow_tr_last" id="max_linkedin_get_feed">
+        <td class="ow_label">{label name='max_linkedin_get_feed'}</td>
+        <td class="ow_value max_facebook_get_feed">
+        	{input name='max_linkedin_get_feed'}<br />
+	    	{error name='max_linkedin_get_feed'}	
+        </td>
+        <td class="ow_desc ow_small">{text key='ynsocialstream+admin_max_linkedin_get_feed'}</td>
+        
+    </tr>
+
+    
+
+</table>
+<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div><div class="ow_right"></div></div>
+
+{/form}

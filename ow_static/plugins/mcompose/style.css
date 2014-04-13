@@ -1,0 +1,177 @@
+/**
+ * Copyright (c) 2012, Sergey Kambalin
+ * All rights reserved.
+
+ * ATTENTION: This commercial software is intended for use with Oxwall Free Community Software http://www.oxwall.org/
+ * and is licensed under Oxwall Store Commercial License.
+ * Full text of this license can be found at http://www.oxwall.org/store/oscl
+ */
+
+/**
+ *
+ * @author Sergey Kambalin <greyexpert@gmail.com>
+ * @package mcompose.classes
+ * @since 1.0
+ */
+
+.mc-user-select {
+    width: 100%;
+}
+
+.mc-ddi-content {
+    padding-top: 3px;
+}
+
+.mc-ddi-avatar-image {
+
+}
+
+.mc-ddi-avatar {
+    float: left;
+    margin-right: -42px;
+}
+
+.mc-ddi-content {
+    margin-left: 45px;
+}
+
+
+div.mc-dropdown {
+    max-width: 400px;
+    margin-top: -3px;
+    margin-left: 6px;
+    border-top-width: 1px;
+}
+
+div.mc-dropdown.select2-drop-above {
+    margin-top: 3px;
+    border-bottom-width: 1px;
+}
+
+.mc-dropdown.select2-dropdown-too-short {
+    display: none!important;
+}
+
+.mc-dropdown .select2-results ul.select2-result-sub > li .select2-result-label {
+    padding-left: 5px;
+}
+
+.mc-dropdown .select2-results {
+    max-height: none;
+    overflow: hidden;
+}
+
+html .mc-tag-label {
+    color: inherit;
+    text-decoration: none;
+}
+
+.mc-message {
+    padding-left: 2px;
+}
+
+
+/* Form */
+
+.ow_content_menu li.mcompose_compose  {
+    float: right;
+}
+
+.mc-form-wrap {
+    min-width: 600px;
+}
+
+.floatbox_body .mc-form-wrap .mc-form-table {
+    margin-bottom: 10px;
+}
+
+.mc-form-message-wrap {
+    min-height: 319px;
+    margin-bottom: 8px;
+}
+
+.mc-form-message-wrap .jhtmlarea {
+    margin-bottom: 0px;
+}
+
+.mc-form-message-wrap textarea {
+    visibility: hidden;
+}
+
+.mc-attachments {
+    position: relative;
+}
+
+.mc-fake-file {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 10px 5px 0;
+}
+
+.mc-attachments .ow_attachments_label {
+    display: none!important;
+}
+
+.mc-attachments .ow_mailbox_attachment {
+    display: inline-block;
+    margin: 1px 10px 0px 0px;
+    border: inherit;
+    border-width: 1px;
+    border-radius: 4px;
+    vertical-align: middle;
+    height: 20px;
+    padding-left: 10px;
+    color: #000;
+    /*opacity 10*/
+    /*
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQjU0RDA2OTI1N0IxMUUxODZCMkI1QzRDODAzNUQyMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQjU0RDA2QTI1N0IxMUUxODZCMkI1QzRDODAzNUQyMCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkVBNEIwN0YyMjU3NzExRTE4NkIyQjVDNEM4MDM1RDIwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNCNTREMDY4MjU3QjExRTE4NkIyQjVDNEM4MDM1RDIwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+6prF3wAAABhJREFUeNpi3L17txQDGmBiwAIoFAQIMADubwJVV8STtgAAAABJRU5ErkJggg==");
+    */
+
+}
+
+.mc-attachments .ow_mailbox_attachment a.file {
+    /*color: #000;*/
+}
+
+.mc-attachments .ow_delete_attachment {
+    display: inline-block!important;
+    border: inherit;
+    border-width: 0px 0px 0px 1px;
+    padding: 0px;
+    margin: 0px 0px 0px 10px;
+    border-radius: 0px;
+    color: transparent;
+    height: 20px;
+    width: 20px;
+    overflow: hidden;
+    background: url('close.png') center no-repeat;
+    vertical-align: middle;
+}
+
+.mc-attachments .ow_mailbox_attachment_icon {
+    display: none;
+}
+
+.mc-info-wrap {
+    margin-top: 2px;
+}
+
+/*.mc-online {
+    left: -2px;
+    position: absolute;
+    top: -2px;
+}*/
+
+.mc-online, .mc-ddi-info {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+html .mc-online .ow_live_on {
+    width: 10px;
+    height: 10px;
+}
+
+html .mc-online-hidden {
+    display: none;
+}

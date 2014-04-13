@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prefix name="ynsocialstream" label="Social Stream" language_tag="en" language_label="English">
+	<key name="admin_page_heading"><value>Social Stream Plugin</value></key>
+	<key name="admin_page_title"><value>Social Stream Settings</value></key>
+	<key name="admin_menu_item_global_settings"><value>Global Settings</value></key>
+	<key name="admin_menu_item_level_settings"><value>Member Level Settings</value></key>	
+	<key name="settings_updated"><value>Settings updated</value></key>	
+	<key name="admin_save_btn"><value>Save</value></key>	
+	<key name="enable_facebook_label"><value>Enable Facebook</value></key>	
+	<key name="enable_twitter_label"><value>Enable Twitter</value></key>	
+	<key name="enable_linkedin_label"><value>Enable LinkedIn</value></key>	
+	<key name="enable_facebook"><value>Enable this setting to get feed from your Facebook account.</value></key>	
+	<key name="enable_twitter"><value>Enable this setting to get feed from your Twitter account.</value></key>	
+	<key name="enable_linkedin"><value>Enable this setting to get feed from your LinkedIn account.</value></key>	
+	<key name="menu_item_stream-settings"><value>Social Stream Settings</value></key>	
+	<key name="front_settings_title"><value>Social Stream Settings</value></key>	
+	<key name="admin_settings_title"><value>Social Stream Settings</value></key>	
+	<key name="admin_get_feed_cron_label"><value>Allow Cron Job</value></key>		
+	<key name="auth_fb_label"><value>Facebook Privacy</value></key>	
+	<key name="auth_tw_label"><value>Twitter Privacy</value></key>	
+	<key name="auth_li_label"><value>LinkedIn Privacy</value></key>		
+	<key name="everybody"><value>Everybody</value></key>
+	<key name="friends_only"><value>Friends Only</value></key>
+	<key name="only_for_me"><value>Only Me</value></key>	
+	<key name="auth_fb"><value>Control who can see your Facebook's feeds.</value></key>
+	<key name="auth_tw"><value>Control who can see your Twitter's feeds.</value></key>
+	<key name="auth_li"><value>Control who can see your LinkedIn's feeds.</value></key>
+	<key name="has_a_new_connection."><value>has a new connection.</value></key>
+	<key name="Skills"><value>Skills</value></key>
+	<key name="has_an_updated_profile"><value> has an updated profile.</value></key>
+	<key name="joined_a_group"><value> joined a group:</value></key>
+	<key name="has_a_new_profile_picture"><value> has a new profile picture.</value></key>
+	<key name="has_updated_their_extended_profile_data"><value> has updated their extended profile data.</value></key>
+	<key name="gets "><value>gets </value></key>
+	<key name="  feed from Facebook."><value>  feed from Facebook.</value></key>
+	<key name="  feed from Twitter."><value>  feed from Twitter.</value></key>
+	<key name="  feed from LinkedIn."><value>  feed from LinkedIn.</value></key>	
+	<key name="auth_action_label_get_feed"><value>Get Feeds</value></key>
+	<key name="auth_group_label"><value>Social Stream</value></key>
+	<key name="cron_job_user_label"><value>Allow Get Feeds</value></key>	 
+	<key name="cron_job_user"><value>Allow system to get feeds automation with Cron Job?</value></key>	
+	<key name="requires_configuration_message"><value>&lt;b&gt;Social Stream&lt;/b&gt; notices that &lt;b&gt;Social Bridge 1.02 or later&lt;/b&gt; is not installed/active in your site. &lt;b&gt;Facebook, Twitter and LinkedIn&lt;/b&gt; will not be supported if &lt;b&gt;Social Bridge&lt;/b&gt; is not installed/active. For more information about &lt;b&gt;Social Bridge&lt;/b&gt;, please visit our &lt;a href='http://knowledgebase.younetco.com/2013/06/11/what-is-social-bridge-and-why-do-i-need-it/'&gt;Knowledge Base&lt;/a&gt;.</value></key>
+	<key name="max_validation_error_fb"><value>Please pick a number between '1' and '999'</value></key>
+	<key name="max_validation_error_li"><value>Please pick a number between '1' and '20'</value></key>
+	<key name="max_validation_error_tw"><value>Please pick a number between '1' and '20'</value></key>
+	<key name="admin_get_feed_cron"><value>Allow system to get feeds automation with Cron Job?</value></key>	
+	<key name="admin_max_facebook_get_feed_label"><value>Maximum Allowed Get Feed Per Times in Facebook</value></key>	
+	<key name="admin_max_facebook_get_feed"><value>The maximum number of feeds will be get per times for 1 account (Enter a number between 1 and 999)</value></key>	
+	<key name="admin_max_twitter_get_feed_label"><value>Maximum Allowed Get Feed Per Times in Twitter</value></key>	
+	<key name="admin_max_twitter_get_feed"><value>The maximum number of feeds will be get per times for 1 account (Enter a number between 1 and 20)
+	More Info: &lt;a href="https://dev.twitter.com/docs/api/1/get/statuses/user_timeline" target="_blank"&gt;GET Statuses, User Timeline&lt;/a&gt;</value></key>		
+	<key name="admin_max_linkedin_get_feed_label"><value>Maximum Allowed Get Feed Per Times in LinkedIn</value></key>	
+	<key name="admin_max_linkedin_get_feed"><value>The maximum number of feeds will be get per times for 1 account (Enter a number between 1 and 20)
+	More Info: &lt;a href="http://developer.LinkedIn.com/documents/get-network-updates-and-statistics-api" target="_blank"&gt;Get Network Updates and Statistics API&lt;/a&gt;</value></key>
+</prefix>

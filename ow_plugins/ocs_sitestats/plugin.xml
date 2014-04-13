@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+	<name>Site Statistics</name>
+	<key>ocssitestats</key>
+	<description>Plugin adds a widget with site statistics to the home page</description>
+    <author>Oxwall CandyStore</author>
+    <authorEmail>plugins@oxcandystore.com</authorEmail>
+	<authorUrl>http://oxcandystore.com</authorUrl>
+    <developerKey>c36f83152f203c5a947a3fb053e4bc24</developerKey>
+    <build>1</build>
+    <copyright>(C) 2013 Oxwall CandyStore</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

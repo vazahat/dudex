@@ -1,0 +1,10 @@
+<p>{$des}</p>
+<div class="popup_buttons" style="text-align: right; padding-top: 10px">
+	{decorator name='button' langLabel='yncontactimporter+yes' onclick="gotoImport()"}
+</div>
+<script type="text/javascript">
+var gotoImport = function()
+{
+	parent.document.location = '{$importUrl}';
+}
+</script>

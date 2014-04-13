@@ -1,0 +1,59 @@
+{$contentMenu}
+{$menu}
+<p>{text key='ynsocialpublisher+description'}</p><br/>
+{if count($settings) le 0}
+<div class="ow_anno ow_std_margin" style="text-align:center;">{text key='ynsocialpublisher+usersetting_warning'}</div>
+{else}
+<form enctype="application/x-www-form-urlencoded" action="{$form_url}" method="post">
+{foreach $settings as $key => $values}
+<table class="ow_table_1 ow_form ow_stdmargin">
+	<tr class="ow_tr_first">
+		<th class="ow_name ow_txtleft" colspan="4"><span class="">{text key="ynsocialpublisher+$key"}</span></th>
+	</tr>
+	<tr>
+		<td class="ow_label">{text key='ynsocialpublisher+providers'}</td>
+		<td class='ow_value'>
+			{if in_array('facebook', $values.adminProviders)}
+				<label>
+					<input type="checkbox" name="params[{$key}][providers][]" value="facebook" {if in_array('facebook', $values.providers)}checked{/if}>
+				{text key="ynsocialpublisher+facebook"}</label>
+			{/if}
+		</td>
+		<td class='ow_value'>
+			{if in_array('twitter', $values.adminProviders)}
+				<label>
+					<input type="checkbox" name="params[{$key}][providers][]" value="twitter" {if in_array('twitter', $values.providers)}checked{/if}>
+				{text key="ynsocialpublisher+twitter"}</label>
+			{/if}
+		</td>
+		<td class='ow_value'>
+			{if in_array('linkedin', $values.adminProviders)}
+				<label>
+					<input type="checkbox" name="params[{$key}][providers][]" value="linkedin" {if in_array('linkedin', $values.providers)}checked{/if}>
+				{text key="ynsocialpublisher+linkedin"}</label>
+			{/if}
+		</td>
+	</tr>
+	<tr class="ow_alt">
+		<td class="ow_label">{text key='ynsocialpublisher+options'}</td>
+		<td class='ow_value'>
+			<label>
+				<input type="radio" name="params[{$key}][option]" value='0' {if $values.option eq 0}checked{/if}>
+			{text key='ynsocialpublisher+ask'}</label>
+		</td>
+		<td class='ow_value'>
+			<label >
+				<input type="radio" name="params[{$key}][option]" value='1' {if $values.option eq 1}checked{/if}>
+			{text key='ynsocialpublisher+auto'}</label>
+		</td>
+		<td class='ow_value'>
+			<label >
+				<input type="radio" name="params[{$key}][option]" value='2' {if $values.option eq 2}checked{/if}>
+			{text key='ynsocialpublisher+not_ask'}</label>
+		</td>
+	</tr>
+</table>
+{/foreach}
+<div class="clearfix ow_stdmargin"><div class="ow_right"><span class="ow_button"><span class=" ow_ic_save ow_positive"><input type="submit" value="{text key='ynsocialpublisher+save'}" class="ow_ic_save ow_positive" name="save"></span></span></div></div>
+</form>
+{/if}

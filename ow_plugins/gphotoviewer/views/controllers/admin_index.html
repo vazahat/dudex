@@ -1,0 +1,32 @@
+{$menu}
+
+{form name='configSaveForm'}
+
+<table class="ow_table_1 ow_form ow_stdmargin">
+	<tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{label name='enablePhotoviewer'}</td>
+        <td class="ow_value">
+            {input name='enablePhotoviewer'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{label name='downloadable'}</td>
+        <td class="ow_value">
+            {input name='downloadable'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+    <tr class="ow_tr_last" id="fullsize_res_config" class="ow_alt{cycle values='1,2'}">
+        <td class="ow_label">{label name='slideshowTime'}</td>
+        <td class="ow_value">
+            {input name='slideshowTime' class='ow_settings_input'} (sec) {error name='slideshowTime'}
+        </td>
+        <td class="ow_desc ow_small"></td>
+    </tr>
+</table>
+<div class="clearfix ow_stdmargin"><div class="ow_right">{submit name='save' class='ow_ic_save ow_positive'}</div></div>
+
+
+
+{/form}

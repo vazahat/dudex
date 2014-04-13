@@ -1,0 +1,79 @@
+body {
+    width: 100%;
+    overflow-y: scroll;
+        overflow-x:hidden;
+}
+
+.tour-wrap {
+    position: fixed;
+    right: -206px;
+    cursor: pointer;
+    top: 10%;
+    overflow: hidden;
+    padding: .5em .5em .5em 0;
+    width: 258px;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.tour-left:before {
+    background: url('index.png') no-repeat;
+    display: block;
+    height: 16px;
+    width: 16px;
+    content: " ";
+    left: 22px;
+    position: absolute;
+    top: 3px;
+    z-index: 9999;
+}
+
+.tour-wrap p {
+    float: left;
+    font-size: .75em;
+}
+.tour-left {
+    position: relative;
+    z-index: 9899;
+    padding: 1em .5em;
+    margin: 0;
+}
+
+.tour-left span {
+    position: relative;
+    top: 5px;
+}
+
+.tour-right {
+    margin-left: .5em;
+}
+
+.tour-right span {
+    margin: 0 0 0 -190px;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.tour-wrap:hover {
+    right: 0;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}
+
+.tour-wrap:hover .tour-right span {
+    margin: 0;
+    -webkit-transition: all 0.2s ease-in;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -ms-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+}

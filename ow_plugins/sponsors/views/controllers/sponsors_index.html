@@ -1,0 +1,125 @@
+{style}
+{literal}
+.sponsor{
+width:180px;
+height:180px;
+}
+
+.sponsorFlip{
+background:url("{/literal}{$backgroundUrl}{literal}") no-repeat center center #f9f9f9;
+}
+
+.sponsorFlip img{
+width:180px;
+height:180px;
+}
+{/literal}
+{/style}
+
+{script}
+{literal}
+$(document).ready(function(){
+$('.sponsorFlip').bind("click",function(){
+
+var elem = $(this);
+
+if(elem.data('flipped'))
+{
+elem.revertFlip();
+elem.data('flipped',false)
+}
+else
+{
+elem.flip({
+direction:'lr',
+speed: 350,
+onBefore: function(){
+elem.html(elem.siblings('.sponsorData').html());
+}
+});
+
+elem.data('flipped',true);
+}
+});
+});
+{/literal}
+{/script}
+
+
+{if $alwaysSingleFlip == '1'}
+{script}
+{literal}
+$(document).ready(function(){
+$(".sponsorFlip").bind("click",function(e,block){
+
+if(block) return false;
+$(".sponsorFlip").not($(this)).each(function(){
+
+if($(this).data("flipped"))
+$(this).trigger("click",[true]);
+});
+});	
+});
+{/literal}
+{/script}
+{/if}
+<center>
+    <div id="main">
+
+        {if $newSponsorLinkAtLast != '1' && $onlyAdminCanAdd != '1' }
+        <div class="sponsor" title="{text key='sponsors+become_sponsor'}">
+            <div class="sponsorFlip contain">
+                <img src="{$newSponsorImage}" alt="{text key='sponsors+become_sponsor'}"/>
+            </div>									
+            <div class="sponsorData">
+                <div class="sponsorDescription">
+                    {text key='sponsors+become_sponsor_desc'}
+                </div>
+                <div class="sponsorURL">
+                    <a href="{$newSponsorLink}">{text key='sponsors+become_sponsor'}</a>
+                </div>
+            </div>
+        </div>				
+        {/if}
+
+        <div class="sponsorListHolder">
+            {foreach from=$sponsors item=sponsor}
+            <div class="sponsor" title="{text key='sponsors+click_to_view_details'}">
+                <div class="sponsorFlip">
+                    <img src="{$sponsor.image}" alt="{$sponsor.name}"/>
+                </div>
+
+                <div class="sponsorData">
+                    <div class="sponsorDescription">
+                        {$sponsor.name}
+                    </div>
+
+                    <div class="sponsorURL">
+                        <a href="{$sponsor.website}" taget="_blank">{$sponsor.website}</a>
+                    </div>
+                </div>
+            </div>
+            {foreachelse}
+            {if $onlyAdminCanAdd == '1'}{text key='sponsors+no_sponsors_yet'}{/if}
+            {/foreach}
+
+            {if $newSponsorLinkAtLast == '1' && $onlyAdminCanAdd != '1' }
+            <div class="sponsor" title="{text key='sponsors+become_sponsor'}">
+                <div class="sponsorFlip">
+                    <img src="{$newSponsorImage}" alt="{text key='sponsors+become_sponsor'}"/>
+                </div>									
+                <div class="sponsorData">
+                    <div class="sponsorDescription">
+                        {text key='sponsors+become_sponsor_desc'}
+                    </div>
+                    <div class="sponsorURL">
+                        <a href="{$newSponsorLink}">{text key='sponsors+become_sponsor'}</a>
+                    </div>
+                </div>
+            </div>				
+            {/if}
+            <div class="clear"></div>
+        </div>
+
+    </div>
+</center>

@@ -1,0 +1,32 @@
+
+<div class="owm_padding">
+{if $catAssigned}
+    {foreach from=$questions item='category' key='id'}
+        <div class="owm_std_margin_bottom"><b>{$category.name}</b></div>
+        {foreach from=$category.questions item='q'}
+		    <div class="ow_stdmargin">
+		        <div class="ow_faq_answer ow_small">
+		        {block_decorator name='box' label=$q->question}
+		            <div class="clearfix">{$q->answer}</div>
+		        {/block_decorator}
+		        </div>
+		    </div>
+        {foreachelse}
+            <div class="owm_info">{text key='ocsfaq+no_questions'}</div>
+        {/foreach}
+    {/foreach}
+{else}
+	{foreach from=$questions item='q'}
+	    {capture assign='label'}{$q->question}{/capture}
+	    <div class="ow_stdmargin">
+	        <div class="ow_faq_answer ow_small">
+	        {block_decorator name='box' label=$q->question}
+	            <div class="clearfix">{$q->answer}</div>
+	        {/block_decorator}
+	        </div>
+	    </div>
+    {foreachelse}
+        <div class="owm_info">{text key='ocsfaq+no_questions'}</div>
+	{/foreach}
+{/if}
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<plugin>
+    <name>Extended Questions/Polls</name>
+    <key>equestions</key>
+    <description>Allow users submit questions/polls for other users to answer, Facebook-style. EXTENDED VERSION </description>
+    <author>Sergey Kambalin</author>
+    <authorEmail>greyexpert@gmail.com</authorEmail>
+    <developerKey>4de7d12343ccb157ece55b3ec3feadf5</developerKey>
+    <build>490</build>
+    <copyright>(C) 2012 Sergey Kambalin. All rights reserved.</copyright>
+    <license>OSCL</license>
+    <licenseUrl>http://www.oxwall.org/store/oscl</licenseUrl>
+</plugin>

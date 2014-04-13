@@ -1,0 +1,113 @@
+{$menu}
+
+{form name='uploadForm'}
+
+<table class="ow_table_1 ow_form">
+    <tr> 
+        <td class="ow_label">{label name="videoName"}</td>
+        <td class="ow_value">{input name="videoName"} {error name='videoName'}</td>
+    </tr>
+
+    <tr> 
+        <td class="ow_label">{label name="videoDescription"}</td>
+        <td class="ow_value">{input name="videoDescription"} {error name='videoDescription'}</td>
+    </tr>
+
+    <tr> 
+        <td class="ow_label">{label name="videoCategory"}</td>
+        <td class="ow_value">{input name="videoCategory"} {error name='videoCategory'}</td>
+    </tr>
+
+    <tr> 
+        <td class="ow_label">{label name="tf"}</td>
+        <td class="ow_value">{input name="tf"} {error name='tf'}</td>
+    </tr>
+
+    {if $videoApproval != 'auto'}
+    <tr>
+        <td colspan="2">{text key='ivideo+admin_approve_message'}</td>
+    </tr>  
+    {/if}
+
+    <tr>
+        <td colspan="2" class="ow_submit">  <center>  <div id="upload"></div> <br/>{text key='ivideo+max_file_size_text'} {$maxSize} MB. {text key='ivideo+allowed_file_type_text'} {$allowedExtnText}</center>  </td>
+</tr>
+
+<tr>
+    <td colspan="2" class="ow_submit">{submit name="uploadVideo" class='ow_ic_save'}</td>
+</tr>
+
+</table>
+
+{/form}
+
+
+{script}
+{literal}
+$('#upload').ajaxupload({
+url:{/literal}{$uploadAction}{literal},
+remotePath:{/literal}{$filesDir}{literal},
+flash:'{/literal}{$flashURL}{literal}uploader.swf',
+maxFiles : 1,
+allowExt:[{/literal}{$allowedExtn}{literal}],
+editFilename:true,
+doPreview:false,
+maxFileSize: '{/literal}{$maxSize}{literal}M', 
+form:'#THEFORM',
+success: function(files)
+{
+},
+beforeUpload: function(filename, fileobj){
+if(fileobj.fileSize/1024/1024 >{/literal}{$maxSize} || fileobj.fileSize == 0{literal}){
+return false; 
+}
+else
+{
+return true; 
+}
+},             
+error: function(err,fileName)
+{
+alert(err);
+}    
+});
+
+$('#THEFORM').bind('submit', function(){
+
+//ON FORM SUBMIT VALIDATE IF FILES HAD BEEN SELECTED
+var ajax_upload = $('#upload').data('AU');
+var selected_files = ajax_upload.files;		
+
+//IF NO FILE SELECTED DO NOT SUBMIT THE FORM
+if(selected_files.length==0){
+alert('Select any file first');
+return false;
+}
+
+});
+
+{/literal}
+{/script}
+
+{style}
+    {literal}
+    .ax-prev-container{
+        display:none;
+    }
+    .ax-upload-all
+    {
+        display:none;
+    }
+    .ax-clear
+    {
+        display:none;
+    }
+    .ax-legend
+    {
+        display:none;
+    }    
+    .ax-upload{
+      display:none;
+    }
+    {/literal}
+{/style}

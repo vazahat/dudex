@@ -1,0 +1,9 @@
+Photo Tags 526, 2013-08-16:
+
+Enhancements:
+- Tags first loading time was reduced
+- Minor enhancements
+
+Bug Fixes:
+- Double call of photo popup when it launches from notifications ( Rare bug )
+- Minor fixes

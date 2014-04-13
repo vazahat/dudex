@@ -1,0 +1,79 @@
+<div id="{$uniqId}">
+
+    <div class="att-body ATT_PanelBody">
+
+        <div class="ai-upload AI_UploadPanel AI_View">
+
+            <div class="ai-browse-btn-c ow_smallmargin">
+                <div class="att-legend ow_border">
+                    {text key="equestions+attachments_upload_image_inv"}
+                </div>
+
+                <div class="ai-browse-btn">
+                    <div class="att-fake-file">
+                        {decorator name="button" class="ow_ic_add IA_UploadButton" label=$langs.chooseImage}
+                        <input type="file" name="file" class="AI_UploadInput att-fake-file-input" size="1" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="ai-take-btn-c">
+                {capture name="takeBtn"}<a class="AI_SwitchToTakeButton" href="#">{text key="equestions+attachments_take_photo_button"}</a>{/capture}
+                {text key="equestions+attachments_take_photo_inv" takeButton=$smarty.capture.takeBtn}
+            </div>
+
+        </div>
+
+        <div class="ai-result AI_Result AI_View" style="display: none;"></div>
+
+        <div class="ai-take AI_TakePanel AI_View" style="display: none;">
+
+            <div class="ai-take-screen-c">
+                <div class="ai-take-screen ow_border AI_TakeScreen"></div>
+                <div class="ai-take-screen-controls-c AI_TakePhotoControls" style="display: none;">
+                    <div class="ai-take-screen-controls">
+                        <a class="ai-take-screen-shoot AI_TakePhotoBtn" title="{text key="equestions+attachments_take_photo_button_title"}" href="javascript://"></a>
+                        <a class="ai-take-screen-reset AI_ResetPhotoBtn" title="{text key="equestions+attachments_delete_photo_button_title"}" href="javascript://" style="display: none;"></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ai-my  AI_MyPanel AI_View" style="display: none;">
+            <div class="aim-list clearfix AI_MyPanelList">
+
+            </div>
+            <a style="display: none;" href="javascript://" class="AI_MyPanelListViewMore aim-view-more ow_border">
+                <span class="ow_icon_control aim-more-label AI_MyPanelListViewMoreLabel">
+                    {text key="equestions+attachments_select_my_photo_view_more"}
+                </span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="att-bottom ow_border clearfix ATT_PanelControls">
+
+        {if $photoActive}
+            <div class="att-switch ow_left">
+                <a class="att-switch-btn ow_icon_control ow_ic_picture AI_SwitchToMyPhotos" href="javascript://">{text key="equestions+attachments_select_my_photo"}</a>
+            </div>
+        {/if}
+
+        <div class="att-controls ow_right">
+            <span class="AI_MySave AI_MainControl" style="display: none;">{decorator name="button" class="ow_ic_save" label=$langs.chooseMy}</span>
+
+            <span class="AI_UploadSave AI_MainControl" style="display: none;">{decorator name="button" class="ow_ic_save" label=$langs.uploadSave}</span>
+            <span class="AI_TakeSave AI_MainControl" style="display: none;">{decorator name="button" class="ow_ic_save" label=$langs.takeSave}</span>
+            <span class="AI_Cancel AI_MainControl" style="display: none;">{decorator name="button" label=$langs.cancel}</span>
+            <span class="AI_Close AI_MainControl">{decorator name="button" label=$langs.close class="ow_ic_delete"}</span>
+        </div>
+
+    </div>
+
+    <div class="ATT_PanelTitle">
+        {text key="equestions+attachments_image_title"}
+    </div>
+
+</div>

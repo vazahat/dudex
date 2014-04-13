@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+	<name>RSS Auto Feeder for Groups</name>
+	<key>grouprss</key>
+	<description>Auto publich content from RSS feeds to Groups. Options to post either on Group Newsfeed or Group Wall. Either Admin or Groups creator or both can add RSS feeds.</description>
+        <author>Purusothaman Ramanujam</author>
+        <authorEmail>purushoth.r@gmail.com</authorEmail>
+	<authorUrl>http://www.plugins.iYaffle.com</authorUrl>
+	<developerKey>1ee49389d3159fa543f7f3333a5c5a91</developerKey>
+        <build>2.3</build>
+        <copyright>(C) 2012 Purusothaman Ramanujam. All rights reserved.</copyright>
+	<license>http://www.plugins.iYaffle.com</license>
+        <licenseUrl>http://www.plugins.iYaffle.com</licenseUrl>
+</plugin>
